@@ -13,10 +13,6 @@ contract Doctor  {
     mapping(address=>doctor) doctors;
     address[] public doctorList;
     
-    modifier onlyDoctor(){
-        require(isDoctor[msg.sender],"Only Hospitals can add patient");
-        _;
-    }
     
     function addDoctor(string memory _name,string memory _contact,address _addr) public {
         require(!isDoctor[_addr],"Already Registered");
