@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity >=0.4.22 <0.9.0;
+pragma solidity ^0.8.4;
 pragma experimental ABIEncoderV2;
 
-contract meDossier{
+contract Medossier{
     
     uint256 public pindex=0;
     uint256 public dindex=0;
