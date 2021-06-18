@@ -20,7 +20,6 @@ contract meDossier{
         string hname;
         string faculty;
         address addr;
-        string faculty;
         bool isApproved;
     }
     

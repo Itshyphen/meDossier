@@ -1,16 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import {Table,TableHead,TableContainer,TableBody,TableCell,TableRow,Chip,Card,Grid,Box,Paper, Typography,TextField, Button,CircularProgress} from '@material-ui/core';
 import { Tabs, Tab, Row, Col, Nav } from 'react-bootstrap';
 import './general.css'
-import Navbar from 'react-bootstrap/Navbar'
 import logo from './logo.png'
-// import Tab from 'react-bootstrap/Tab'
-// import Row from 'react-bootstrap/Row'
-// import Col from 'react-bootstrap/Col'
-// import Sonnet from 'react-bootstrap/Sonnet'
+
 
 function PaientRecords(){
   const StyledTableCell = withStyles((theme) => ({
