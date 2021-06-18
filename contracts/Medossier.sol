@@ -1,9 +1,8 @@
 // SPDX-License-Identifier: MIT
 
 pragma solidity ^0.8.4;
-pragma experimental ABIEncoderV2;
 
-contract Medossier{
+contract MeDossier{
     
     uint256 public pindex=0;
     uint256 public dindex=0;
@@ -19,8 +18,9 @@ contract Medossier{
         uint256 id;
         string name;
         string contact;
-        address addr;
+        string hname;
         string faculty;
+        address addr;
         bool isApproved;
     }
     
@@ -34,8 +34,7 @@ contract Medossier{
         Records[] records;
         address addr;
     }
-
-    address[] private patientList;
+ address[] private patientList;
     address[] public doctorList;
 
     mapping(address=>patient) patients;
@@ -45,16 +44,12 @@ contract Medossier{
 
     mapping(address=>mapping(address=>bool)) Authorized;
 
-   
+
     function addRecord(string memory _dname,string memory _reason,string memory _visitedDate,string memory _ipfs, address addr) public{
+        require(isPatient[addr],"No patient found at the given address");
         
-        if(Authorized[addr][msg.sender]){
-            if(isPatient[addr]){
+        if(Authorized[addr][msg.sender] || msg.sender == addr){
                 patients[addr].records.push(Records(_dname,_reason,_visitedDate,_ipfs));
-            }
-        }
-        else if( msg.sender == addr){
-            patients[addr].records.push(Records(_dname,_reason,_visitedDate,_ipfs));
         }
         else 
         revert("Record cannot be added ");
@@ -94,35 +89,29 @@ contract Medossier{
     
     function getPatientRecords(address _addr, uint256 _id) public view 
     returns(string memory dname, string memory reason ,string memory visitedDate, string memory ipfs){
-        if(Authorized[_addr][msg.sender]){
-            if(isPatient[_addr]){
+        require(isPatient[_addr],"No patient found at the given address");
+        if(Authorized[_addr][msg.sender] || msg.sender == _addr){
                 return( patients[_addr].records[_id].dname,patients[_addr].records[_id].reason,
                 patients[_addr].records[_id].visitedDate,patients[_addr].records[_id].ipfs
                     );
-            }
-        }
-        else if (msg.sender == _addr){
-            return( patients[_addr].records[_id].dname,patients[_addr].records[_id].reason,
-                patients[_addr].records[_id].visitedDate,patients[_addr].records[_id].ipfs
-                    );
-            
         }
         else 
         revert("Record cannot be accessed");
     }
 
 
-    function addDoctor(string memory _name,string memory _contact,string memory _faculty) public {
+
+    function addDoctor(string memory _name,string memory _hname,string memory _faculty,string memory _contact) public {
         require(!isDoctor[msg.sender],"Already Registered");
         address _addr = msg.sender;
         doctorList.push(_addr);
-    
+
         dindex = dindex + 1;
         isDoctor[_addr]=true;
-        doctors[_addr]=doctor(dindex,_name,_contact,_addr,_faculty,true);
+        doctors[_addr]=doctor(dindex,_name,_contact,_hname,_faculty,_addr,true);
     }
     
-    function getDoctorbyId(uint256 _id) public view returns(uint256 id,string memory name ,string memory faculty, string memory contact ,address addr,bool isApproved)  {
+    function getDoctorbyId(uint256 _id) public view returns(uint256 id,string memory name , string memory contact ,string memory hname ,string memory faculty ,address addr , bool isApproved)  {
         uint256 i=0;
         for(i = 0;i<doctorList.length;i++){
         if(doctors[doctorList[i]].id==_id){
@@ -131,14 +120,26 @@ contract Medossier{
     }    
         require(doctors[doctorList[i]].id==_id,"Doctor ID doesn't exists");
         doctor memory doc = doctors[doctorList[i]];
-        return (doc.id,doc.name, doc.faculty,doc.contact,doc.addr,doc.isApproved);
+        return (doc.id,doc.name,doc.contact,doc.hname,doc.faculty,doc.addr, doc.isApproved);
+    }
+
+        function getDoctorbyName(string memory _name) public view returns(uint256 id,string memory name , string memory contact ,string memory hname ,string memory faculty ,address addr , bool isApproved)  {
+        uint256 i=0;
+        for(i = 0;i<doctorList.length;i++){
+        if(keccak256(bytes(doctors[doctorList[i]].name)) == keccak256(bytes(_name))){
+            break;
+        }
+    }    
+        require(keccak256(bytes(doctors[doctorList[i]].name)) == keccak256(bytes(_name)),"Doctor doesn't exists with the given name");
+        doctor memory doc = doctors[doctorList[i]];
+        return (doc.id,doc.name,doc.contact,doc.hname,doc.faculty,doc.addr, doc.isApproved);
     }
     
 
-    function getDoctorByAddress(address _address) public view returns(uint256 id,string memory name, string memory faculty,string memory contact ,address addr,bool isApproved) {
+    function getDoctorByAddress(address _address) public view returns(uint256 id,string memory name , string memory contact ,string memory hname ,string memory faculty ,address addr , bool isApproved) {
         require(doctors[_address].isApproved,"Doctor is not Approved or doesn't exist");
         doctor memory doc = doctors[_address];
-        return (doc.id,doc.name,doc.faculty,doc.contact,doc.addr,doc.isApproved);
+        return (doc.id,doc.name,doc.contact,doc.hname,doc.faculty,doc.addr,doc.isApproved);
     }  
 
 //Give access to certain address

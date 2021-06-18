@@ -66,3 +66,92 @@ h5{
   margin-right: auto;
   width: 35em;
 }
+.patient_main{
+  padding-top: 10px;
+  /* background-color: rgb(242, 197, 248); */
+  overflow: visible;
+  padding-bottom: 10px;
+  /* background-image: url("medical.jpg"); */
+  /* height: 700px; */
+  text-align: center;
+  /* overflow: hidden; */
+
+}
+.logout{
+  text-align: right;
+  padding-right: 10px;
+}
+.logout ul a{
+  background-color:honeydew;
+  color:black;
+  display:ruby-base-container;
+  height:150px;
+  border-radius: 5px;
+  box-shadow: 5px ,10px,30px rgba(150,150,190,4);
+}
+.PatientDetails{
+  margin-left: auto;
+  margin-right: auto;
+  width: 60ex;
+  padding-top: 10px;
+}
+.Details{
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  border-radius: 10px;
+  line-height: 40px;
+  padding-top: 10px;
+  text-align: left;
+  padding-left:20px;
+  padding-right: 10px;
+   border-radius: 10px;
+   background-color: #d5f1ebb4;
+}
+.Access{
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  border-radius: 10px;
+  line-height: 40px;
+  padding-top: 10px;
+  padding-left:10px;
+  padding-right: 10px;
+   border-radius: 10px;
+   background-color: #d5f1ebb4;
+}
+.Access h6{
+  line-height: 15px;
+}
+.ReportUpload{
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  border-radius: 10px;
+  line-height: 40px;
+  padding-top: 10px;
+  padding-left:50px;
+   border-radius: 10px;
+   background-color: #d5f1ebb4;
+}
+.Report{
+  margin-left: auto;
+  margin-right: auto;
+  width: 35em;
+}
+.b-container{
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50em;
+}
+.uploadreport{
+  line-height: 45px;
+  margin: 3px;
+  height: 200px;
+  border-radius: 10px;
+  background-color: #d5f1ebb4;
+  text-align: center;
+}
+.accessreport{
+  line-height: 45px;
+  margin: 3px;
+  height: 200px;
+  border-radius: 10px;
+  background-color: #d5f1ebb4;
+  text-align: center;
+}

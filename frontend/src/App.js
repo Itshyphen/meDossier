@@ -1,12 +1,15 @@
 import './App.css';
 import React,{useState ,useEffect} from "react";
-import { Switch ,Route ,BrowserRouter} from "react-router-dom";
+import { Switch ,Route ,Router} from "react-router-dom";
 import Register from './pages/home';
 import Contract from "./contracts/Medossier.json"
 import getWeb3 from './getWeb3';
+import history from './pages/history';
+import Patient from './pages/patients_dashboard';
 function App() {
  const[currentAccount,setCurrentAccount]= useState('');
  const[contract, setContract] = useState({});
+ const[patient,setPatient] = useState([]);
  const getWeb3Data = async()=>{
    try{
      //obtain web3 from getWeb3
@@ -23,10 +26,10 @@ function App() {
      setCurrentAccount(accounts[0]);
      setContract({...instance});
      //Just to confirm working of addPatient and addDoctor function 
-     const patient = await instance.methods.getPatientDetails(accounts[0]).call();
-     console.log(patient);
-     const doctor = await instance.methods.getDoctorByAddress(accounts[0]).call();
-     console.log(doctor);
+    //  const patient = await instance.methods.getPatientDetails(accounts[0]).call();
+    //  console.log(patient);
+    //  const doctor = await instance.methods.getDoctorByAddress(accounts[0]).call();
+    //  console.log(doctor);
 
 
    }
@@ -35,7 +38,7 @@ function App() {
      console.log(error);
    }
  }
-
+  //Register Patient
   const patientRegister = async(name,phone,gender,dob,blood)=>{
     try{
       console.log(name,phone,gender,dob,blood);
@@ -45,10 +48,11 @@ function App() {
       console.log(error);
     }
   }
-  const doctorRegister = async(name,contact,faculty)=>{
+  //Register/Add Doctor
+  const doctorRegister = async(name,hname,contact,faculty)=>{
     try{
       console.log(name,contact,faculty);
-      contract.methods.addDoctor(name,contact,faculty).send({from:currentAccount});
+      contract.methods.addDoctor(name,hname,contact,faculty).send({from:currentAccount});
       await getWeb3Data();
 
     }
@@ -56,37 +60,78 @@ catch(error){
   console.log(error);
 }
   }
+  //Handle  patient Login
+  const phandlelogin = async()=>{
+    try{
+      console.log("sucess");
+      const patient = await contract.methods.getPatientDetails(currentAccount).call();
+      setPatient(patient);
+      console.log(patient)
+      // if(patient.length!==0){
+        history.push('/patient')
+      // }
+      
+    }
+    catch(error){
+      console.error(error);
+      // alert(error)
+      alert("No records found")
+    }
+  }
+//Patient grant Access to doctor
+  const grantAccess = async(doctor)=>{
+    try{
+       contract.methods.grantAccess(doctor).send({from:currentAccount})
+    }
+    catch(error){
+      console.error(error);
+    }
+  }
+  //Patient revoke access from doctor
+  const revokeAccess = async(doctor)=>{
+    try{
+      contract.methods.revoke_access(doctor).send({from:currentAccount})
+    }
+    catch(error){
+      console.error(error);
+      alert(error);
+    }
+  }
+  //Handle Doctor Login
+  const dhandlelogin = async()=>{
+    try{
+      console.log("doctor");
+    }
+    catch(error){
+      console.log(error);
+    }
+  }
   useEffect(()=>{
     getWeb3Data();
   },[]);
   return (
     
-      <div className ="Main">
-        <BrowserRouter>
+      // <div className ="Main">
+        <Router history={history}>
         <Switch>
           <Route path ='/' exact>
           <Register
           patientRegister={patientRegister}
           doctorRegister ={doctorRegister}
+          phandlelogin ={phandlelogin}
+          dhandlelogin ={dhandlelogin}
           />
           </Route>
-          
-          {/* <Route path ="/upload">
-            <Upload
-            sethash={sethash}
-            gethash ={gethash}
-            />
+          <Route path ='/patient'>
+            <Patient
+            patient={patient}
+            grantAccess ={grantAccess}
+            revokeAccess ={revokeAccess}/>
           </Route>
-          <Route path ="/doctor">
-            <Doctor
-            patient ={patient}
-            />
-          </Route> */}
-          
           </Switch>
-          </BrowserRouter>
+          </Router>
   
-      </div>
+      // </div>
     )}
 
 export default App;

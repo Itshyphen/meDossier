@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import PhoneInput from "react-phone-number-input/input"
 
 function Register(props){
     const pnameRef = React.useRef();
@@ -10,9 +10,11 @@ function Register(props){
     const dnameRef = React.useRef();
     const facultyRef =React.useRef();
     const dphoneRef = React.useRef();
+    const hnameRef = React.useRef();
+
     const [err, Seterr]= useState();
     const [derr,Setderr] = useState();
-
+    
     const pchangehandler = (event)=>{
     let phone = event.target.value
     let err =""
@@ -31,7 +33,6 @@ function Register(props){
         if(Number(phone)){
         if(phone.length!==10){
             derr = <h5 >Must be 10 digit</h5>;
-            // alert("Your number")
         }}
         else 
         derr = <h5> Should be valid number</h5>
@@ -41,6 +42,8 @@ function Register(props){
     }
     
     return(
+        <div className="Main">
+
         <div className="Register">
             
             {/* <Navbar/> */}
@@ -48,12 +51,12 @@ function Register(props){
             <div></div>
             <div className="heading">
 
-            <h2> Register</h2>
+            <h2> Signup/Login</h2>
             </div>
             <div className="container">
 
             <div className="Patient">
-                <h3> Register as Patient</h3>
+                <h3> Add Patient</h3>
                 <form onSubmit ={(event)=>{
                     event.preventDefault();
                     const name = pnameRef.current.value;
@@ -69,12 +72,13 @@ function Register(props){
                     </input>
                     <br/>
                     <label>PhoneNo: </label>
-                    <input type="text" name ="age" placeholder="Enter the patient's phonenumber" onChange={pchangehandler}
-                    ref ={phoneRef} required />
-                   {err}
+                    <input type ="text" placeholder="9746025484" onChange ={pchangehandler}
+                    ref ={phoneRef} required/>
+
+
                     <br/>
                     <label>DateofBirth:</label>
-                    <input type = "text" placeholder="2021-05-01" 
+                    <input type = "Date" placeholder="2021-05-01" 
                     ref ={dobRef}required/>
                     <br/>
                     <label>Blood Group: </label>
@@ -94,49 +98,57 @@ function Register(props){
                     <button>Submit</button>
                 </form>
                 <button onClick ={()=>{
-                    props.login()
-                    // history.push('/doctor')
+                    props.phandlelogin()
                 }}
                 >Login
                  </button>
             </div>
+            {/* Doctor login/signup
+            */}
             <div className="Doctor">
-                <h3> Register as Doctor</h3>
+                <h3> Add Doctor</h3>
                 <form onSubmit={(event)=>{
                     event.preventDefault();
                     const name = dnameRef.current.value;
                     const contact = dphoneRef.current.value;
                     const faculty = facultyRef.current.value;
-                    props.doctorRegister(name,faculty,contact);
+                    const hname = hnameRef.current.value;
+                    props.doctorRegister(name, hname,faculty,contact);
                 }}>
                     <label>Name: </label>
                 <input type="text"  name ="name" placeholder="Enter the your name" required 
                 ref={dnameRef}>
+
                     </input>
+                    <br/>
+                    <label>Hospital Name:</label>
+                    <input type ="text" placeholder ="Name of the hospital"
+                    ref ={hnameRef} required/>
                     <br/>
                     <label> ContactNo:</label>
                     <input type ="text" placeholder="9746025484" onChange ={dchangehandler}
                     ref ={dphoneRef} required/>
+                   
                     {derr}
                     <br/>
                     <label>Faculty: </label>
                     <input type="text"  name ="faculty"placeholder="Enter the your faculty" 
                     ref ={facultyRef} required/>
                     <br/>
-                    
                     <button>Submit</button>
                 </form>
                 <button onClick ={()=>{
-                    props.login()
-                    // history.push('/doctor')
+                    props.dhandlelogin()
                 }}
                 >Login
                  </button>
             </div>
-            
             </div>
-
+             <div>    
+            </div>
         </div>
+        </div>
+
     )
 
 }
