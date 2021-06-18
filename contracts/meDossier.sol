@@ -1,5 +1,4 @@
 pragma solidity >=0.4.22 <0.9.0;
-pragma experimental ABIEncoderV2;
 
 contract meDossier{
     
@@ -17,6 +16,8 @@ contract meDossier{
         uint256 id;
         string name;
         string contact;
+        string hname;
+        string faculty;
         address addr;
         bool isApproved;
     }
@@ -31,8 +32,7 @@ contract meDossier{
         Records[] records;
         address addr;
     }
-
-    address[] private patientList;
+ address[] private patientList;
     address[] public doctorList;
 
     mapping(address=>patient) patients;
@@ -42,14 +42,20 @@ contract meDossier{
 
     mapping(address=>mapping(address=>bool)) Authorized;
 
-    constructor() public {
-        Authorized[msg.sender][msg.sender] = true;
-    }
 
     function addRecord(string memory _dname,string memory _reason,string memory _visitedDate,string memory _ipfs, address addr) public{
-        require(Authorized[addr][msg.sender],"You do not have permission to add records!");
-        require(isPatient[addr],"User Not registered");
-        patients[addr].records.push(Records(_dname,_reason,_visitedDate,_ipfs));
+        require(isPatient[addr],"No patient found at the given address");
+        
+        if(Authorized[addr][msg.sender] || msg.sender == addr){
+                patients[addr].records.push(Records(_dname,_reason,_visitedDate,_ipfs));
+        }
+        else 
+        revert("Record cannot be added ");
+       
+       
+        // require(Authorized[addr][msg.sender],"You do not have permission to add records!");
+        // require(isPatient[addr],"User Not registered");
+        // patients[addr].records.push(Records(_dname,_reason,_visitedDate,_ipfs));
     }
     
     function addPatient(string memory _name,string memory _phone,string memory _gender,string memory _dob,string memory _bloodgroup) public {
@@ -64,6 +70,7 @@ contract meDossier{
         patients[msg.sender].dob=_dob;
         patients[msg.sender].bloodgroup=_bloodgroup;
         patients[msg.sender].addr=msg.sender;
+        
     }
     
     function getPatientDetails(address _addr) public view returns(string memory _name,string memory _phone,string memory _gender,string memory _dob,string memory _bloodgroup){
@@ -72,34 +79,37 @@ contract meDossier{
         return (pat.name,pat.phone,pat.gender,pat.dob,pat.bloodgroup);
     }
     
-    function getPatientRecords(address _addr) public view returns(string[] memory _dname,string[] memory _reason,string[] memory _visitedDate,string[] memory ipfs){
-        require(Authorized[_addr][msg.sender],"You do not have permission to access records!");
-        require(isPatient[_addr],"The searched patient is not registered to our account");
-        require(patients[_addr].records.length>0,"Sorry! Don't have any patient Record");
-        string[] memory Dname = new string[](patients[_addr].records.length);
-        string[] memory Reason = new string[](patients[_addr].records.length);
-        string[] memory VisDat = new string[](patients[_addr].records.length);
-        string[] memory IPFS = new string[](patients[_addr].records.length);
-        for(uint256 i=0;i<patients[_addr].records.length;i++){
-            Dname[i]=patients[_addr].records[i].dname;
-            Reason[i]=patients[_addr].records[i].reason;
-            VisDat[i]=patients[_addr].records[i].visitedDate;
-            IPFS[i]=patients[_addr].records[i].ipfs;
+     
+     function getrecordlist(address _addr)  public view returns (uint256 ){
+     
+     return (patients[_addr].records.length);
+     }
+    
+    function getPatientRecords(address _addr, uint256 _id) public view 
+    returns(string memory dname, string memory reason ,string memory visitedDate, string memory ipfs){
+        require(isPatient[_addr],"No patient found at the given address");
+        if(Authorized[_addr][msg.sender] || msg.sender == _addr){
+                return( patients[_addr].records[_id].dname,patients[_addr].records[_id].reason,
+                patients[_addr].records[_id].visitedDate,patients[_addr].records[_id].ipfs
+                    );
         }
-        return(Dname,Reason,VisDat,IPFS);
+        else 
+        revert("Record cannot be accessed");
     }
 
 
-    function addDoctor(string memory _name,string memory _contact) public {
+
+    function addDoctor(string memory _name,string memory _hname,string memory _faculty,string memory _contact) public {
         require(!isDoctor[msg.sender],"Already Registered");
         address _addr = msg.sender;
         doctorList.push(_addr);
+
         dindex = dindex + 1;
         isDoctor[_addr]=true;
-        doctors[_addr]=doctor(dindex,_name,_contact,_addr,true);
+        doctors[_addr]=doctor(dindex,_name,_contact,_hname,_faculty,_addr,true);
     }
     
-    function getDoctorbyId(uint256 _id) public view returns(uint256 id,string memory name , string memory contact ,address addr , bool isApproved)  {
+    function getDoctorbyId(uint256 _id) public view returns(uint256 id,string memory name , string memory contact ,string memory hname ,string memory faculty ,address addr , bool isApproved)  {
         uint256 i=0;
         for(i = 0;i<doctorList.length;i++){
         if(doctors[doctorList[i]].id==_id){
@@ -108,19 +118,31 @@ contract meDossier{
     }    
         require(doctors[doctorList[i]].id==_id,"Doctor ID doesn't exists");
         doctor memory doc = doctors[doctorList[i]];
-        return (doc.id,doc.name,doc.contact,doc.addr, doc.isApproved);
+        return (doc.id,doc.name,doc.contact,doc.hname,doc.faculty,doc.addr, doc.isApproved);
+    }
+
+        function getDoctorbyName(string memory _name) public view returns(uint256 id,string memory name , string memory contact ,string memory hname ,string memory faculty ,address addr , bool isApproved)  {
+        uint256 i=0;
+        for(i = 0;i<doctorList.length;i++){
+        if(keccak256(bytes(doctors[doctorList[i]].name)) == keccak256(bytes(_name))){
+            break;
+        }
+    }    
+        require(keccak256(bytes(doctors[doctorList[i]].name)) == keccak256(bytes(_name)),"Doctor doesn't exists with the given name");
+        doctor memory doc = doctors[doctorList[i]];
+        return (doc.id,doc.name,doc.contact,doc.hname,doc.faculty,doc.addr, doc.isApproved);
     }
     
 
-    function getDoctorByAddress(address _address) public view returns(uint256 id,string memory name, string memory contact ,address addr , bool isApproved) {
+    function getDoctorByAddress(address _address) public view returns(uint256 id,string memory name , string memory contact ,string memory hname ,string memory faculty ,address addr , bool isApproved) {
         require(doctors[_address].isApproved,"Doctor is not Approved or doesn't exist");
         doctor memory doc = doctors[_address];
-        return (doc.id,doc.name,doc.contact,doc.addr,doc.isApproved);
+        return (doc.id,doc.name,doc.contact,doc.hname,doc.faculty,doc.addr,doc.isApproved);
     }  
 
 //Give access to certain address
     function grantAccess(address _addr) public returns (bool success)
-    {
+    {   require(msg.sender != _addr,"You cannot add yourself");
         require(!Authorized[msg.sender][_addr],"User is already authorized");
         Authorized[msg.sender][_addr] = true;
         return true;
