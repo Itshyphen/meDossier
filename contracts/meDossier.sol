@@ -1,3 +1,4 @@
+
 pragma solidity >=0.4.22 <0.9.0;
 
 contract meDossier{
@@ -19,6 +20,7 @@ contract meDossier{
         string hname;
         string faculty;
         address addr;
+        string faculty;
         bool isApproved;
     }
     
@@ -98,6 +100,7 @@ contract meDossier{
     }
 
 
+<<<<<<< HEAD
 
     function addDoctor(string memory _name,string memory _hname,string memory _faculty,string memory _contact) public {
         require(!isDoctor[msg.sender],"Already Registered");
@@ -110,6 +113,19 @@ contract meDossier{
     }
     
     function getDoctorbyId(uint256 _id) public view returns(uint256 id,string memory name , string memory contact ,string memory hname ,string memory faculty ,address addr , bool isApproved)  {
+=======
+    function addDoctor(string memory _name,string memory _contact,string memory _faculty) public {
+        require(!isDoctor[msg.sender],"Already Registered");
+        address _addr = msg.sender;
+        doctorList.push(_addr);
+    
+        dindex = dindex + 1;
+        isDoctor[_addr]=true;
+        doctors[_addr]=doctor(dindex,_name,_contact,_addr,_faculty,true);
+    }
+    
+    function getDoctorbyId(uint256 _id) public view returns(uint256 id,string memory name ,string memory faculty, string memory contact ,address addr,bool isApproved)  {
+>>>>>>> 45fbcd5f2f1c49484c7617ff105e6607dedea858
         uint256 i=0;
         for(i = 0;i<doctorList.length;i++){
         if(doctors[doctorList[i]].id==_id){
@@ -118,6 +134,7 @@ contract meDossier{
     }    
         require(doctors[doctorList[i]].id==_id,"Doctor ID doesn't exists");
         doctor memory doc = doctors[doctorList[i]];
+<<<<<<< HEAD
         return (doc.id,doc.name,doc.contact,doc.hname,doc.faculty,doc.addr, doc.isApproved);
     }
 
@@ -138,6 +155,16 @@ contract meDossier{
         require(doctors[_address].isApproved,"Doctor is not Approved or doesn't exist");
         doctor memory doc = doctors[_address];
         return (doc.id,doc.name,doc.contact,doc.hname,doc.faculty,doc.addr,doc.isApproved);
+=======
+        return (doc.id,doc.name, doc.faculty,doc.contact,doc.addr,doc.isApproved);
+    }
+    
+
+    function getDoctorByAddress(address _address) public view returns(uint256 id,string memory name, string memory faculty,string memory contact ,address addr,bool isApproved) {
+        require(doctors[_address].isApproved,"Doctor is not Approved or doesn't exist");
+        doctor memory doc = doctors[_address];
+        return (doc.id,doc.name,doc.faculty,doc.contact,doc.addr,doc.isApproved);
+>>>>>>> 45fbcd5f2f1c49484c7617ff105e6607dedea858
     }  
 
 //Give access to certain address
