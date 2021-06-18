@@ -15,14 +15,12 @@
 }
 /* Css for registration page*/
 .Register{  
-
   position: relative;
-  /* height: 700px; */
   background: no-repeat; 
  text-align: center;
   background-size:cover;
   overflow: visible;
-
+font-family:Verdana, Geneva, Tahoma, sans-serif
 
 }
 .heading{
@@ -39,6 +37,7 @@
    border-radius: 10px;
    background-color: #d5f1ebb4;
    text-align: center;
+   padding-bottom: 10px;
 }
 
 .Patient input{
@@ -50,31 +49,33 @@
   box-sizing:border-box;
 }
 h5{
-  color: red;
+  /* color: red; */
   font-size: 10px;
+}
+.Patient Button{
+  /* position: absolute; */
+  padding-left: 10px;
 }
 .Doctor{
   line-height: 40px;
    /* margin: 3px; */
+   /* padding-left: 5px; */
+   padding-bottom: 10px;
    border-radius: 10px;
    background-color: #d5f1ebb4;
    text-align: center;
 }
-.container{
+.dcontainer{
   overflow: hidden;
   margin-left: auto;
   margin-right: auto;
-  width: 35em;
+  width: 37em;
 }
 .patient_main{
   padding-top: 10px;
-  /* background-color: rgb(242, 197, 248); */
   overflow: visible;
   padding-bottom: 10px;
-  /* background-image: url("medical.jpg"); */
-  /* height: 700px; */
   text-align: center;
-  /* overflow: hidden; */
 
 }
 .logout{
@@ -128,18 +129,14 @@ h5{
    border-radius: 10px;
    background-color: #d5f1ebb4;
 }
-.Report{
-  margin-left: auto;
-  margin-right: auto;
-  width: 35em;
-}
+
 .b-container{
   overflow: hidden;
   margin-left: auto;
   margin-right: auto;
   width: 50em;
 }
-.uploadreport{
+.Reportupload{
   line-height: 45px;
   margin: 3px;
   height: 200px;
@@ -147,6 +144,31 @@ h5{
   background-color: #d5f1ebb4;
   text-align: center;
 }
+ input{
+  height: 30px;
+  font-size: 20px;
+  font-family: 'Courier New', Courier, monospace;
+  width:450px;
+  border-radius: 5px;
+  border-color:wheat;
+}
+Button{
+  height: 35px;
+  width: 70px;
+}
+.upload input{
+  width: 500px;
+  padding-right: 10px;
+  border-radius: 3px;
+  height: 49px;
+  margin-bottom: auto;
+  border-color:wheat;
+  background-color:rgb(241, 239, 233)
+}
+.upload input:hover{
+  background-color: cadetblue;
+}
+
 .accessreport{
   line-height: 45px;
   margin: 3px;
@@ -154,4 +176,22 @@ h5{
   border-radius: 10px;
   background-color: #d5f1ebb4;
   text-align: center;
+}
+.nav-tabs .nav-link:hover{
+  color:gray;
+}
+.Report{
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  border-radius: 10px;
+  line-height: 40px;
+  padding-top: 10px;
+  text-align: left;
+  padding-left:20px;
+  padding-right: 10px;
+   border-radius: 10px;
+   /* background-color: #d5f1ebb4; */
+}
+.Report h2{
+  text-align: center;
+  font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }

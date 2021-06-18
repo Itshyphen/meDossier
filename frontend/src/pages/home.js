@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Button } from "react-bootstrap";
 import PhoneInput from "react-phone-number-input/input"
 
 function Register(props){
@@ -53,7 +54,7 @@ function Register(props){
 
             <h2> Signup/Login</h2>
             </div>
-            <div className="container">
+            <div className="dcontainer">
 
             <div className="Patient">
                 <h3> Add Patient</h3>
@@ -95,14 +96,15 @@ function Register(props){
                         </select>
                         <br/>
 
-                    <button>Submit</button>
+                    <Button>Submit</Button>
                 </form>
-                <button onClick ={()=>{
+                <Button onClick ={()=>{
                     props.phandlelogin()
                 }}
                 >Login
-                 </button>
+                 </Button>
             </div>
+            <br/>
             {/* Doctor login/signup
             */}
             <div className="Doctor">
@@ -135,13 +137,13 @@ function Register(props){
                     <input type="text"  name ="faculty"placeholder="Enter the your faculty" 
                     ref ={facultyRef} required/>
                     <br/>
-                    <button>Submit</button>
+                    <Button>Submit</Button>
                 </form>
-                <button onClick ={()=>{
+                <Button onClick ={()=>{
                     props.dhandlelogin()
                 }}
                 >Login
-                 </button>
+                 </Button>
             </div>
             </div>
              <div>    
