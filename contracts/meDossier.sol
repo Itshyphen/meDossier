@@ -43,6 +43,10 @@ contract meDossier{
 
     mapping(address=>mapping(address=>bool)) Authorized;
 
+    function isAuthorized(address pat,address client ) public view returns (bool success){
+        return Authorized[pat][client];
+    }
+
 
     function addRecord(string memory _dname,string memory _reason,string memory _visitedDate,string memory _ipfs, address addr) public{
         require(isPatient[addr],"No patient found at the given address");
