@@ -12,7 +12,6 @@ function Register(props){
     const facultyRef =React.useRef();
     const dphoneRef = React.useRef();
     const hnameRef = React.useRef();
-
     const [err, Seterr]= useState();
     const [derr,Setderr] = useState();
     
@@ -58,18 +57,20 @@ function Register(props){
 
             <div className="Patient">
                 <h3> Add Patient</h3>
-                <form onSubmit ={(event)=>{
-                    event.preventDefault();
-                    const name = pnameRef.current.value;
-                    const phone = phoneRef.current.value;
-                    const gender = genderRef.current.value;
-                    const dob = dobRef.current.value;
-                    const blood = bloodRef.current.value;
-                    props.patientRegister(name,phone,gender,dob,blood);
-                }}>
+                <form 
+                // onSubmit  ={(event)=>{
+                //     event.preventDefault();
+                //     const name = pnameRef.current.value;
+                //     const phone = phoneRef.current.value;
+                //     const gender = genderRef.current.value;
+                //     const dob = dobRef.current.value;
+                //     const blood = bloodRef.current.value;
+                //     props.patientRegister(name,phone,gender,dob,blood);}}
+                    >
                 <label>Name: </label>
                 <input type="text" name ="name" placeholder="Enter the patient's name"
-                ref={pnameRef} required >
+                ref={pnameRef}  required 
+                >
                     </input>
                     <br/>
                     <label>PhoneNo: </label>
@@ -96,7 +97,16 @@ function Register(props){
                         </select>
                         <br/>
 
-                    <Button>Submit</Button>
+                    <Button  onClick ={(event)=>{
+                    event.preventDefault();
+                    const name = pnameRef.current.value;
+                    const phone = phoneRef.current.value;
+                    const gender = genderRef.current.value;
+                    const dob = dobRef.current.value;
+                    const blood = bloodRef.current.value;
+                    props.patientRegister(name,phone,gender,dob,blood);
+                }}> 
+                Submit </Button>
                 </form>
                 <Button onClick ={()=>{
                     props.phandlelogin()
@@ -109,14 +119,15 @@ function Register(props){
             */}
             <div className="Doctor">
                 <h3> Add Doctor</h3>
-                <form onSubmit={(event)=>{
-                    event.preventDefault();
-                    const name = dnameRef.current.value;
-                    const contact = dphoneRef.current.value;
-                    const faculty = facultyRef.current.value;
-                    const hname = hnameRef.current.value;
-                    props.doctorRegister(name, hname,faculty,contact);
-                }}>
+                <form
+                //  onSubmit={(event)=>{
+                //     event.preventDefault();
+                //     const name = dnameRef.current.value;
+                //     const contact = dphoneRef.current.value;
+                //     const faculty = facultyRef.current.value;
+                //     const hname = hnameRef.current.value;
+                //     props.doctorRegister(name, hname,faculty,contact);}}
+                    >
                     <label>Name: </label>
                 <input type="text"  name ="name" placeholder="Enter the your name" required 
                 ref={dnameRef}>
@@ -137,7 +148,13 @@ function Register(props){
                     <input type="text"  name ="faculty"placeholder="Enter the your faculty" 
                     ref ={facultyRef} required/>
                     <br/>
-                    <Button>Submit</Button>
+                    <Button onClick ={(event)=>{
+                    event.preventDefault();
+                    const name = dnameRef.current.value;
+                    const contact = dphoneRef.current.value;
+                    const faculty = facultyRef.current.value;
+                    const hname = hnameRef.current.value;
+                    props.doctorRegister(name, hname,faculty,contact); }}>Submit</Button>
                 </form>
                 <Button onClick ={()=>{
                     props.dhandlelogin()

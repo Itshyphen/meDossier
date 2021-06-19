@@ -4,8 +4,30 @@ import { Button } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from "./logo.png"
 function Patient(props){
-  const[records,setRecords] =useState([]);
+   const dnameRef = useRef();
+   const reasonRef = useRef();
+   const dateRef = useRef();
+   const addressRef = useRef();
+   const [ipfshash, setipfshash] =useState("hh")
+  console.log(props.records);
+  console.log(props.patient);
+  // const[records,setRecords] =useState([]);
     const doctorRef = useRef();
+    const uploadrecord= async(dname,reason,date,address)=>{
+      try{
+        console.log("hh")
+        console.log(dname,reason,date);
+        console.log(props.currentAccount);
+        console.log(props.contract);
+         const res = await props.contract.methods.addRecord(dname,reason,date,ipfshash,props.currentAccount).send({from:props.currentAccount});
+        console.log(res);
+        //  props.getPatientRecord();
+
+      }catch(error){
+        alert(error)
+
+      }
+    }
 
     const Details = ()=>{
         return(
@@ -52,21 +74,39 @@ function Patient(props){
          </div>
 
          {/* Upload file to blockchain */}
-         <form>
+         <form onSubmit= {(event)=>{
+           event.preventDefault();
+           uploadrecord();
+         }}>
          <label> Upload your record to blockchain  </label><br/>
           Name:<input 
-         type ="text"placeholder="Name of the doctor" /><br/>
+         type ="text"placeholder="Name of the doctor" 
+         ref={dnameRef}/><br/>
 
          Reason: <input 
-         type="text" placeholder="Reason to visit hospital"/>
+         type="text" placeholder="Reason to visit hospital"
+         ref ={reasonRef}
+         />
           <br/>
-         VisitedDate: <input type="date"/>
+         VisitedDate: <input type="date" 
+         ref ={dateRef}/>
              <br/>
          Your address:<input 
          type ="text"
-         placeholder="Your address"/>
+         placeholder="Your address"
+         ref ={addressRef}/>
          <br/>
-         <Button>Submit</Button>
+         {/* <input type ="submit"/> */}
+         <Button onClick={(event)=>{
+           event.preventDefault();
+
+           const dname = dnameRef.current.value;
+           const reason = reasonRef.current.value;
+           const date = dateRef.current.value;
+           const address = reasonRef.current.value
+
+           uploadrecord(dname,reason,date,address);
+         }}>Submit</Button>
          </form>
          </Card>
          </div>
@@ -74,18 +114,17 @@ function Patient(props){
     }
 
   const Report =()=>{
-    if(records.length  === 0){
-      return(
-        <div> 
-          <h2>
-          Your Report
-        </h2>
-        <p> Your record will appear here.
-         <p> loading........</p>
-        </p>
-        </div>
-      )
-    }
+    // if(props.records.length  === 0){
+    //   return(
+    //     <div> 
+    //       <h2>
+    //       Your Report
+    //     </h2>
+    //     <p> Your record will appear here.</p>
+    //      <p> loading........</p>
+    //     </div>
+    //   )
+    // }
     
     return(
       <div className="Report">
@@ -93,15 +132,17 @@ function Patient(props){
           Your Report
         </h2>
         <ul> 
-           {records.map((record,key)=>( 
+           {props.records.map((record,key)=>( 
              <div className ="template" key={key}>
                     <li>
                       <Card>
-                        <p><b> Doctor Name:</b></p>
-                        <p><b> Reason to visit hospital:</b></p>
-                        <p><b> Visited date:</b></p>
-                        <p> <b>Report:</b> <a href={`https://google.com`}>Click here to view your report</a>
-                        You can access your report here</p>
+                        <Card.Body>
+                        <b> Doctor Name: </b> {record.dname} <br/>
+                        <b> Reason to visit hospital: </b> {record.reason}<br/>
+                        <b> Visited date:</b> {record.visitedDate}<br/>
+                         <b>Report:</b> <a href={`https://google.com`}>Click here to view your report</a>
+                        You can access your report here<br/>
+                        </Card.Body>
                         </Card>
                     </li>
                     </div> ))} 
@@ -188,14 +229,14 @@ return(
 
                             <Tab.Content>
                 {/* <Tabs defaultActiveKey="details" id ="uncontrolled-tab-example"> */}
-                <Tab.Pane eventKey="details" title ="Details" tabClassName="profile-tabitem">
+                <Tab.Pane eventKey="details" title ="Details" >
                 <Details/>
                 </Tab.Pane>
-                <Tab.Pane eventKey="profile" title ="AcessRecord" tabClassName="profile-tabitem">
+                <Tab.Pane eventKey="profile" title ="AcessRecord" >
                   <Report/>
                 </Tab.Pane>
 
-                <Tab.Pane eventKey ="uploadRecord"  title="UploadRecord" tabClassName="profile-tabitem">
+                <Tab.Pane eventKey ="uploadRecord"  title="UploadRecord">
               <Upload/>
              </Tab.Pane>
              <Tab.Pane eventKey="access" title="Grant/Revoke Acccess">

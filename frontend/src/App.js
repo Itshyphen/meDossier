@@ -10,6 +10,8 @@ function App() {
  const[currentAccount,setCurrentAccount]= useState('');
  const[contract, setContract] = useState({});
  const[patient,setPatient] = useState([]);
+ const[records,setRecords] = useState([]);
+
  const getWeb3Data = async()=>{
    try{
      //obtain web3 from getWeb3
@@ -30,7 +32,15 @@ function App() {
     //  console.log(patient);
     //  const doctor = await instance.methods.getDoctorByAddress(accounts[0]).call();
     //  console.log(doctor);
-
+    // const recordlength =  await instance.methods.getrecordlist(accounts[0]).call();
+    // console.log(recordlength)
+    //   const recordlist =[];
+    //   for (const i =1 ;i<= recordlength; i++){
+    //     const record = await  instance.methods.getPatientRecords(accounts[0],i).call();
+    //     recordlist.push(record);
+    //     console.log(recordlist);
+    //   }
+    //   setRecords(recordlist);
 
    }
    catch(error){
@@ -42,6 +52,7 @@ function App() {
   const patientRegister = async(name,phone,gender,dob,blood)=>{
     try{
       console.log(name,phone,gender,dob,blood);
+      console.log(currentAccount);
       contract.methods.addPatient(name,phone,gender,dob,blood).send({from:currentAccount});
     }
     catch(error){
@@ -68,6 +79,8 @@ catch(error){
       setPatient(patient);
       console.log(patient)
       // if(patient.length!==0){
+        getPatientRecord();
+
         history.push('/patient')
       // }
       
@@ -97,6 +110,26 @@ catch(error){
       alert(error);
     }
   }
+//Get Patient details by patient
+  const getPatientRecord = async()=>{
+    try{
+      const recordlength =  await contract.methods.getrecordlist(currentAccount).call();
+      const recordlist =[];
+      for (let i =0 ;i< recordlength; i++){
+        const record = await  contract.methods.getPatientRecords(currentAccount,i).call();
+        console.log(record);
+
+        recordlist.push(record);
+      }
+      setRecords(recordlist);
+      console.log(records)
+
+    }
+    catch(error){
+     alert(error);
+    }
+  }
+  
   //Handle Doctor Login
   const dhandlelogin = async()=>{
     try{
@@ -120,13 +153,19 @@ catch(error){
           doctorRegister ={doctorRegister}
           phandlelogin ={phandlelogin}
           dhandlelogin ={dhandlelogin}
+
           />
           </Route>
           <Route path ='/patient'>
             <Patient
             patient={patient}
             grantAccess ={grantAccess}
-            revokeAccess ={revokeAccess}/>
+            revokeAccess ={revokeAccess}
+            contract ={contract}
+            currentAccount ={currentAccount}
+            getPatientRecord ={getPatientRecord}
+            records ={records}
+            />
           </Route>
           </Switch>
           </Router>
