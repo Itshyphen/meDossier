@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import ReactDOM from "react-dom";
+import getWeb3 from '../getWeb3';
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import {
   Table,
@@ -20,11 +20,12 @@ import logo from "./logo.png";
 import { CONTRACT_ADDRESS, ABI } from "../config.js";
 import Web3 from "web3";
 
-const web3 = new Web3(Web3.givenProvider);
-const contract = new web3.eth.Contract(ABI, CONTRACT_ADDRESS);
+
 
 function DocDashboard() {
+
   const [currentAccount, setCurrentAccount] = useState("");
+  const[contract, setContract] = useState({});
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [gender, setGender] = useState("Female");
@@ -43,13 +44,39 @@ function DocDashboard() {
   const [reason, setReason] = useState("");
   const [file, setFile] = useState("");
 
-  useEffect(() => {
-    async function getWeb3data() {
-      try {
-        const accounts = await web3.eth.getAccounts();
-        // const account = accounts[0];
-        setCurrentAccount(accounts[0]);
 
+  const getWeb3Data = async()=>{
+    try{
+      //obtain web3 from getWeb3
+      const web3 = await getWeb3();
+      //obtain the accounts
+      const accounts = await web3.eth.getAccounts();
+      console.log(accounts);
+      //obtain netwrokID
+      // const netwrokID = await web3.eth.net.getId();
+      // console.log(netwrokID);
+      // const networkdeployed = Contract.networks[netwrokID];
+      // console.log(networkdeployed);
+      const instance = await new web3.eth.Contract(ABI, CONTRACT_ADDRESS);
+      setCurrentAccount(accounts[0]);
+      setContract({...instance});
+
+       
+    }
+    catch(error){
+      alert("Cannot load web3 ,contract. Consult console for details");
+      console.log(error);
+    }
+  }
+
+  useEffect(()=>{
+    getWeb3Data();
+    getDoctorDetails();
+  },[]);
+
+  
+    const getDoctorDetails = async e => {
+      try { 
         const result = await contract.methods
           .getDoctorByAddress(currentAccount)
           .call();
@@ -58,18 +85,17 @@ function DocDashboard() {
         setHname(result["hname"]);
         setContact(result["contact"]);
         setFaculty(result["faculty"]);
+  
+
       } catch (error) {
         console.log(error);
       }
     }
-    getWeb3data();
-  }, []);
-
-  //0xf71460D71a4695042C56F41D249b42429613dfE8
+  
 
   const getPatientDetails = async (e) => {
     try {
-      const result = await contract.methods
+      const result =await contract.methods
         .getPatientDetails(accountAddr)
         .call();
       console.log(result);
@@ -119,9 +145,9 @@ function DocDashboard() {
 
   const addPatientRecord = async (e) => {
     try {
-      const accounts = await web3.eth.getAccounts();
-      const account = accounts[0];
-      setCurrentAccount(accounts[0]);
+      // const accounts = await web3.eth.getAccounts();
+      // const account = accounts[0];
+      // setCurrentAccount(accounts[0]);
       // const gas = await contract.methods.addRecord(dname,reason,visitedDate,file,accountAddr).estimateGas();
       await contract.methods
         .addRecord(dname, reason, visitedDate, file, accountAddr)
@@ -165,6 +191,18 @@ function DocDashboard() {
           className="d-inline-block align-top"
           alt="React Bootstrap logo"
         />
+        <Button
+                            onClick=''
+                            variant="contained"
+                            style={{
+                              backgroundColor: "#0080FF",
+                              color: "floralwhite",
+                              height: "10",
+                              alignSelf: "end",
+                            }}
+                          >
+                            Log out
+                          </Button>
       </div>
 
       <div className="tab-wrapper">
