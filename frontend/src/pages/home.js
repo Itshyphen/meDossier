@@ -54,7 +54,7 @@ function Register(props){
 
             <h2> Signup/Login</h2>
             </div>
-            <div className="dcontainer">
+            <div className="b-container">
 
             <div className="Patient">
                 <h3> Add Patient</h3>
