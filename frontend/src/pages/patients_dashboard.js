@@ -1,6 +1,10 @@
 import React, { useRef, useState } from  "react";
-import {Tabs, Tab, Row, Nav, Navbar,Card} from "react-bootstrap";
-import { Button } from "react-bootstrap";
+import {Tabs, Tab, Row, Nav, Navbar,Card,Button} from "react-bootstrap";
+import {withStyles,makeStyles} from '@material-ui/core/styles';
+import {Table, TableBody,TableCell,TableContainer,TableHead,TableRow}from "@material-ui/core";
+import Paper from '@material-ui/core/Paper';
+// import { Button } from "react-bootstrap";
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from "./logo.png"
 function Patient(props){
@@ -13,6 +17,30 @@ function Patient(props){
   console.log(props.patient);
   // const[records,setRecords] =useState([]);
     const doctorRef = useRef();
+  const useStyles = makeStyles({
+    table:{
+      minWidth:700,
+    },
+  });
+  const classes = useStyles();
+    const StyledTablecell = withStyles((theme)=>({
+      head:{
+          backgroundColor:theme.palette.info.main,
+          color : theme.palette.common.blue,
+      },
+      body:{
+          fontSIze:14,
+      },
+   })) (TableCell);
+
+   const StyledTableRow = withStyles((theme)=>({
+       root:{
+           "&:nth-of-type(odd)":{
+               backgroundColor: theme.palette.action.hover,
+               color: theme.palette.common.pink,
+           },
+       },
+   }))(TableRow)
     const uploadrecord= async(dname,reason,date,address)=>{
       try{
         console.log("hh")
@@ -21,7 +49,7 @@ function Patient(props){
         console.log(props.contract);
          const res = await props.contract.methods.addRecord(dname,reason,date,ipfshash,props.currentAccount).send({from:props.currentAccount});
         console.log(res);
-        //  props.getPatientRecord();
+         props.getPatientRecord();
 
       }catch(error){
         alert(error)
@@ -114,24 +142,53 @@ function Patient(props){
     }
 
   const Report =()=>{
-    // if(props.records.length  === 0){
-    //   return(
-    //     <div> 
-    //       <h2>
-    //       Your Report
-    //     </h2>
-    //     <p> Your record will appear here.</p>
-    //      <p> loading........</p>
-    //     </div>
-    //   )
-    // }
+    if(props.records.length  === 0){
+      return(
+        <div> 
+          <h2>
+          Your Report
+        </h2>
+        <p> Your record will appear here.</p>
+         <p> loading........</p>
+        </div>
+      )
+    }
     
     return(
       <div className="Report">
         <h2>
           Your Report
         </h2>
-        <ul> 
+
+        <TableContainer components={Paper}>
+                <Table className = {classes.table} size ="small">
+                    <TableHead>
+                        <TableRow>
+                            <StyledTablecell>
+                                Docotorname
+                            </StyledTablecell>
+                            <StyledTablecell>Reason to visit doctor </StyledTablecell>
+                            <StyledTablecell>VisitedDate</StyledTablecell>
+                            <StyledTablecell>Records</StyledTablecell>
+                        </TableRow>
+                    </TableHead>
+                    {props.records.map((record,key)=>( 
+
+                    <TableBody>
+
+                        <StyledTableRow key ={key}>
+                        <TableCell>{record.dname}</TableCell>
+                        <TableCell>{record.reason}</TableCell>
+                        <TableCell>{record.visitedDate}</TableCell>
+                        <TableCell><a href={`https://google.com`}> click here to view your record</a></TableCell>
+
+
+
+                        </StyledTableRow>
+                    </TableBody>))}
+                </Table>
+            </TableContainer>
+        {/* <ul> 
            {props.records.map((record,key)=>( 
              <div className ="template" key={key}>
                     <li>
@@ -147,7 +204,7 @@ function Patient(props){
                     </li>
                     </div> ))} 
 
-                </ul>
+                </ul> */}
 
       </div>
     )
