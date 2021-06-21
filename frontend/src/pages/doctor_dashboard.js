@@ -18,10 +18,11 @@ import { Tabs, Tab, Row, Col, Nav } from "react-bootstrap";
 import "./general.css";
 import logo from "./logo.png";
 import { CONTRACT_ADDRESS, ABI } from "../config.js";
-import Web3 from "web3";
+import ipfs from "../ipfs.js"
 
 
 
+//main dashboard
 function DocDashboard() {
 
   const [currentAccount, setCurrentAccount] = useState("");
@@ -42,9 +43,10 @@ function DocDashboard() {
   const [dname, setDname] = useState("");
   const [visitedDate, setVisDate] = useState("");
   const [reason, setReason] = useState("");
-  const [file, setFile] = useState("");
+  const [buffer, setBuffer] = useState(null)
 
 
+  //Initialize web3
   const getWeb3Data = async()=>{
     try{
       //obtain web3 from getWeb3
@@ -52,11 +54,7 @@ function DocDashboard() {
       //obtain the accounts
       const accounts = await web3.eth.getAccounts();
       console.log(accounts);
-      //obtain netwrokID
-      // const netwrokID = await web3.eth.net.getId();
-      // console.log(netwrokID);
-      // const networkdeployed = Contract.networks[netwrokID];
-      // console.log(networkdeployed);
+//initialize contract
       const instance = await new web3.eth.Contract(ABI, CONTRACT_ADDRESS);
       setCurrentAccount(accounts[0]);
       setContract({...instance});
@@ -75,12 +73,11 @@ function DocDashboard() {
   },[]);
 
   
+  //Get the general details of doctor
     const getDoctorDetails = async e => {
       try { 
-        const result = await contract.methods
-          .getDoctorByAddress(currentAccount)
-          .call();
-        console.log(result);
+        const result = await contract.methods.getDoctorByAddress(currentAccount).call({from:currentAccount});
+        // console.log(result);
         setDocname(result["name"]);
         setHname(result["hname"]);
         setContact(result["contact"]);
@@ -92,7 +89,7 @@ function DocDashboard() {
       }
     }
   
-
+//Get details of patient: can be accessed by anyone
   const getPatientDetails = async (e) => {
     try {
       const result =await contract.methods
@@ -108,15 +105,21 @@ function DocDashboard() {
       console.log(error);
     }
     getPatientRecord();
-  };
+  
+};
   //bullet tube vague brain excuse valley total whale scrap sense water unfold
+
+  //Get access to the patient record: only to authorized doctor
   const getPatientRecord = async (e) => {
     try {
+      //check whether doctor is authorized or not
       const access = await contract.methods
         .isAuthorized(accountAddr, currentAccount)
         .call();
       console.log(access);
       isAuthorized(access);
+
+      //get the number of records
       const rlen = await contract.methods.getrecordlist(accountAddr).call();
       console.log(rlen);
       setRecordLength(rlen);
@@ -138,25 +141,62 @@ function DocDashboard() {
         console.log(record);
         setRecords(record);
       }
+      else{
+        alert("Sorry! You are not authorized to get the whole record.")
+      }
     } catch (error) {
       console.log(error);
     }
   };
 
+  //Only authorized doctor can add the patients record
   const addPatientRecord = async (e) => {
     try {
-      // const accounts = await web3.eth.getAccounts();
-      // const account = accounts[0];
-      // setCurrentAccount(accounts[0]);
-      // const gas = await contract.methods.addRecord(dname,reason,visitedDate,file,accountAddr).estimateGas();
+      //whether doctor is authorized or not
+      const access = await contract.methods
+      .isAuthorized(accountAddr, currentAccount)
+      .call();
+    console.log(access);
+    isAuthorized(access);
+
+    if (authorized) {
+      //add the file buffer to ipfs
+      let ipfshash= await ipfs.files.add(buffer)
+      //url ro the ipfs stored file
+      let url="https://ipfs.io/ipfs/"+ipfshash[0].hash;
+      console.log(ipfshash[0].hash);
+      console.log(url.toString())
+      // ipfshash[0].hash.toString()
+      const hash = ipfshash[0].hash;
+      // const hashs = String(hash)
+
       await contract.methods
-        .addRecord(dname, reason, visitedDate, file, accountAddr)
+        .addRecord(dname, reason, visitedDate,String(hash), accountAddr)
         .send({ from: currentAccount, gas: 1000000 });
+    }
+    else{
+      alert("Sorry! You are not authorized to get the whole record.")
+    }
     } catch (error) {
       console.log(error);
+      alert("Error Uploading Report"); 
     }
   };
 
+  //Get the uploaded file and set its buffer
+  const captureFile = event => {
+    event.stopPropagation();
+    event.preventDefault();
+    const file = event.target.files[0];
+    let reader = new window.FileReader();
+    reader.readAsArrayBuffer(file);
+    reader.onload = async() =>{
+      const buffer = await Buffer.from(reader.result);
+      setBuffer(buffer);
+    }  
+  }
+
+  //Styling for table cell
   const StyledTableCell = withStyles((theme) => ({
     head: {
       backgroundColor: theme.palette.info.main,
@@ -175,36 +215,32 @@ function DocDashboard() {
     },
   }))(TableRow);
 
-  const useStyles = makeStyles({
-    table: {
-      minWidth: 700,
-    },
-  });
 
   return (
-    <div>
+
+    <div className="DocDashboard">
+
+      {/* Navbar */}
       <div className="navbar">
-        <img
+        <a href="/doctor_dashboard">
+        <Button >
+           <img
           src={logo}
           // width="200"
           // height="80"
           className="d-inline-block align-top"
           alt="React Bootstrap logo"
         />
-        <Button
-                            onClick=''
-                            variant="contained"
-                            style={{
-                              backgroundColor: "#0080FF",
-                              color: "floralwhite",
-                              height: "10",
-                              alignSelf: "end",
-                            }}
-                          >
-                            Log out
                           </Button>
-      </div>
 
+        </a>
+      
+       
+        <a href="/"><Button>Log out</Button></a>
+      </div>
+      {/* End Navbar */}
+
+      {/* Side Tabs */}
       <div className="tab-wrapper">
         <div className="container-fluid">
           <div className="row">
@@ -216,7 +252,7 @@ function DocDashboard() {
                       <div>
                         <Nav.Item>
                           <Nav.Link eventKey="your_details">
-                            Information Details
+                            My Details
                           </Nav.Link>
                         </Nav.Item>
                       </div>
@@ -234,6 +270,8 @@ function DocDashboard() {
                   </Col>
                   <Col sm={9}>
                     <Tab.Content>
+
+                      {/* Doctors Details */}
                       <Tab.Pane eventKey="your_details">
                         <div className="card">
                           <h3>Your Details</h3>
@@ -246,10 +284,6 @@ function DocDashboard() {
                           <div className="details">
                             <b>
                               Name :<span>{docname}</span>
-                            </b>
-                            <br></br>
-                            <b>
-                              Lisence No:<span></span>
                             </b>
                             <br></br>
                             <b>
@@ -267,8 +301,11 @@ function DocDashboard() {
                           </div>
                         </div>
                       </Tab.Pane>
+                      {/* End Doctor Details */}
 
+                      {/* Access Record Tab*/}
                       <Tab.Pane eventKey="access_record">
+                        {/* Enter Address Container */}
                         <div class="small card">
                           <h5>
                             <b>Enter the address of Patient:</b>
@@ -294,6 +331,9 @@ function DocDashboard() {
                             Get Record
                           </Button>
                         </div>
+                        {/* End Enter Address Container */}
+
+                        {/* Patient Details */}
                         <div class="container">
                           <Card>
                             <h4>Patient Name: </h4>
@@ -310,6 +350,7 @@ function DocDashboard() {
                             </div>
                           </Card>
                         </div>
+                        {/* End Patient Details */}
 
                         {/* view patient records */}
                         <Box mt={3} mb={3}>
@@ -333,14 +374,12 @@ function DocDashboard() {
                                       <TableCell>{record["reason"]}</TableCell>
                                       <TableCell>{record["visDate"]}</TableCell>
                                       <TableCell>
-                                        {/* <a
-                                          href={"/#/embed/" + row["ipfs"]}
+                                        <a
+                                          href={"https://ipfs.io/ipfs/"+record["ipfs"]}
                                           target="_blrowank"
                                         >
                                           View/Download Record
-                                        </a> */}
-                                        View/Download Record
-                                        {record["ipfs"]}
+                                        </a>
                                       </TableCell>
                                     </StyledTableRow>
                                   );
@@ -349,8 +388,11 @@ function DocDashboard() {
                             </Table>
                           </TableContainer>
                         </Box>
+                        {/* End Patient Record */}
                       </Tab.Pane>
+                      {/* End Access Record */}
 
+                      {/* Add Record */}
                       <Tab.Pane eventKey="add_record">
                         <div className="card">
                           <h3>Add Records</h3>
@@ -396,7 +438,7 @@ function DocDashboard() {
                               fullWidth
                               margin="normal"
                               InputLabelProps={{ shrink: true }}
-                              onChange={(e) => setFile(e.target.value)}
+                              onChange={captureFile}
                             ></TextField>
                             <Button
                               onClick={addPatientRecord}
@@ -423,9 +465,13 @@ function DocDashboard() {
       </div>
     </div>
   );
+
 }
+
 export default DocDashboard;
 
+
+//Check the functions of the contract
 // const gas = await contract.methods.addPatient("name","hname","contact","faculty","blue").estimateGas();
 // const result = await contract.methods.addPatient("name","hname","contact","faculty","blue").send({from: currentAccount, gas: 1000000});
 // const gas = await contract.methods.addDoctor("name","hname","contact","faculty").estimateGas();
