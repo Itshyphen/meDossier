@@ -4,23 +4,33 @@ import {withStyles,makeStyles} from '@material-ui/core/styles';
 import {Table, TableBody,TableCell,TableContainer,TableHead,TableRow}from "@material-ui/core";
 import Paper from '@material-ui/core/Paper';
 // import { Button } from "react-bootstrap";
-
+import ipfs from "../ipfs";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from "./logo.png"
+
 function Patient(props){
    const dnameRef = useRef();
    const reasonRef = useRef();
    const dateRef = useRef();
    const addressRef = useRef();
-   const [ipfshash, setipfshash] =useState("hh")
+   const [ipfshash, setIpfshash] =useState();
+   const[buffer,setBuffer] = useState();
   console.log(props.records);
   console.log(props.patient);
   // const[records,setRecords] =useState([]);
     const doctorRef = useRef();
+
   const useStyles = makeStyles({
     table:{
       minWidth:700,
     },
+    root:{
+      width:"100%"
+
+    },
+    container:{
+      maxHeight:440,
+    }
   });
   const classes = useStyles();
     const StyledTablecell = withStyles((theme)=>({
@@ -41,6 +51,8 @@ function Patient(props){
            },
        },
    }))(TableRow)
+
+
     const uploadrecord= async(dname,reason,date,address)=>{
       try{
         console.log("hh")
@@ -82,6 +94,31 @@ function Patient(props){
 
         )
     }
+const handlechange = async(event)=>{
+  event.preventDefault();
+            //capture the userfile 
+            const file = event.target.files[0];
+            //Read the file
+            let reader = new window.FileReader()
+            reader.readAsArrayBuffer(file)
+            //file is converted to a buffer to prepare for uploading to IPFS
+            reader.onloadend=()=>{
+                let buffer = Buffer(reader.result)
+                setBuffer(buffer);
+                console.log("buffer",buffer);
+            }
+
+}
+const onsubmit = async(event)=>{
+  event.preventDefault();
+  console.log("hh");
+  const ipfsHash = await ipfs.add(buffer);
+  console.log(ipfsHash);
+        console.log(ipfsHash[0].hash)
+        setIpfshash(ipfsHash[0].hash);
+
+}
+
     const Upload =()=>{
         return(
             <div className="ReportUpload">
@@ -90,22 +127,24 @@ function Patient(props){
 
               <div className="upload">
                 <label> Upload your report to IPFS</label>
-    <form>
+    <form onSubmit={onsubmit}>
       <label> 
         </label>
-        <input type= "file" 
+        <input type= "file"  onChange ={handlechange}
        
         />
         <br/>
-         <Button>Submit</Button>
+         <Button onClick={onsubmit}>Submit</Button>
          </form>
          </div>
 
          {/* Upload file to blockchain */}
-         <form onSubmit= {(event)=>{
-           event.preventDefault();
-           uploadrecord();
-         }}>
+         <form 
+        //  onSubmit= {(event)=>{
+        //    event.preventDefault();
+        //    uploadrecord();
+        //  }}
+         >
          <label> Upload your record to blockchain  </label><br/>
           Name:<input 
          type ="text"placeholder="Name of the doctor" 
@@ -159,13 +198,14 @@ function Patient(props){
         <h2>
           Your Report
         </h2>
-
-        <TableContainer components={Paper}>
-                <Table className = {classes.table} size ="small">
+        <Paper className={classes.root}>
+        <TableContainer  className={classes.container}>
+                <Table className = {classes.table} size ="small" stickyHeader aria-label="sticky table">
                     <TableHead>
                         <TableRow>
+                          <StyledTablecell> #</StyledTablecell>
                             <StyledTablecell>
-                                Docotorname
+                                Doctor name
                             </StyledTablecell>
                             <StyledTablecell>Reason to visit doctor </StyledTablecell>
                             <StyledTablecell>VisitedDate</StyledTablecell>
@@ -177,35 +217,16 @@ function Patient(props){
                     <TableBody>
 
                         <StyledTableRow key ={key}>
+                          <TableCell>{key}</TableCell>
                         <TableCell>{record.dname}</TableCell>
                         <TableCell>{record.reason}</TableCell>
                         <TableCell>{record.visitedDate}</TableCell>
-                        <TableCell><a href={`https://google.com`}> click here to view your record</a></TableCell>
-
-
-
+                        <TableCell><a href={`https://ipfs.io/ipfs/${record.ipfs}`} target="_blank"> click here to view your record</a></TableCell>
                         </StyledTableRow>
                     </TableBody>))}
                 </Table>
             </TableContainer>
-        {/* <ul> 
-           {props.records.map((record,key)=>( 
-             <div className ="template" key={key}>
-                    <li>
-                      <Card>
-                        <Card.Body>
-                        <b> Doctor Name: </b> {record.dname} <br/>
-                        <b> Reason to visit hospital: </b> {record.reason}<br/>
-                        <b> Visited date:</b> {record.visitedDate}<br/>
-                         <b>Report:</b> <a href={`https://google.com`}>Click here to view your report</a>
-                        You can access your report here<br/>
-                        </Card.Body>
-                        </Card>
-                    </li>
-                    </div> ))} 
-
-                </ul> */}
-
+            </Paper>
       </div>
     )
   }
@@ -282,7 +303,7 @@ return(
                           </div>
 
                           <div className = "col-sm-9">
-                          <h2> Welcome to Medossier</h2>
+                          <h1> Welcome to Medossier</h1>
 
                             <Tab.Content>
                 {/* <Tabs defaultActiveKey="details" id ="uncontrolled-tab-example"> */}
