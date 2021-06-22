@@ -6,6 +6,7 @@ import Contract from "./contracts/Medossier.json"
 import getWeb3 from './getWeb3';
 import history from './pages/history';
 import Patient from './pages/patients_dashboard';
+import {CONTRACT_ADDRESS,ABI} from './config.js'
 function App() {
  const[currentAccount,setCurrentAccount]= useState('');
  const[contract, setContract] = useState({});
@@ -24,7 +25,7 @@ function App() {
      console.log(netwrokID);
      const networkdeployed = Contract.networks[netwrokID];
      console.log(networkdeployed);
-     const instance = await new web3.eth.Contract(Contract.abi,networkdeployed && networkdeployed.address);
+     const instance = await new web3.eth.Contract(ABI,CONTRACT_ADDRESS);
      setCurrentAccount(accounts[0]);
      setContract({...instance});
      //Just to confirm working of addPatient and addDoctor function 
@@ -93,7 +94,8 @@ catch(error){
   }
 //Patient grant Access to doctor
   const grantAccess = async(doctor)=>{
-    try{
+    try{       console.log(doctor);
+
        contract.methods.grantAccess(doctor).send({from:currentAccount})
     }
     catch(error){
@@ -103,6 +105,7 @@ catch(error){
   //Patient revoke access from doctor
   const revokeAccess = async(doctor)=>{
     try{
+      console.log(doctor);
       contract.methods.revoke_access(doctor).send({from:currentAccount})
     }
     catch(error){
@@ -115,7 +118,7 @@ catch(error){
     try{
       const recordlength =  await contract.methods.getrecordlist(currentAccount).call();
       const recordlist =[];
-      for (let i =0 ;i< recordlength; i++){
+      for (let i =1 ;i<=recordlength; i++){
         const record = await  contract.methods.getPatientRecords(currentAccount,i).call();
         console.log(record);
 

@@ -1,8 +1,7 @@
-// SPDX-License-Identifier: MIT
 
-pragma solidity ^0.8.4;
+pragma solidity >=0.4.22 <0.9.0;
 
-contract MeDossier{
+contract meDossier{
     
     uint256 public pindex=0;
     uint256 public dindex=0;
@@ -43,6 +42,10 @@ contract MeDossier{
     mapping(address=>bool) isDoctor;
 
     mapping(address=>mapping(address=>bool)) Authorized;
+
+    function isAuthorized(address pat,address client ) public view returns (bool success){
+        return Authorized[pat][client];
+    }
 
 
     function addRecord(string memory _dname,string memory _reason,string memory _visitedDate,string memory _ipfs, address addr) public{
@@ -145,6 +148,7 @@ contract MeDossier{
 //Give access to certain address
     function grantAccess(address _addr) public returns (bool success)
     {   require(msg.sender != _addr,"You cannot add yourself");
+        require(isDoctor[_addr],"Not registered as doctor");
         require(!Authorized[msg.sender][_addr],"User is already authorized");
         Authorized[msg.sender][_addr] = true;
         return true;

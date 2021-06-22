@@ -19,7 +19,7 @@ function Patient(props){
   console.log(props.patient);
   // const[records,setRecords] =useState([]);
     const doctorRef = useRef();
-
+    const grantRef = useRef();
   const useStyles = makeStyles({
     table:{
       minWidth:700,
@@ -236,27 +236,41 @@ return(
     <h2>Grant/Revoke Access</h2>
     <Card>
 
-            <form onSubmit ={(event)=>{
-                event.preventDefault();
-                const doctor = doctorRef.current.value;
-                props.grantAccess(doctor);
-            }}>
+            <form 
+            // onSubmit ={(event)=>{
+            //     event.preventDefault();
+            //     const doctor = doctorRef.current.value;
+            //     props.grantAccess(doctor);
+            // }}
+            >
                 <label>Provide Access: </label>
                 <input type="text" placeholder=" Address to grant access"
-                ref ={doctorRef}/> 
-                <Button> Submit</Button>
+                ref ={grantRef}/> 
+                <Button onClick ={(event)=>{
+                  event.preventDefault();
+                  const doctor = grantRef.current.value;
+                  console.log(doctor)
+                  props.grantAccess(doctor);
+              }}> Submit</Button>
                 </form>
 
                 <br/>
-                <form onSubmit ={(event)=>{
-                    event.preventDefault();
-                    const doctor = doctorRef.current.value;
-                    props.revokeAccess(doctor);
-                }}>
+                <form 
+                // onSubmit ={(event)=>{
+                //     event.preventDefault();
+                //     const doctor = doctorRef.current.value;
+                //     props.revokeAccess(doctor);
+                // }}
+                >
                     <label> Revoke Access: </label>
                     <input type="text" placeholder=" Address to revoke access from"
                     ref={doctorRef}/>
-                <Button> Submit</Button>
+                <Button onClick  ={(event)=>{
+                    event.preventDefault();
+                    const doctor = doctorRef.current.value;
+                    console.log(doctor);
+                    props.revokeAccess(doctor);
+                }}> Submit</Button>
                 </form>
                 </Card>
 
