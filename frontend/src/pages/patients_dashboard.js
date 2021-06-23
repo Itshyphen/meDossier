@@ -61,7 +61,7 @@ function Patient(props){
         console.log(props.contract);
          const res = await props.contract.methods.addRecord(dname,reason,date,ipfshash,props.currentAccount).send({from:props.currentAccount});
         console.log(res);
-         props.getPatientRecord();
+       await  props.getPatientRecord();
 
       }catch(error){
         alert(error)
@@ -181,6 +181,7 @@ const onsubmit = async(event)=>{
     }
 
   const Report =()=>{
+    // props.getPatientRecord();
     if(props.records.length  === 0){
       return(
         <div> 

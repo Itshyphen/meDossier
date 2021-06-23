@@ -26,6 +26,7 @@ function App() {
      const networkdeployed = Contract.networks[netwrokID];
      console.log(networkdeployed);
      const instance = await new web3.eth.Contract(ABI,CONTRACT_ADDRESS);
+    // const instance = await new web3.eth.Contract(Contract.abi,networkdeployed.address);
      setCurrentAccount(accounts[0]);
      setContract({...instance});
      //Just to confirm working of addPatient and addDoctor function 
@@ -80,7 +81,7 @@ catch(error){
       setPatient(patient);
       console.log(patient)
       // if(patient.length!==0){
-        getPatientRecord();
+         await getPatientRecord();
 
         history.push('/patient')
       // }
@@ -114,12 +115,33 @@ catch(error){
     }
   }
 //Get Patient details by patient
+  // const getPatientRecord = async()=>{
+  //   try{
+  //     const recordlength =  await contract.methods.getrecordlist(currentAccount).call();
+  //     console.log(recordlength);
+  //     const recordlist =[];
+  //     for (let i =0 ;i<recordlength; i++){
+  //       console.log(currentAccount)
+  //       const record = await  contract.methods.getPatientRecords(currentAccount,i).call();
+  //       console.log(record);
+
+  //       recordlist.push(record);
+  //     }
+  //     setRecords(recordlist);
+  //     console.log(records)
+
+  //   }
+  //   catch(error){
+  //     console.log(error);
+  //    alert(error);
+  //   }
+  // }
   const getPatientRecord = async()=>{
     try{
       const recordlength =  await contract.methods.getrecordlist(currentAccount).call();
       const recordlist =[];
-      for (let i =1 ;i<=recordlength; i++){
-        const record = await  contract.methods.getPatientRecords(currentAccount,i).call();
+      for (let i =0 ;i< recordlength; i++){
+        const record = await  contract.methods.getPatientRecords(currentAccount,i).call({from:currentAccount});
         console.log(record);
 
         recordlist.push(record);

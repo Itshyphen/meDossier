@@ -62,6 +62,8 @@
 //   //   enabled: false
 //   // }
 // };
+
+
 var HDWalletProvider = require("truffle-hdwallet-provider");
 var mnemonic = "bullet tube vague brain excuse valley total whale scrap sense water unfold";
 
