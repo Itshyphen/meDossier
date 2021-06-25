@@ -23,7 +23,7 @@ import ipfs from "../ipfs.js"
 
 
 //main dashboard
-function DocDashboard() {
+function DocDashboard(props) {
 
   const [currentAccount, setCurrentAccount] = useState("");
   const[contract, setContract] = useState({});
@@ -32,10 +32,10 @@ function DocDashboard() {
   const [gender, setGender] = useState("Female");
   const [dob, setDob] = useState("");
   const [blood, setBlood] = useState("");
-  const [docname, setDocname] = useState("");
-  const [hname, setHname] = useState("");
-  const [contact, setContact] = useState("");
-  const [faculty, setFaculty] = useState("");
+  // const [docname, setDocname] = useState("");
+  // const [hname, setHname] = useState("");
+  // const [contact, setContact] = useState("");
+  // const [faculty, setFaculty] = useState("");
   const [accountAddr, setAccountAddr] = useState("");
   const [authorized, isAuthorized] = useState("false");
   const [recordlen, setRecordLength] = useState(0);
@@ -69,25 +69,25 @@ function DocDashboard() {
 
   useEffect(()=>{
     getWeb3Data();
-    getDoctorDetails();
+    // getDoctorDetails();
   },[]);
 
   
   //Get the general details of doctor
-    const getDoctorDetails = async e => {
-      try { 
-        const result = await contract.methods.getDoctorByAddress(currentAccount).call({from:currentAccount});
-        // console.log(result);
-        setDocname(result["name"]);
-        setHname(result["hname"]);
-        setContact(result["contact"]);
-        setFaculty(result["faculty"]);
+    // const getDoctorDetails = async e => {
+    //   try { 
+    //     const result = await contract.methods.getDoctorByAddress(currentAccount).call({from:currentAccount});
+    //     // console.log(result);
+    //     setDocname(result["name"]);
+    //     setHname(result["hname"]);
+    //     setContact(result["contact"]);
+    //     setFaculty(result["faculty"]);
   
 
-      } catch (error) {
-        console.log(error);
-      }
-    }
+    //   } catch (error) {
+    //     console.log(error);
+    //   }
+    // }
   
 //Get details of patient: can be accessed by anyone
   const getPatientDetails = async (e) => {
@@ -105,6 +105,10 @@ function DocDashboard() {
       console.log(error);
     }
     getPatientRecord();
+
+// const gas =const result = await contract.methods.grantAccess("0xc52Bb0B6A662859B2E182524585b2F0a676F7823").send({from: currentAccount,gas:1000000});
+// const result = await contract.methods.addDoctor("Alisha Poudel","Sahara Hospital","9866003331","Cardiologist").send({from: currentAccount, gas: 1000000});
+// const result = await contract.methods.addPatient("Ranju G.C.","9866009221","Female","2057/03/30","O+ve").send({from: currentAccount, gas: 1000000});
   
 };
   //bullet tube vague brain excuse valley total whale scrap sense water unfold
@@ -283,19 +287,19 @@ function DocDashboard() {
                           </div>
                           <div className="details">
                             <b>
-                              Name :<span>{docname}</span>
+                              Name :<span>{props.doctor.name}</span>
                             </b>
                             <br></br>
                             <b>
-                              Hospital Name :<span>{hname}</span>
+                              Hospital Name :<span>{props.doctor.hname}</span>
                             </b>
                             <br></br>
                             <b>
-                              Faculty :<span>{faculty}</span>
+                              Faculty :<span>{props.doctor.faculty}</span>
                             </b>
                             <br />
                             <b>
-                              Contact :<span>{contact}</span>
+                              Contact :<span>{props.doctor.contact}</span>
                             </b>
                             <br></br>
                           </div>
