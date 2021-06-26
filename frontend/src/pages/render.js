@@ -15,8 +15,6 @@ function Render() {
  const[currentAccount,setCurrentAccount]= useState('');
  const[contract, setContract] = useState({});
  const[user,setUser] = useState([]);
- const[doctors,setDoctors] = useState([]);
-//  const[doctor,setDoctor] = useState([]);
 
  const getWeb3Data = async()=>{
    try{
@@ -69,10 +67,14 @@ catch(error){
         console.log("success");
         const registered = await contract.methods.isRegistered(currentAccount).call({from:currentAccount});
         if(registered){
-          await contract.methods.doctorLogin().send({from:currentAccount,gas:1000000})
-        }
+          const doctor = await contract.methods.getDoctorByAddress(currentAccount).call({from:currentAccount});
+if(doctor.isApproved==false){
+  await contract.methods.doctorLogin().send({from:currentAccount,gas:1000000})
+
+}
+        
         // await contract.methods.doctorLogin().send({from:currentAccount,gas:1000000})
-        const doctor = await contract.methods.getDoctorByAddress(currentAccount).call({from:currentAccount});
+        // const doctor = await contract.methods.getDoctorByAddress(currentAccount).call({from:currentAccount});
         setUser(doctor);
         localStorage.setItem('docname',doctor.name)
         localStorage.setItem('faculty',doctor.faculty)
@@ -82,6 +84,10 @@ catch(error){
         localStorage.setItem('hname',doctor.hname)
         console.log(doctor)
           history.push('/doctor_dashboard')
+        }
+        else{
+          alert("Your License is not registered! Please register first to access meDossier.")
+        }
         // }
         
       }
@@ -118,9 +124,6 @@ catch(error){
     }
     else if(result==2) {
       
-        // getDoctor();
-        
-     
         history.push('/Registration_office')
   
     }
@@ -130,23 +133,6 @@ catch(error){
    
   }
 
-  //get the doctors registered by government
-  const getDoctor = async()=>{
-    // try{
-    //   const doctorlength =await contract.methods.getRegisteresDoctorsList().call();
-    //   console.log(doctorlength);
-    //   const regDoctorList =[];
-    //   for(let i=0;i<doctorlength;i++){
-    //       const doctors = await contract.methods.getDoctorbyId(i).call();
-    //       console.log(doctors);
-    //       doctorlist.push(doctors);
-    //   }
-    //   setDoctors(doctorlist);
-    // await getWeb3Data();}
-    // catch(error){
-    //   console.log(error);
-    // }
-  }
 //Patient grant Access to doctor
   const grantAccess = async(doctor)=>{
     try{
@@ -168,23 +154,6 @@ catch(error){
     }
   }
   
-  //Handle Doctor Login
-  const dhandlelogin = async()=>{
-    try{
-      console.log("success");
-      const doctor = await contract.methods.getDoctorByAddress(currentAccount).call({from:currentAccount});
-      setUser(doctor);
-      console.log(doctor)
-        history.push('/doctor_dashboard')
-      // }
-      
-    }
-    catch(error){
-      console.error(error);
-      // alert(error)
-      alert("No records found")
-    }
-  }
   useEffect(()=>{
     getWeb3Data();
   },[]);
@@ -198,7 +167,6 @@ catch(error){
           patientRegister={patientRegister}
           doctorRegister ={doctorRegister}
           handlelogin ={handlelogin}
-          dhandlelogin ={dhandlelogin}
 
           />
           </Route>
@@ -223,9 +191,7 @@ catch(error){
           </Route>
           <Route exact path = "/Registration_office">
           <Verifier 
-          doctor = {user}
-          contract ={contract}
-          currentAccount ={currentAccount}
+          owner = {user}
           />
           
           </Route>
