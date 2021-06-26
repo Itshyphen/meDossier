@@ -136,7 +136,7 @@ function Verifier(props) {
   return (
     
 
-    <div className="DocDashboard">
+    <div className="Registrer">
       {getDoctorsList}
 
       {/* Navbar */}
@@ -155,7 +155,7 @@ function Verifier(props) {
         </a>
       
        
-        <a href="/"><Button>Log out</Button></a>
+        <Button onClick={e=>props.logout()}>Log out</Button>
       </div>
       {/* End Navbar */}
 

@@ -355,7 +355,7 @@ const onsubmit = async(event)=>{
             <Navbar.Toggle/>
             <Navbar.Collapse className="justify-content-end">
               <Navbar.Text > <b>Welcome </b> </Navbar.Text>
-              <Nav.Link href ="/" width="250" color="black"> <b>Logout</b></Nav.Link>
+              <Button onClick={e=>props.logout()}>Log out</Button>
               </Navbar.Collapse>
               </Navbar>
 

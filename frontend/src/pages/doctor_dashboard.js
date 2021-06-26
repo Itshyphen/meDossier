@@ -53,51 +53,7 @@ function DocDashboard(props) {
   const web3 = new Web3(Web3.givenProvider)
   const contract =  new web3.eth.Contract(ABI, CONTRACT_ADDRESS);
 
-  
 
-
-  //Initialize web3
-  const getWeb3Data = async()=>{
-//     try{
-//       //obtain web3 from getWeb3
-//       const web3 = getWeb3();
-//       //obtain the accounts
-//       const accounts = await web3.eth.getAccounts();
-//       console.log(accounts);
-// //initialize contract
-      
-//       setCurrentAccount(accounts[0]);
-//       setContract({...instance});
-
-       
-//     }
-//     catch(error){
-//       alert("Cannot load web3 ,contract. Consult console for details");
-//       console.log(error);
-//     }
-  }
-
-  useEffect(()=>{
-    getWeb3Data();
-    // getDoctorDetails();
-  },[]);
-
-  
-  //Get the general details of doctor
-    // const getDoctorDetails = async e => {
-    //   try { 
-    //     const result = await contract.methods.getDoctorByAddress(currentAccount).call({from:currentAccount});
-    //     // console.log(result);
-    //     setDocname(result["name"]);
-    //     setHname(result["hname"]);
-    //     setContact(result["contact"]);
-    //     setFaculty(result["faculty"]);
-  
-
-    //   } catch (error) {
-    //     console.log(error);
-    //   }
-    // }
   
 //Get details of patient: can be accessed by anyone
   const getPatientDetails = async (e) => {
@@ -234,12 +190,13 @@ function DocDashboard(props) {
     
 
     <div className="DocDashboard">
-      {getWeb3Data}
 
       {/* Navbar */}
       <div className="navbar">
         <a href="/doctor_dashboard">
-        <Button >
+        <Button 
+        o
+        >
            <img
           src={logo}
           // width="200"
@@ -252,7 +209,7 @@ function DocDashboard(props) {
         </a>
       
        
-        <a href="/"><Button>Log out</Button></a>
+        <Button onClick={e=>props.logout()}>Log out</Button>
       </div>
       {/* End Navbar */}
 

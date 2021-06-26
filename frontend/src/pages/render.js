@@ -153,6 +153,11 @@ if(doctor.isApproved==false){
       alert(error);
     }
   }
+
+  const logout=() =>{
+    localStorage.clear()
+    history.push('/')
+  }
   
   useEffect(()=>{
     getWeb3Data();
@@ -175,8 +180,7 @@ if(doctor.isApproved==false){
             patient={user}
             grantAccess ={grantAccess}
             revokeAccess ={revokeAccess}
-            contract ={contract}
-            currentAccount ={currentAccount}
+            logout ={logout}
             // getPatientRecord ={getPatientRecord}
             // records ={records}
             />
@@ -184,7 +188,7 @@ if(doctor.isApproved==false){
           <Route exact path = "/doctor_dashboard">
           <DocDashboard 
           doctor = {user}
-          contract ={contract}
+          logout ={logout}
           currentAccount ={currentAccount}
           />
           
@@ -192,6 +196,7 @@ if(doctor.isApproved==false){
           <Route exact path = "/Registration_office">
           <Verifier 
           owner = {user}
+          logout ={logout}
           />
           
           </Route>
