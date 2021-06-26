@@ -44,6 +44,7 @@
         border-color:#0080FF;
         border-width: 5px;
         border-radius: 1rem;
+        text-align: left;
     }
 
     .card .details {
