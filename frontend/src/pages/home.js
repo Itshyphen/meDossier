@@ -1,7 +1,7 @@
 import { TextField } from "@material-ui/core";
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
-import PhoneInput from "react-phone-number-input/input"
+// import PhoneInput from "react-phone-number-input/input"
 
 function Register(props){
     const pnameRef = React.useRef();
@@ -101,11 +101,7 @@ function Register(props){
                 }}
                 > 
                 Submit </Button>
-                <Button onClick ={()=>{
-                    props.phandlelogin()
-                }}
-                >Login
-                 </Button>
+                
                 </form>
                 
             </div>
@@ -147,11 +143,6 @@ function Register(props){
                     const hname = hnameRef.current.value;
                     const license = licenceRef.current.value;
                     props.doctorRegister(name,hname,faculty,contact,license); }}>Submit</Button>
-                      <Button onClick ={()=>{
-                    props.dhandlelogin()
-                }}
-                >Login
-                 </Button>
                 </form>
               
             </div>

@@ -78,7 +78,7 @@ function Patient(props){
     getPatientRecord();
 }, [])
 
-    const uploadrecord= async(dname,reason,date,address)=>{
+    const uploadrecord= async(dname,reason,date)=>{
       try{
         console.log("hh")
         console.log(dname,reason,date);
@@ -204,12 +204,7 @@ const onsubmit = async(event)=>{
          </div>
 
          {/* Upload file to blockchain */}
-         <form 
-        //  onSubmit= {(event)=>{
-        //    event.preventDefault();
-        //    uploadrecord();
-        //  }}
-         >
+         <form>
          <label> Upload your record to blockchain  </label><br/>
           Name:<input 
          type ="text"placeholder="Name of the doctor" 
@@ -223,10 +218,7 @@ const onsubmit = async(event)=>{
          VisitedDate: <input type="date" 
          ref ={dateRef}/>
              <br/>
-         Your address:<input 
-         type ="text"
-         placeholder="Your address"
-         ref ={addressRef}/>
+         
          <br/>
          {/* <input type ="submit"/> */}
          <Button onClick={(event)=>{
@@ -235,9 +227,9 @@ const onsubmit = async(event)=>{
            const dname = dnameRef.current.value;
            const reason = reasonRef.current.value;
            const date = dateRef.current.value;
-           const address = reasonRef.current.value
+          //  const address = reasonRef.current.value
 
-           uploadrecord(dname,reason,date,address);
+           uploadrecord(dname,reason,date);
          }}>Submit</Button>
          </form>
          </Card>

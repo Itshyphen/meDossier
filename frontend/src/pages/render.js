@@ -15,6 +15,8 @@ function Render() {
  const[currentAccount,setCurrentAccount]= useState('');
  const[contract, setContract] = useState({});
  const[user,setUser] = useState([]);
+ const[doctors,setDoctors] = useState([]);
+//  const[doctor,setDoctor] = useState([]);
 
  const getWeb3Data = async()=>{
    try{
@@ -115,7 +117,10 @@ catch(error){
       }
     }
     else if(result==2) {
-
+      
+        // getDoctor();
+        
+     
         history.push('/Registration_office')
   
     }
@@ -123,6 +128,24 @@ catch(error){
       alert("User not registered!")
     }
    
+  }
+
+  //get the doctors registered by government
+  const getDoctor = async()=>{
+    // try{
+    //   const doctorlength =await contract.methods.getRegisteresDoctorsList().call();
+    //   console.log(doctorlength);
+    //   const regDoctorList =[];
+    //   for(let i=0;i<doctorlength;i++){
+    //       const doctors = await contract.methods.getDoctorbyId(i).call();
+    //       console.log(doctors);
+    //       doctorlist.push(doctors);
+    //   }
+    //   setDoctors(doctorlist);
+    // await getWeb3Data();}
+    // catch(error){
+    //   console.log(error);
+    // }
   }
 //Patient grant Access to doctor
   const grantAccess = async(doctor)=>{
@@ -200,7 +223,9 @@ catch(error){
           </Route>
           <Route exact path = "/Registration_office">
           <Verifier 
-          owner = {user}
+          doctor = {user}
+          contract ={contract}
+          currentAccount ={currentAccount}
           />
           
           </Route>

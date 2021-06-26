@@ -1,144 +1,291 @@
+import React, { useState, useEffect } from "react";
+import Web3 from "web3";
+import { withStyles, makeStyles } from "@material-ui/core/styles";
+import {
+  Table,
+  TableHead,
+  TableContainer,
+  TableBody,
+  TableCell,
+  TableRow,
+  Card,
+  Box,
+  Paper,
+  TextField,
+  Button,
+} from "@material-ui/core";
+import { Tabs, Tab, Row, Col, Nav } from "react-bootstrap";
+import "./general.css";
+import logo from "./logo.png";
+import { CONTRACT_ADDRESS, ABI } from "../config.js";
+import ipfs from "../ipfs.js"
 
-import React from "react";
-import {Button,Tab, Card,Navbar,Nav} from "react-bootstrap";
-import logo from "./logo.png"
-import {Table, TableBody,TableCell,TableContainer,TableHead,TableRow}from "@material-ui/core";
-import {withStyles,makeStyles} from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
 
-function Verifier(props){
 
-    const useStyles = makeStyles({
-        table:{
-          minWidth:700,
-        },
-        root:{
-          width:"100%"
+//main dashboard
+function Verifier(props) {
 
-        },
-        container:{
-          maxHeight:440,
+  const [recordlen, setRecordLength] = useState(0);
+  const [records, setRecords] = useState([]);
+  const [dname, setDname] = useState("");
+  const [license, setLicense] = useState(0);
+ 
+
+
+  const currentAccount =localStorage.getItem('currentAccount')
+
+  const web3 = new Web3(Web3.givenProvider)
+  const contract =  new web3.eth.Contract(ABI, CONTRACT_ADDRESS);
+
+  
+
+ 
+
+  
+    const Register = async (e) => {
+      try {
+        //whether doctor is authorized or not
+        
+  
+        await contract.methods
+          .registerDoctor(dname, license)
+          .send({ from: currentAccount, gas: 1000000 });
+      }
+      catch (error) {
+        console.log(error);
+        alert("Error in Registration"); 
+      }
+    };
+  
+  
+
+  const getDoctorsList = async (e) => {
+    try {
+      //check whether doctor is authorized or not
+
+      //get the number of records
+      const rlen = await contract.methods.getRegisteredDoctorslength().call();
+      console.log("record length"+rlen);
+      setRecordLength(rlen);
+
+      
+        let record = [];
+        for (var i = 0; i < recordlen; i++) {
+          const licn = await contract.methods
+            .getRegisteredDoctorsList(i)
+            .call({ from: currentAccount });
+          console.log(licn);
+          try{
+            const result = await contract.methods
+            .getDoctorbyLicense(licn)
+            .call({ from: currentAccount });
+          console.log(result);
+          record.push({
+            dname: result.name,
+            hname: result.hospital,
+            faculty: result._faculty,
+            license: licn,
+          });
+          }
+          catch{
+            record.push({
+              dname: "No account",
+              hname: "----",
+              faculty: "----",
+              license: licn,
+            });
+          }
+        
         }
-      });
-
-    const classes = useStyles();
-
-    const StyledTablecell = withStyles((theme)=>({
-      head:{
-          backgroundColor:theme.palette.info.main,
-          color : theme.palette.common.blue,
-      },
-      body:{
-          fontSIze:14,
-      },
-   })) (TableCell);
-
-   const StyledTableRow = withStyles((theme)=>({
-       root:{
-           "&:nth-of-type(odd)":{
-               backgroundColor: theme.palette.action.hover,
-               color: theme.palette.common.pink,
-           },
-       },
-   }))(TableRow)
-
-const Verify = ()=>{
-        return(
-            <div className="v-container">
-            <Card>
-            <Card.Title>
-                Doctor to be verified
-            </Card.Title>
-            <p>Doctor Name:</p>
-            <p>License Number:</p>
-            <p>Hospital Name:</p>
-            <Button >Verify</Button>
-            </Card>
-
-        </div>
-        )
+        console.log(record);
+        setRecords(record);
+     
+    } catch (error) {
+      console.log(error);
     }
-const Doctor =()=>{
-    return(
-        <div>
-             <Paper className={classes.root}>
-        <TableContainer  className={classes.container}>
-                <Table className = {classes.table} size ="small" stickyHeader aria-label="sticky table">
-                    <TableHead>
-                        <TableRow>
-                          <StyledTablecell> #</StyledTablecell>
-                            <StyledTablecell>Name</StyledTablecell>
-                            <StyledTablecell>Hospital</StyledTablecell>
-                            <StyledTablecell>Faculty</StyledTablecell>
-                            <StyledTablecell>License Number</StyledTablecell>
-                        </TableRow>
-                    </TableHead>
-                    {/* {props.records.map((record,key)=>(  */}
+  };
 
-                    <TableBody>
+  useEffect(()=>{
+    getDoctorsList()
+    // getDoctorDetails();
+  },[
+    recordlen
+  ]);
 
-                        <StyledTableRow >
-                          <TableCell></TableCell>
-                        <TableCell>record.dname</TableCell>
-                        <TableCell>record.reason</TableCell>
-                        <TableCell>record.visitedDate</TableCell>
-                        {/* <TableCell><a href={`https://ipfs.io/ipfs/${record.ipfs}`} target="_blank"> click here to view your record</a></TableCell> */}
-                        </StyledTableRow>
-                    </TableBody>
-                    {/* ))} */}
-                </Table>
-            </TableContainer>
-            </Paper>
-        </div>
-    )
 
-}
-    return(
-        <div className="verifer"> 
-         <Navbar
-            expand="lg" 
-            >
-              <img src={logo}
-              width="250"
-              height="60"
-              className="d-inline-block align-top"
-              />
-            <Navbar.Toggle/>
-            <Navbar.Collapse className="justify-content-end">
-              <Navbar.Text > <b>Welcome </b> </Navbar.Text>
-              <Nav.Link href ="/" width="250"> <b>Logout</b></Nav.Link>
-              </Navbar.Collapse>
-              </Navbar>
+  //Styling for table cell
+  const StyledTableCell = withStyles((theme) => ({
+    head: {
+      backgroundColor: theme.palette.info.main,
+      color: theme.palette.common.blue,
+    },
+    body: {
+      fontSize: 14,
+    },
+  }))(TableCell);
 
-        <div className ="tab-wrapper">
-            <Tab.Container  defaultActiveKey="doctor">
-                    <div className ="row">
-                        <div className="col-sm-3">
-                          <Nav  className="flex-column">
-                            <Nav.Item>
-                            <Nav.Link eventKey="doctor">Doctors</Nav.Link><hr/>
-                            </Nav.Item>
-                            <Nav.Item>
-                            <Nav.Link eventKey="verify">Verify</Nav.Link> <hr/></Nav.Item>                           
-                            </Nav> 
-                          </div>
+  const StyledTableRow = withStyles((theme) => ({
+    root: {
+      "&:nth-of-type(odd)": {
+        backgroundColor: theme.palette.action.hover,
+      },
+    },
+  }))(TableRow);
 
-                          <div className = "col-sm-9">
-                          <h2> Welcome to Medossier</h2>
 
-                            <Tab.Content>
-                <Tab.Pane eventKey="doctor" title ="Doctor" >
-                    <Doctor/>
-                </Tab.Pane>
-                <Tab.Pane eventKey="verify" title ="Verify" >
-                    <Verify/>
-                </Tab.Pane>
-             </Tab.Content>
-            </div> 
+  return (
+    
+
+    <div className="DocDashboard">
+      {getDoctorsList}
+
+      {/* Navbar */}
+      <div className="navbar">
+        <a href="/Registration_office">
+        <Button >
+           <img
+          src={logo}
+          // width="200"
+          // height="80"
+          className="d-inline-block align-top"
+          alt="React Bootstrap logo"
+        />
+                          </Button>
+
+        </a>
+      
+       
+        <a href="/"><Button>Log out</Button></a>
+      </div>
+      {/* End Navbar */}
+
+      {/* Side Tabs */}
+      <div className="tab-wrapper">
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-sm-12">
+              <Tab.Container defaultActiveKey="doctors_list">
+                <Row>
+                  <Col sm={3}>
+                    <Nav variant="pills" className="flex-column">
+                      <div>
+                        <Nav.Item>
+                          <Nav.Link eventKey="doctors_list">
+                            Registered Doctors
+                          </Nav.Link>
+                        </Nav.Item>
+                      </div>
+
+                      <Nav.Item>
+                        <Nav.Link eventKey="new_registration">New Registration</Nav.Link>
+                      </Nav.Item>
+                    </Nav>
+                  </Col>
+                  <Col sm={9}>
+                  <Tab.Content>
+
+{/* Doctors Details */}
+<Tab.Pane eventKey="doctors_list">
+<div className="Details">
+<h4>
+....Welcome to the meDossier....
+</h4>
+<h4>..Before you access the records, ask the patient for the permission..</h4>
+</div>
+  
+  {/* Registered Doctor List */}
+  <div class="small card">
+    <div className="table">
+  <Box mt={3} mb={3}>
+    <TableContainer component={Paper}>
+      <Table size={"small"}>
+        <TableHead>
+          <TableRow>
+            <StyledTableCell>License</StyledTableCell>
+            <StyledTableCell>Name</StyledTableCell>
+            <StyledTableCell>
+              Faculty
+            </StyledTableCell>
+            <StyledTableCell>Working Hospital</StyledTableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {records.map((record, index) => {
+            return (
+              <StyledTableRow key={index}>
+                <TableCell>{record["license"]}</TableCell>
+                <TableCell>{record["dname"]}</TableCell>
+                <TableCell>{record["faculty"]}</TableCell>
+                <TableCell>{record["hname"]}</TableCell>
+              </StyledTableRow>
+            );
+          })}
+        </TableBody>
+      </Table>
+    </TableContainer>
+  </Box>
+    
+  </div>
+  </div>
+
+</Tab.Pane>
+
+
+<Tab.Pane eventKey="new_registration">
+<div className="Details">
+<h4>
+....Welcome to the meDossier....
+</h4>
+<h4>..New Doctor Registration..</h4>
+</div>
+  <div className="small card">
+    <h3>Register Doctor</h3>
+    <hr></hr>
+    <form>
+      <TextField
+        id="outlined-basic full-width"
+        fullWidth
+        variant="outlined"
+        margin="normal"
+        label="License Number"
+        onChange={(e) => setLicense(e.target.value)}
+      />
+      <TextField
+        id="outlined-basic"
+        fullWidth
+        variant="outlined"
+        margin="normal"
+        label="Doctor Name"
+        onChange={(e) => setDname(e.target.value)}
+      />
+      
+      <Button
+        onClick={Register}
+        variant="contained"
+        fullWidth
+        margin="normal"
+        style={{
+          backgroundColor: "#0080FF",
+          color: "floralwhite",
+        }}
+      >
+        Register
+      </Button>
+    </form>
+  </div>
+</Tab.Pane>
+</Tab.Content>
+</Col>
+                </Row>
+              </Tab.Container>
             </div>
-            </Tab.Container>
-             </div>
+          </div>
         </div>
-    )
+      </div>
+    </div>
+  );
+
 }
-export default Verifier; 
+
+export default Verifier;
+
