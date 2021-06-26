@@ -294,7 +294,6 @@ const onsubmit = async(event)=>{
     return(
       <div className="small card">
         <h2>Grant/Revoke Access</h2>
-        <Card>
     
                 <form 
                 // onSubmit ={(event)=>{
@@ -332,7 +331,7 @@ const onsubmit = async(event)=>{
                         props.revokeAccess(doctor);
                     }}> Submit</Button>
                     </form>
-                    </Card>
+                  
     
       </div>
 )

@@ -157,6 +157,7 @@ if(doctor.isApproved==false){
   const logout=() =>{
     localStorage.clear()
     history.push('/')
+    window.location.reload(false);
   }
   
   useEffect(()=>{

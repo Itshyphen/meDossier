@@ -1,5 +1,5 @@
 var HDWalletProvider = require("truffle-hdwallet-provider");
-var mnemonic = "bullet tube vague brain excuse valley total whale scrap sense water unfold";
+var mnemonic = "your metamask mnemonics";
 
 module.exports = {
  networks: {
@@ -10,7 +10,7 @@ module.exports = {
   },
   ropsten: {
       provider: function() { 
-       return new HDWalletProvider(mnemonic, "https://ropsten.infura.io/v3/e72dc1a201834e94ab2e55083707eb62");
+       return new HDWalletProvider(mnemonic, "Enter your Infura end point");
       },
       network_id: 3,
       gas: 9900000,
