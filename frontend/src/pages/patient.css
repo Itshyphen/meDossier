@@ -1,17 +1,17 @@
 .Main{
   width:100%;
   position: relative;
-  background: no-repeat;
-  background-size:cover;
-  background-image: url("../health.jpg");
   justify-content: center;
-  background-size:cover;
+
+  background: url("../health.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 
   align-items: center;
   overflow:visible;
   padding-bottom: 100px;
-  height: 100vh;
-  width: 100vw;
 
 
 }
