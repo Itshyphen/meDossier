@@ -15,7 +15,6 @@ function Render() {
  const[currentAccount,setCurrentAccount]= useState('');
  const[contract, setContract] = useState({});
  const[user,setUser] = useState([]);
- const[records,setRecords] = useState([]);
 
  const getWeb3Data = async()=>{
    try{
@@ -60,14 +59,25 @@ catch(error){
   }
   //Handle  patient Login
   const handlelogin = async()=>{
+    localStorage.setItem('currentAccount',currentAccount)
     const result = await contract.methods.user(currentAccount).call({from:currentAccount});
     console.log(result);
     if(result==0){
       try{
         console.log("success");
-        await contract.methods.doctorLogin().send({from:currentAccount,gas:1000000})
+        const registered = await contract.methods.isRegistered(currentAccount).call({from:currentAccount});
+        if(registered){
+          await contract.methods.doctorLogin().send({from:currentAccount,gas:1000000})
+        }
+        // await contract.methods.doctorLogin().send({from:currentAccount,gas:1000000})
         const doctor = await contract.methods.getDoctorByAddress(currentAccount).call({from:currentAccount});
         setUser(doctor);
+        localStorage.setItem('docname',doctor.name)
+        localStorage.setItem('faculty',doctor.faculty)
+        localStorage.setItem('contact',doctor.contact)
+        localStorage.setItem('isApproved',doctor.isApproved)
+        localStorage.setItem('license',doctor.licenseno)
+        localStorage.setItem('hname',doctor.hname)
         console.log(doctor)
           history.push('/doctor_dashboard')
         // }
@@ -86,7 +96,13 @@ catch(error){
         setUser(patient);
         console.log(patient)
         // if(patient.length!==0){
-          getPatientRecord();
+          // getPatientRecord();
+         localStorage.setItem('name',patient._name)
+        localStorage.setItem('phone',patient._phone)
+        localStorage.setItem('dob',patient._dob)
+        localStorage.setItem('bloodgroup',patient._bloodgroup)
+        localStorage.setItem('gender',patient._gender)
+        // localStorage.setItem('hname',doctor.hname)
   
           history.push('/patient')
         // }
@@ -126,25 +142,6 @@ catch(error){
     catch(error){
       console.error(error);
       alert(error);
-    }
-  }
-//Get Patient details by patient
-  const getPatientRecord = async()=>{
-    try{
-      const recordlength =  await contract.methods.getrecordlist(currentAccount).call({from:currentAccount});
-      const recordlist =[];
-      for (let i =0 ;i< recordlength; i++){
-        const record = await  contract.methods.getPatientRecords(currentAccount,i).call({from:currentAccount});
-        console.log(record);
-
-        recordlist.push(record);
-      }
-      setRecords(recordlist);
-      console.log(records)
-
-    }
-    catch(error){
-     alert(error);
     }
   }
   
@@ -189,14 +186,15 @@ catch(error){
             revokeAccess ={revokeAccess}
             contract ={contract}
             currentAccount ={currentAccount}
-            getPatientRecord ={getPatientRecord}
-            records ={records}
+            // getPatientRecord ={getPatientRecord}
+            // records ={records}
             />
           </Route>
           <Route exact path = "/doctor_dashboard">
           <DocDashboard 
           doctor = {user}
           contract ={contract}
+          currentAccount ={currentAccount}
           />
           
           </Route>

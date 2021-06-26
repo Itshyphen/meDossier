@@ -1,4 +1,4 @@
-import React, { useRef, useState } from  "react";
+import React, { useEffect, useRef, useState } from  "react";
 import {Tabs, Tab, Row, Nav, Navbar,Card,Button} from "react-bootstrap";
 import {withStyles,makeStyles} from '@material-ui/core/styles';
 import {Table, TableBody,TableCell,TableContainer,TableHead,TableRow}from "@material-ui/core";
@@ -10,6 +10,12 @@ import logo from "./logo.png"
 import './general.css';
 import './patient.css'
 
+import Web3 from "web3";
+import { CONTRACT_ADDRESS, ABI } from "../config.js";
+
+
+
+
 
 function Patient(props){
    const dnameRef = useRef();
@@ -18,11 +24,23 @@ function Patient(props){
    const addressRef = useRef();
    const [ipfshash, setIpfshash] =useState();
    const[buffer,setBuffer] = useState();
+ const[records,setRecords] = useState([]);
+
   console.log(props.records);
   console.log(props.patient);
   // const[records,setRecords] =useState([]);
     const doctorRef = useRef();
     const grantRef = useRef();
+
+    const name = localStorage.getItem('name')
+    const dob = localStorage.getItem('dob')
+    const gender = localStorage.getItem('gender')
+    const bloodgroup = localStorage.getItem('bloodgroup')
+    const phone = localStorage.getItem('phone')
+    const currentAccount =localStorage.getItem('currentAccount')
+
+   const web3 = new Web3(Web3.givenProvider)
+    const contract =  new web3.eth.Contract(ABI, CONTRACT_ADDRESS);
 
   const useStyles = makeStyles({
     table:{
@@ -56,22 +74,50 @@ function Patient(props){
        },
    }))(TableRow)
 
+   useEffect(()=>{
+    getPatientRecord();
+}, [])
 
     const uploadrecord= async(dname,reason,date,address)=>{
       try{
         console.log("hh")
         console.log(dname,reason,date);
-        console.log(props.currentAccount);
-        console.log(props.contract);
-         const res = await props.contract.methods.addRecord(dname,reason,date,ipfshash,props.currentAccount).send({from:props.currentAccount});
+        console.log(currentAccount);
+        console.log(contract);
+         const res = await contract.methods.addRecord(dname,reason,date,ipfshash,props.currentAccount).send({from:props.currentAccount});
         console.log(res);
-         props.getPatientRecord();
+         getPatientRecord();
 
       }catch(error){
         alert(error)
 
       }
     }
+
+    //Get Patient details by patient
+  const getPatientRecord = async()=>{
+    try{
+      const recordlength =  await contract.methods.getrecordlist(currentAccount).call({from:currentAccount});
+      const recordlist =[];
+      for (let i =0 ;i< recordlength; i++){
+        const record = await  contract.methods.getPatientRecords(currentAccount,i).call({from:currentAccount});
+        console.log(record);
+
+        recordlist.push(record);
+      }
+      setRecords(recordlist);
+      // localStorage.setItem('dname',records.dname);
+      // localStorage.setItem('reason',records.reason)
+      // localStorage.setItem('visitDate',records.visitDate)
+      // localStorage.setItem('ipfs',records.ipfs)
+
+            // console.log(records)
+
+    }
+    catch(error){
+     alert(error);
+    }
+  }
 
     const Details = ()=>{
         return(
@@ -85,28 +131,28 @@ function Patient(props){
                           <hr></hr>
                           <div>
                             <b>
-                              Account Address:<span>{props.currentAccount}</span>
+                              Account Address:<span>{currentAccount}</span>
                             </b>
                           </div>
                           <div className="details">
                             <b>
-                              Name :<span>{props.patient._name}</span>
+                              Name :<span>{name}</span>
                             </b>
                             <br></br>
                             <b>
-                              Phone :<span>{props.patient._phone}</span>
+                              Phone :<span>{phone}</span>
                             </b>
                             <br></br>
                             <b>
-                              Gender :<span>{props.patient._gender}</span>
+                              Gender :<span>{gender}</span>
                             </b>
                             <br />
                             <b>
-                              Date of Birth :<span>{props.patient._dob}</span>
+                              Date of Birth :<span>{dob}</span>
                             </b>
                             <br></br>
                             <b>
-                              Blood Group :<span>{props.patient._bloodgroup}</span>
+                              Blood Group :<span>{bloodgroup}</span>
                             </b>
                           </div>
                         </div>
@@ -200,7 +246,8 @@ const onsubmit = async(event)=>{
     }
 
   const Report =()=>{
-    if(props.records.length  === 0){
+    
+    if(records.length  === 0){
       return(
         <div> 
           <h2>
@@ -231,7 +278,8 @@ const onsubmit = async(event)=>{
                             <StyledTablecell>Records</StyledTablecell>
                         </TableRow>
                     </TableHead>
-                    {props.records.map((record,key)=>( 
+                    
+                    {records.map((record,key)=>( 
 
                     <TableBody>
 

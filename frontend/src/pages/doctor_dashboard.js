@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import getWeb3 from '../getWeb3';
+import Web3 from "web3";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import {
   Table,
@@ -25,17 +25,13 @@ import ipfs from "../ipfs.js"
 //main dashboard
 function DocDashboard(props) {
 
-  const [currentAccount, setCurrentAccount] = useState("");
-  const[contract, setContract] = useState({});
+  // const [currentAccount, setCurrentAccount] = useState(props.currentAccount);
+  // const[contract, setContract] = useState(props.contract);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [gender, setGender] = useState("Female");
   const [dob, setDob] = useState("");
   const [blood, setBlood] = useState("");
-  // const [docname, setDocname] = useState("");
-  // const [hname, setHname] = useState("");
-  // const [contact, setContact] = useState("");
-  // const [faculty, setFaculty] = useState("");
   const [accountAddr, setAccountAddr] = useState("");
   const [authorized, isAuthorized] = useState("false");
   const [recordlen, setRecordLength] = useState(0);
@@ -45,26 +41,40 @@ function DocDashboard(props) {
   const [reason, setReason] = useState("");
   const [buffer, setBuffer] = useState(null)
 
+  //get the data from local storage
+  const docname = localStorage.getItem('docname')
+  const faculty = localStorage.getItem('faculty')
+  const license = localStorage.getItem('license')
+  const hname = localStorage.getItem('hname')
+  const isApproved = localStorage.getItem('isApproved')
+  const contact = localStorage.getItem('contact')
+  const currentAccount =localStorage.getItem('currentAccount')
+
+  const web3 = new Web3(Web3.givenProvider)
+  const contract =  new web3.eth.Contract(ABI, CONTRACT_ADDRESS);
+
+  
+
 
   //Initialize web3
   const getWeb3Data = async()=>{
-    try{
-      //obtain web3 from getWeb3
-      const web3 = await getWeb3();
-      //obtain the accounts
-      const accounts = await web3.eth.getAccounts();
-      console.log(accounts);
-//initialize contract
-      const instance = await new web3.eth.Contract(ABI, CONTRACT_ADDRESS);
-      setCurrentAccount(accounts[0]);
-      setContract({...instance});
+//     try{
+//       //obtain web3 from getWeb3
+//       const web3 = getWeb3();
+//       //obtain the accounts
+//       const accounts = await web3.eth.getAccounts();
+//       console.log(accounts);
+// //initialize contract
+      
+//       setCurrentAccount(accounts[0]);
+//       setContract({...instance});
 
        
-    }
-    catch(error){
-      alert("Cannot load web3 ,contract. Consult console for details");
-      console.log(error);
-    }
+//     }
+//     catch(error){
+//       alert("Cannot load web3 ,contract. Consult console for details");
+//       console.log(error);
+//     }
   }
 
   useEffect(()=>{
@@ -275,223 +285,223 @@ function DocDashboard(props) {
                     </Nav>
                   </Col>
                   <Col sm={9}>
-                    <Tab.Content>
+                  <Tab.Content>
 
-                      {/* Doctors Details */}
-                      <Tab.Pane eventKey="your_details">
-                      <div className="Details">
-            <h4>
-            ....Welcome to the meDossier....
-            </h4>
-            <h4>..This is the place where you can access your patients records anywhere everywhere..</h4>
-            </div>
-                        <div className="card">
-                          <h3>Your Details</h3>
-                          <hr></hr>
-                          <div>
-                            <b>
-                              Account Address:<span>{props.doctor.addr}</span>
-                            </b>
-                          </div>
-                          <div className="details">
-                            <b>
-                              Name :<span>{props.doctor.name}</span>
-                            </b>
-                            <br></br>
-                            <b>
-                              License Number :<span>{props.doctor.licenseno}</span>
-                            </b>
-                            <br></br>
-                            <b>
-                              Hospital Name :<span>{props.doctor.hname}</span>
-                            </b>
-                            <br></br>
-                            <b>
-                              Faculty :<span>{props.doctor.faculty}</span>
-                            </b>
-                            <br />
-                            <b>
-                              Contact :<span>{props.doctor.contact}</span>
-                            </b>
-                            <br></br>
-                          </div>
-                        </div>
-                      </Tab.Pane>
-                      {/* End Doctor Details */}
+{/* Doctors Details */}
+<Tab.Pane eventKey="your_details">
+<div className="Details">
+<h4>
+....Welcome to the meDossier....
+</h4>
+<h4>..This is the place where you can access your patients records anywhere everywhere..</h4>
+</div>
+  <div className="card">
+    <h3>Your Details</h3>
+    <hr></hr>
+    <div>
+      <b>
+        Account Address:<span>{currentAccount}</span>
+      </b>
+    </div>
+    <div className="details">
+      <b>
+        Name :<span>{docname}</span>
+      </b>
+      <br></br>
+      <b>
+        License Number :<span>{license}</span>
+      </b>
+      <br></br>
+      <b>
+        Hospital Name :<span>{hname}</span>
+      </b>
+      <br></br>
+      <b>
+        Faculty :<span>{faculty}</span>
+      </b>
+      <br />
+      <b>
+        Contact :<span>{contact}</span>
+      </b>
+      <br></br>
+    </div>
+  </div>
+</Tab.Pane>
+{/* End Doctor Details */}
 
-                      {/* Access Record Tab*/}
-                      <Tab.Pane eventKey="access_record">
-                      <div className="Details">
-            <h4>
-            ....Welcome to the meDossier....
-            </h4>
-            <h4>..Before you access the records, ask the patient for the permission..</h4>
-            </div>
-                        {/* Enter Address Container */}
-                        <div class="small card">
-                          <h5>
-                            <b>Enter the address of Patient:</b>
-                          </h5>
-                          <TextField
-                            id="outlined-basic full-width"
-                            fullWidth
-                            variant="outlined"
-                            margin="normal"
-                            label="Patient Account Address"
-                            onChange={(e) => setAccountAddr(e.target.value)}
-                          />
-                          <Button
-                            onClick={getPatientDetails}
-                            variant="contained"
-                            style={{
-                              backgroundColor: "#0080FF",
-                              color: "floralwhite",
-                              height: "10",
-                              alignSelf: "end",
-                            }}
-                          >
-                            Get Record
-                          </Button>
-                        </div>
-                        {/* End Enter Address Container */}
+{/* Access Record Tab*/}
+<Tab.Pane eventKey="access_record">
+<div className="Details">
+<h4>
+....Welcome to the meDossier....
+</h4>
+<h4>..Before you access the records, ask the patient for the permission..</h4>
+</div>
+  {/* Enter Address Container */}
+  <div class="small card">
+    <h5>
+      <b>Enter the address of Patient:</b>
+    </h5>
+    <TextField
+      id="outlined-basic full-width"
+      fullWidth
+      variant="outlined"
+      margin="normal"
+      label="Patient Account Address"
+      onChange={(e) => setAccountAddr(e.target.value)}
+    />
+    <Button
+      onClick={getPatientDetails}
+      variant="contained"
+      style={{
+        backgroundColor: "#0080FF",
+        color: "floralwhite",
+        height: "10",
+        alignSelf: "end",
+      }}
+    >
+      Get Record
+    </Button>
+  </div>
+  {/* End Enter Address Container */}
 
-                        {/* Patient Details */}
-                        <div class="small card">
-                          <Card>
-                            <h4>Patient Name: </h4>
-                            <b>Account Address:</b>
-                            <div className="smallcard">
-                              <div>
-                                Name:{name}
-                                {"\t\t"}
-                              </div>
-                              <div>Phone:{phone}</div>
-                              <div>DoB:{dob}</div>
-                              <div>Gender:{gender}</div>
-                              <div>Blood Group:{blood}</div>
-                            </div>
-                          </Card>
+  {/* Patient Details */}
+  <div class="small card">
+    <Card>
+      <h4>Patient Name: </h4>
+      <b>Account Address:</b>
+      <div className="smallcard">
+        <div>
+          Name:{name}
+          {"\t\t"}
+        </div>
+        <div>Phone:{phone}</div>
+        <div>DoB:{dob}</div>
+        <div>Gender:{gender}</div>
+        <div>Blood Group:{blood}</div>
+      </div>
+    </Card>
 
-                          <div className="table">
-                        <Box mt={3} mb={3}>
-                          <TableContainer component={Paper}>
-                            <Table size={"small"}>
-                              <TableHead>
-                                <TableRow>
-                                  <StyledTableCell>Doctor Name</StyledTableCell>
-                                  <StyledTableCell>Reason</StyledTableCell>
-                                  <StyledTableCell>
-                                    Visited Date
-                                  </StyledTableCell>
-                                  <StyledTableCell>Report</StyledTableCell>
-                                </TableRow>
-                              </TableHead>
-                              <TableBody>
-                                {records.map((record, index) => {
-                                  return (
-                                    <StyledTableRow key={index}>
-                                      <TableCell>{record["dname"]}</TableCell>
-                                      <TableCell>{record["reason"]}</TableCell>
-                                      <TableCell>{record["visDate"]}</TableCell>
-                                      <TableCell>
-                                        <a
-                                          href={"https://ipfs.io/ipfs/"+record["ipfs"]}
-                                          target="_blrowank"
-                                        >
-                                          View/Download Record
-                                        </a>
-                                      </TableCell>
-                                    </StyledTableRow>
-                                  );
-                                })}
-                              </TableBody>
-                            </Table>
-                          </TableContainer>
-                        </Box>
-                          
-                        </div>
-                        </div>
-                        {/* End Patient Details */}
+    <div className="table">
+  <Box mt={3} mb={3}>
+    <TableContainer component={Paper}>
+      <Table size={"small"}>
+        <TableHead>
+          <TableRow>
+            <StyledTableCell>Doctor Name</StyledTableCell>
+            <StyledTableCell>Reason</StyledTableCell>
+            <StyledTableCell>
+              Visited Date
+            </StyledTableCell>
+            <StyledTableCell>Report</StyledTableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {records.map((record, index) => {
+            return (
+              <StyledTableRow key={index}>
+                <TableCell>{record["dname"]}</TableCell>
+                <TableCell>{record["reason"]}</TableCell>
+                <TableCell>{record["visDate"]}</TableCell>
+                <TableCell>
+                  <a
+                    href={"https://ipfs.io/ipfs/"+record["ipfs"]}
+                    target="_blrowank"
+                  >
+                    View/Download Record
+                  </a>
+                </TableCell>
+              </StyledTableRow>
+            );
+          })}
+        </TableBody>
+      </Table>
+    </TableContainer>
+  </Box>
+    
+  </div>
+  </div>
+  {/* End Patient Details */}
 
-                        {/* view patient records */}
-                       
-                        
-                        {/* End Patient Record */}
-                      </Tab.Pane>
-                      {/* End Access Record */}
+  {/* view patient records */}
+ 
+  
+  {/* End Patient Record */}
+</Tab.Pane>
+{/* End Access Record */}
 
-                      {/* Add Record */}
-                      <Tab.Pane eventKey="add_record">
-                      <div className="Details">
-            <h4>
-            ....Welcome to the meDossier....
-            </h4>
-            <h4>..Upload the new records of your patients..</h4>
-            </div>
-                        <div className="card">
-                          <h3>Add Records</h3>
-                          <hr></hr>
-                          <form>
-                            <TextField
-                              id="outlined-basic full-width"
-                              fullWidth
-                              variant="outlined"
-                              margin="normal"
-                              label="Patient Account Address"
-                              onChange={(e) => setAccountAddr(e.target.value)}
-                            />
-                            <TextField
-                              id="outlined-basic"
-                              fullWidth
-                              variant="outlined"
-                              margin="normal"
-                              label="Doctor Name"
-                              value={props.doctor.name}
-                              onChange={(e) => setDname(e.target.value)}
-                            />
-                            <TextField
-                              id="outlined-basic"
-                              fullWidth
-                              variant="outlined"
-                              margin="normal"
-                              label="Visit Reason"
-                              onChange={(e) => setReason(e.target.value)}
-                            ></TextField>
-                            <TextField
-                              id="outlined-basic"
-                              fullWidth
-                              variant="outlined"
-                              margin="normal"
-                              type="date"
-                              label="Visited Date"
-                              onChange={(e) => setVisDate(e.target.value)}
-                              InputLabelProps={{ shrink: true }}
-                            ></TextField>
-                            <TextField
-                              type="file"
-                              label="Report"
-                              fullWidth
-                              margin="normal"
-                              InputLabelProps={{ shrink: true }}
-                              onChange={captureFile}
-                            ></TextField>
-                            <Button
-                              onClick={addPatientRecord}
-                              variant="contained"
-                              fullWidth
-                              margin="normal"
-                              style={{
-                                backgroundColor: "#0080FF",
-                                color: "floralwhite",
-                              }}
-                            >
-                              Add Record
-                            </Button>
-                          </form>
-                        </div>
-                      </Tab.Pane>
-                    </Tab.Content>
-                  </Col>
+{/* Add Record */}
+<Tab.Pane eventKey="add_record">
+<div className="Details">
+<h4>
+....Welcome to the meDossier....
+</h4>
+<h4>..Upload the new records of your patients..</h4>
+</div>
+  <div className="card">
+    <h3>Add Records</h3>
+    <hr></hr>
+    <form>
+      <TextField
+        id="outlined-basic full-width"
+        fullWidth
+        variant="outlined"
+        margin="normal"
+        label="Patient Account Address"
+        onChange={(e) => setAccountAddr(e.target.value)}
+      />
+      <TextField
+        id="outlined-basic"
+        fullWidth
+        variant="outlined"
+        margin="normal"
+        label="Doctor Name"
+        value={props.doctor.name}
+        onChange={(e) => setDname(props.doctor.name)}
+      />
+      <TextField
+        id="outlined-basic"
+        fullWidth
+        variant="outlined"
+        margin="normal"
+        label="Visit Reason"
+        onChange={(e) => setReason(e.target.value)}
+      ></TextField>
+      <TextField
+        id="outlined-basic"
+        fullWidth
+        variant="outlined"
+        margin="normal"
+        type="date"
+        label="Visited Date"
+        onChange={(e) => setVisDate(e.target.value)}
+        InputLabelProps={{ shrink: true }}
+      ></TextField>
+      <TextField
+        type="file"
+        label="Report"
+        fullWidth
+        margin="normal"
+        InputLabelProps={{ shrink: true }}
+        onChange={captureFile}
+      ></TextField>
+      <Button
+        onClick={addPatientRecord}
+        variant="contained"
+        fullWidth
+        margin="normal"
+        style={{
+          backgroundColor: "#0080FF",
+          color: "floralwhite",
+        }}
+      >
+        Add Record
+      </Button>
+    </form>
+  </div>
+</Tab.Pane>
+</Tab.Content>
+</Col>
                 </Row>
               </Tab.Container>
             </div>
