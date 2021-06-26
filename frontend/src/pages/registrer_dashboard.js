@@ -89,7 +89,7 @@ function Verifier(props) {
           }
           catch{
             record.push({
-              dname: "No account",
+              dname: "No account/Not Logged in After Registration",
               hname: "----",
               faculty: "----",
               license: licn,
@@ -190,7 +190,7 @@ function Verifier(props) {
 <h4>
 ....Welcome to the meDossier....
 </h4>
-<h4>..Before you access the records, ask the patient for the permission..</h4>
+<h4>..The Following Doctors are Registered..</h4>
 </div>
   
   {/* Registered Doctor List */}
