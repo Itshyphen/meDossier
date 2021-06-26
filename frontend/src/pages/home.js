@@ -1,6 +1,7 @@
 import { TextField } from "@material-ui/core";
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
+import logo from "./logo.png";
 // import PhoneInput from "react-phone-number-input/input"
 
 function Register(props){
@@ -50,15 +51,25 @@ function Register(props){
             
             {/* <Navbar/> */}
 
-            <div></div>
+            
             <div className="heading">
+            <div className="meDossier">
+            <img
+          src={logo}
+          // width="200"
+          // height="80"
+          className="d-inline-block align-top"
+          alt="React Bootstrap logo"
+        />
+            </div>
 
-            <h2> Signup/Login</h2>
+            <h2> Welcome to meDossier</h2>
+            <h4>The only place to store and access your record securely</h4>
             </div>
             <div className="b-container">
 
             <div className="Patient small card">
-                <h3> Add Patient</h3>
+            <h4> <b>Register as Patient</b></h4>
                 <form>
                 <label>Name: </label>
                 <input fullwidth type="text" name ="name" placeholder="Enter the patient's name"
@@ -109,7 +120,7 @@ function Register(props){
             {/* Doctor login/signup
             */}
             <div className="Doctor small card">
-                <h3> Add Doctor</h3>
+                <h4> <b>Register as Doctor</b></h4>
                 <form>
                     <label>Name: </label>
                 <input type="text"  name ="name" placeholder="Enter the your name" required 

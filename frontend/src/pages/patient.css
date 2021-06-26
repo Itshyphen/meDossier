@@ -180,3 +180,12 @@ font-family:Verdana, Geneva, Tahoma, sans-serif
 ul{
   list-style:none;
 }
+
+.meDossier{
+  height: 80px;
+  width: 140px;
+  background-color: #0080FF;
+  border-radius: 50%;
+  display: inline-block;
+  padding: 2%;
+}
