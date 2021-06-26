@@ -76,6 +76,17 @@ h5{
   margin-right: auto;
   width: 37em;
 }
+.doctorverify{
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+ border-radius: 10px;
+ line-height: 40px;
+   /* margin: 3px; */
+   border-radius: 10px;
+   background-color: #d5f1ebb4;
+   text-align: center;
+   padding-bottom: 10px;
+
+}
 /* Css for patientdashboard */
 .patient_main{
   /* padding-top: 10px; */
@@ -188,3 +199,17 @@ Button{
 ul{
   list-style:none;
 }
+/* Css of verfier dashboard*/
+.v-container{
+  padding-left:20px;
+  padding-right: 10px;
+
+}
+.doctorlist h5{
+  text-align: center;
+}
+.v-container input{
+  width:auto;
+  padding-left: 10px;
+}
+

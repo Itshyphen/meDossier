@@ -12,34 +12,35 @@ function Register(props){
     const facultyRef =React.useRef();
     const dphoneRef = React.useRef();
     const hnameRef = React.useRef();
+    const licenseRef = React.useRef();
     const [err, Seterr]= useState();
     const [derr,Setderr] = useState();
     
-    const pchangehandler = (event)=>{
-    let phone = event.target.value
-    let err =""
-    if(Number(phone)){
-    if(phone.length!==10){
-        err = <h5>Must be 10 digit</h5>;
-        // alert("Your number")
-    }}
-    else 
-    err = <h5> Should be valid number</h5>
-    Seterr(err);
-}
-    const dchangehandler = (event)=>{
-        let phone = event.target.value
-        let derr =""
-        if(Number(phone)){
-        if(phone.length!==10){
-            derr = <h5 >Must be 10 digit</h5>;
-        }}
-        else 
-        derr = <h5> Should be valid number</h5>
-        Setderr(derr);
+//     const pchangehandler = (event)=>{
+//     let phone = event.target.value
+//     let err =""
+//     if(Number(phone)){
+//     if(phone.length!==10){
+//         err = <h5>Must be 10 digit</h5>;
+//         // alert("Your number")
+//     }}
+//     else 
+//     err = <h5> Should be valid number</h5>
+//     Seterr(err);
+// }
+//     const dchangehandler = (event)=>{
+//         let phone = event.target.value
+//         let derr =""
+//         if(Number(phone)){
+//         if(phone.length!==10){
+//             derr = <h5 >Must be 10 digit</h5>;
+//         }}
+//         else 
+//         derr = <h5> Should be valid number</h5>
+//         Setderr(derr);
     
         
-    }
+//     }
     
     return(
         <div className="Main">
@@ -74,7 +75,7 @@ function Register(props){
                     </input>
                     <br/>
                     <label>PhoneNo: </label>
-                    <input type ="text" placeholder="9746025484" onChange ={pchangehandler}
+                    <input type ="text" placeholder="9746025484"
                     ref ={phoneRef} required/>
 
 
@@ -89,8 +90,9 @@ function Register(props){
                     />
                     <br/>
                     <label id ="gender"> Gender:</label>
-                    <select ref ={genderRef} required >
-                        <option value="Select " >Select</option>
+                    <select ref ={genderRef} placeholder="Select"
+                    required >
+                        {/* <option value="Select " >Select</option> */}
                         <option value ="Female">Female</option>
                         <option value ="Male">Male</option>
                         <option value = "Others"> Others</option>
@@ -129,7 +131,7 @@ function Register(props){
                 //     props.doctorRegister(name, hname,faculty,contact);}}
                     >
                     <label>Name: </label>
-                <input type="text"  name ="name" placeholder="Enter the your name" required 
+                <input type="text"  name ="name" placeholder="Enter your name" required 
                 ref={dnameRef}>
 
                     </input>
@@ -139,14 +141,19 @@ function Register(props){
                     ref ={hnameRef} required/>
                     <br/>
                     <label> ContactNo:</label>
-                    <input type ="text" placeholder="9746025484" onChange ={dchangehandler}
+                    <input type ="text" placeholder="9746025484"
                     ref ={dphoneRef} required/>
                    
                     {derr}
                     <br/>
                     <label>Faculty: </label>
-                    <input type="text"  name ="faculty"placeholder="Enter the your faculty" 
+                    <input type="text"  name ="faculty"placeholder="Enter your faculty" 
                     ref ={facultyRef} required/>
+                    <br/>
+                    <label> License Number: </label>
+                    <input type="number" placeholder="License Number" 
+                    ref ={licenseRef} required
+                    />
                     <br/>
                     <Button onClick ={(event)=>{
                     event.preventDefault();
@@ -154,13 +161,22 @@ function Register(props){
                     const contact = dphoneRef.current.value;
                     const faculty = facultyRef.current.value;
                     const hname = hnameRef.current.value;
-                    props.doctorRegister(name, hname,faculty,contact); }}>Submit</Button>
+                    const license = licenseRef.current.value;
+                    props.doctorRegister(name, hname,faculty,contact,license); }}>Submit</Button>
                 </form>
                 <Button onClick ={()=>{
                     props.dhandlelogin()
                 }}
                 >Login
                  </Button>
+                 {/* <Button onClick={props.verify}>Verify</Button> */}
+            </div>
+            <br/>
+            <div className="doctorverify">
+                <h3> Login as government agency</h3>
+                <Button onClick ={()=>{
+                    props.handleverifier()
+                }}>Login</Button>
             </div>
             </div>
              <div>    

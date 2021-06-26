@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {Button,Tab, Card,Navbar,Nav} from "react-bootstrap";
 import logo from "./logo.png"
 import {Table, TableBody,TableCell,TableContainer,TableHead,TableRow}from "@material-ui/core";
@@ -6,6 +6,9 @@ import {withStyles,makeStyles} from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 
 function Verifier(props){
+    const doctorRef = React.useRef();
+    const licenseRef = React.useRef();
+    
 
     const useStyles = makeStyles({
         table:{
@@ -40,26 +43,73 @@ function Verifier(props){
            },
        },
    }))(TableRow)
+    //Doctor verification by government
+  const verifydoctor = async(name,license)=>{
+    try{
+      console.log(name,license);
+     await props.contract.methods.registerDoctor(name,license).send({from:props.currentAccount})
+       await props.getDoctor();
+    }
+      catch(error){
+        console.log(error);
+      }
+
+  }
 
 const Verify = ()=>{
+    // props.getdoctor();
         return(
             <div className="v-container">
-            <Card>
+                {/* {
+                props.unverifieddoctor.map((record,key) =>(
+            <Card >
             <Card.Title>
                 Doctor to be verified
             </Card.Title>
-            <p>Doctor Name:</p>
-            <p>License Number:</p>
-            <p>Hospital Name:</p>
-            <Button >Verify</Button>
+            
+                    <p>Doctor Name:{record.name}</p>
+            <p>License Number:{record.licenseno}</p>
+            <p>Hospital Name:{record.hospital}</p>
+            <Button  name ={record.addr}
+            onClick ={(e)=>{
+                verifydoctor(e.target.name);
+            }}
+            disabled ={record.isApproved}
+            >Verify</Button>
+               
+            
+            </Card>  ))
+            } */}
+            <Card>
+              <Card.Title>
+                Register the doctor
+              </Card.Title>
+              <label> Name:</label>
+              <input type="text" placeholder="Doctor's full name"
+              ref ={doctorRef}
+              required/>
+              <label> License Number:</label>
+              <input type ="number" placeholder="Doctor's license number" 
+              ref ={licenseRef}
+              required/>
+              <Button onClick = {(event)=>{
+                event.preventDefault();
+                const name = doctorRef.current.value;
+                const license = licenseRef.current.value;
+                verifydoctor(name,license);
+
+
+              }}> Submit</Button>
             </Card>
 
         </div>
         )
     }
 const Doctor =()=>{
+    // props.getunverifieddoctor()
     return(
-        <div>
+        <div className="doctorlist">
+            <h5> List of Approved doctors</h5> 
              <Paper className={classes.root}>
         <TableContainer  className={classes.container}>
                 <Table className = {classes.table} size ="small" stickyHeader aria-label="sticky table">
@@ -70,21 +120,27 @@ const Doctor =()=>{
                             <StyledTablecell>Hospital</StyledTablecell>
                             <StyledTablecell>Faculty</StyledTablecell>
                             <StyledTablecell>License Number</StyledTablecell>
+                            <StyledTablecell>Contact Number</StyledTablecell>
+
+
+
+                            {/* <StyledTablecell>Status</StyledTablecell> */}
                         </TableRow>
                     </TableHead>
-                    {/* {props.records.map((record,key)=>(  */}
+                    {props.doctors.map((record,key)=>( 
 
                     <TableBody>
 
                         <StyledTableRow >
                           <TableCell></TableCell>
-                        <TableCell>record.dname</TableCell>
-                        <TableCell>record.reason</TableCell>
-                        <TableCell>record.visitedDate</TableCell>
-                        {/* <TableCell><a href={`https://ipfs.io/ipfs/${record.ipfs}`} target="_blank"> click here to view your record</a></TableCell> */}
+                        <TableCell>{record.name}</TableCell>
+                        <TableCell>{record.hname}</TableCell>
+                        <TableCell>{record.faculty}</TableCell>
+                        <TableCell>{record.licenseno}</TableCell>
+                        <TableCell>{record.contact}</TableCell>
                         </StyledTableRow>
                     </TableBody>
-                    {/* ))} */}
+                     ))} 
                 </Table>
             </TableContainer>
             </Paper>
@@ -104,7 +160,7 @@ const Doctor =()=>{
               />
             <Navbar.Toggle/>
             <Navbar.Collapse className="justify-content-end">
-              <Navbar.Text > <b>Welcome </b> </Navbar.Text>
+              <Nav.Link  > <b>{props.owner} </b> </Nav.Link>
               <Nav.Link href ="/" width="250"> <b>Logout</b></Nav.Link>
               </Navbar.Collapse>
               </Navbar>

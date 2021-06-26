@@ -2,16 +2,20 @@ import './App.css';
 import React,{useState ,useEffect} from "react";
 import { Switch ,Route ,Router} from "react-router-dom";
 import Register from './pages/home';
-import Contract from "./contracts/Medossier.json"
+import Contract from "./contracts/meDossier.json"
 import getWeb3 from './getWeb3';
 import history from './pages/history';
 import Patient from './pages/patients_dashboard';
+import Verifier from './pages/verifier_dashboard';
 import {CONTRACT_ADDRESS,ABI} from './config.js'
 function App() {
  const[currentAccount,setCurrentAccount]= useState('');
  const[contract, setContract] = useState({});
  const[patient,setPatient] = useState([]);
  const[records,setRecords] = useState([]);
+ const [owner,setOwner]= useState('') ;
+ const[doctors,setDoctors] = useState([]);
+  const[doctor,setDoctor] = useState([]);
 
  const getWeb3Data = async()=>{
    try{
@@ -25,10 +29,13 @@ function App() {
      console.log(netwrokID);
      const networkdeployed = Contract.networks[netwrokID];
      console.log(networkdeployed);
-     const instance = await new web3.eth.Contract(ABI,CONTRACT_ADDRESS);
-    // const instance = await new web3.eth.Contract(Contract.abi,networkdeployed.address);
+    //  const instance = await new web3.eth.Contract(ABI,CONTRACT_ADDRESS);
+    const instance = await new web3.eth.Contract(Contract.abi,networkdeployed.address);
      setCurrentAccount(accounts[0]);
      setContract({...instance});
+     const owner = await instance.methods.owner().call();
+     console.log(owner);
+     setOwner(owner);
      //Just to confirm working of addPatient and addDoctor function 
     //  const patient = await instance.methods.getPatientDetails(accounts[0]).call();
     //  console.log(patient);
@@ -43,8 +50,16 @@ function App() {
     //     console.log(recordlist);
     //   }
     //   setRecords(recordlist);
-
+    // instance.once("adddoctor",{
+    //   filter: {},
+    //   fromBlock:'latest'
+    // },
+    // function(error,event){
+    //   console.log(event);
+    // })
+console.log('hh')
    }
+
    catch(error){
      alert("Cannot load web3 ,contract. Consult console for details");
      console.log(error);
@@ -59,14 +74,15 @@ function App() {
     }
     catch(error){
       console.log(error);
+      alert(error)
     }
   }
   //Register/Add Doctor
-  const doctorRegister = async(name,hname,contact,faculty)=>{
+  const doctorRegister = async(name,hname,contact,faculty,license)=>{
     try{
       console.log(name,contact,faculty);
-      contract.methods.addDoctor(name,hname,contact,faculty).send({from:currentAccount});
-      await getWeb3Data();
+      getWeb3Data();
+     const res= contract.methods.addDoctor(name,hname,contact,faculty,license).send({from:currentAccount});
 
     }
 catch(error){
@@ -76,15 +92,11 @@ catch(error){
   //Handle  patient Login
   const phandlelogin = async()=>{
     try{
-      console.log("sucess");
       const patient = await contract.methods.getPatientDetails(currentAccount).call();
       setPatient(patient);
       console.log(patient)
-      // if(patient.length!==0){
-         await getPatientRecord();
-
-        history.push('/patient')
-      // }
+      await getPatientRecord();
+      history.push('/patient')
       
     }
     catch(error){
@@ -93,6 +105,19 @@ catch(error){
       alert("No records found")
     }
   }
+
+//handle verifier login
+const handleverifier = async()=>{
+  
+  if(currentAccount==owner){
+    getDoctor();
+    history.push('/verify')
+  }
+  else {
+    alert("You cannot login")
+  }
+}
+
 //Patient grant Access to doctor
   const grantAccess = async(doctor)=>{
     try{       console.log(doctor);
@@ -114,28 +139,6 @@ catch(error){
       alert(error);
     }
   }
-//Get Patient details by patient
-  // const getPatientRecord = async()=>{
-  //   try{
-  //     const recordlength =  await contract.methods.getrecordlist(currentAccount).call();
-  //     console.log(recordlength);
-  //     const recordlist =[];
-  //     for (let i =0 ;i<recordlength; i++){
-  //       console.log(currentAccount)
-  //       const record = await  contract.methods.getPatientRecords(currentAccount,i).call();
-  //       console.log(record);
-
-  //       recordlist.push(record);
-  //     }
-  //     setRecords(recordlist);
-  //     console.log(records)
-
-  //   }
-  //   catch(error){
-  //     console.log(error);
-  //    alert(error);
-  //   }
-  // }
   const getPatientRecord = async()=>{
     try{
       const recordlength =  await contract.methods.getrecordlist(currentAccount).call();
@@ -154,7 +157,23 @@ catch(error){
      alert(error);
     }
   }
-  
+    const getDoctor = async()=>{
+      try{
+        const doctorlength =await contract.methods.getdoctorlist().call();
+        console.log(doctorlength);
+        const doctorlist =[];
+        for(let i=0;i<doctorlength;i++){
+            const doctors = await contract.methods.getDoctorbyId(i).call();
+            console.log(doctors);
+            doctorlist.push(doctors);
+        }
+        setDoctors(doctorlist);
+      await getWeb3Data();}
+      catch(error){
+        console.log(error);
+      }}
+
+
   //Handle Doctor Login
   const dhandlelogin = async()=>{
     try{
@@ -178,6 +197,7 @@ catch(error){
           doctorRegister ={doctorRegister}
           phandlelogin ={phandlelogin}
           dhandlelogin ={dhandlelogin}
+          handleverifier ={handleverifier}
 
           />
           </Route>
@@ -190,6 +210,18 @@ catch(error){
             currentAccount ={currentAccount}
             getPatientRecord ={getPatientRecord}
             records ={records}
+            />
+          </Route>
+          <Route path='/verify'>
+            <Verifier
+            owner ={owner}
+            contract ={contract}
+            currentAccount ={currentAccount}
+            getDoctor ={getDoctor}
+            // getunverifieddoctor={getunverifieddoctor}
+            // unverifieddoctor ={doctor}
+            doctors={doctors}
+            // verifydoctor ={verifydoctor}
             />
           </Route>
           </Switch>

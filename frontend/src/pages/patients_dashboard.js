@@ -3,7 +3,6 @@ import {Tabs, Tab, Row, Nav, Navbar,Card,Button} from "react-bootstrap";
 import {withStyles,makeStyles} from '@material-ui/core/styles';
 import {Table, TableBody,TableCell,TableContainer,TableHead,TableRow}from "@material-ui/core";
 import Paper from '@material-ui/core/Paper';
-// import { Button } from "react-bootstrap";
 import ipfs from "../ipfs";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from "./logo.png"
@@ -17,7 +16,6 @@ function Patient(props){
    const[buffer,setBuffer] = useState();
   console.log(props.records);
   console.log(props.patient);
-  // const[records,setRecords] =useState([]);
     const doctorRef = useRef();
     const grantRef = useRef();
   const useStyles = makeStyles({
