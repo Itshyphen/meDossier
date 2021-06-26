@@ -221,8 +221,10 @@ function DocDashboard(props) {
 
 
   return (
+    
 
     <div className="DocDashboard">
+      {getWeb3Data}
 
       {/* Navbar */}
       <div className="navbar">
@@ -277,17 +279,27 @@ function DocDashboard(props) {
 
                       {/* Doctors Details */}
                       <Tab.Pane eventKey="your_details">
+                      <div className="Details">
+            <h4>
+            ....Welcome to the meDossier....
+            </h4>
+            <h4>..This is the place where you can access your patients records anywhere everywhere..</h4>
+            </div>
                         <div className="card">
                           <h3>Your Details</h3>
                           <hr></hr>
                           <div>
                             <b>
-                              Account Address:<span>{currentAccount}</span>
+                              Account Address:<span>{props.doctor.addr}</span>
                             </b>
                           </div>
                           <div className="details">
                             <b>
                               Name :<span>{props.doctor.name}</span>
+                            </b>
+                            <br></br>
+                            <b>
+                              License Number :<span>{props.doctor.licenseno}</span>
                             </b>
                             <br></br>
                             <b>
@@ -309,6 +321,12 @@ function DocDashboard(props) {
 
                       {/* Access Record Tab*/}
                       <Tab.Pane eventKey="access_record">
+                      <div className="Details">
+            <h4>
+            ....Welcome to the meDossier....
+            </h4>
+            <h4>..Before you access the records, ask the patient for the permission..</h4>
+            </div>
                         {/* Enter Address Container */}
                         <div class="small card">
                           <h5>
@@ -338,7 +356,7 @@ function DocDashboard(props) {
                         {/* End Enter Address Container */}
 
                         {/* Patient Details */}
-                        <div class="container">
+                        <div class="small card">
                           <Card>
                             <h4>Patient Name: </h4>
                             <b>Account Address:</b>
@@ -353,10 +371,8 @@ function DocDashboard(props) {
                               <div>Blood Group:{blood}</div>
                             </div>
                           </Card>
-                        </div>
-                        {/* End Patient Details */}
 
-                        {/* view patient records */}
+                          <div className="table">
                         <Box mt={3} mb={3}>
                           <TableContainer component={Paper}>
                             <Table size={"small"}>
@@ -392,12 +408,26 @@ function DocDashboard(props) {
                             </Table>
                           </TableContainer>
                         </Box>
+                          
+                        </div>
+                        </div>
+                        {/* End Patient Details */}
+
+                        {/* view patient records */}
+                       
+                        
                         {/* End Patient Record */}
                       </Tab.Pane>
                       {/* End Access Record */}
 
                       {/* Add Record */}
                       <Tab.Pane eventKey="add_record">
+                      <div className="Details">
+            <h4>
+            ....Welcome to the meDossier....
+            </h4>
+            <h4>..Upload the new records of your patients..</h4>
+            </div>
                         <div className="card">
                           <h3>Add Records</h3>
                           <hr></hr>
@@ -416,6 +446,7 @@ function DocDashboard(props) {
                               variant="outlined"
                               margin="normal"
                               label="Doctor Name"
+                              value={props.doctor.name}
                               onChange={(e) => setDname(e.target.value)}
                             />
                             <TextField

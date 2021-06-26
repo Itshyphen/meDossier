@@ -1,6 +1,4 @@
- body{
-     background-color: aqua;
- }
+
  .navbar{
      width: 100%;
      height:4rem;
@@ -35,16 +33,17 @@
         min-width: 0;
         width: 100%;
     }
-    .container {
-        margin: 1rem;
-    }
 
     .card {
         margin: auto;
-        top: 10vw;
+        /* margin-top: 10px; */
+        top: 3vw;
         height: 40rem;
         width: 60vw;
-        padding: 4rem;
+        padding: 3rem;
+        border-color:#0080FF;
+        border-width: 5px;
+        border-radius: 1rem;
     }
 
     .card .details {
@@ -66,17 +65,15 @@
     border: 1px;
     }
     .small{
+        padding-left: 1 rem;
+        padding-right: 1rem;
         top: 50px;
-        position: absolute;
+        /* position: absolute; */
         height: fit-content;
         width: 80%;
-        margin-bottom: 100px;
+        margin-bottom: 20px;
     }
     .smallcard div{
         padding-right: 2rem;
         padding-bottom: 1rem;
-    }
-
-    TextField{
-        width: 5rem;
     }

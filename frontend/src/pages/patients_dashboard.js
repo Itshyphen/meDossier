@@ -7,7 +7,8 @@ import Paper from '@material-ui/core/Paper';
 import ipfs from "../ipfs";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from "./logo.png"
-import '../App.css';
+import './general.css';
+import './patient.css'
 
 
 function Patient(props){
@@ -21,6 +22,7 @@ function Patient(props){
   console.log(props.patient);
   // const[records,setRecords] =useState([]);
     const doctorRef = useRef();
+    const grantRef = useRef();
 
   const useStyles = makeStyles({
     table:{
@@ -74,24 +76,40 @@ function Patient(props){
     const Details = ()=>{
         return(
           <div className="Details">
-            <h2>
-                  Your Details
+            <h4>
+            Medical Records are important for you and we care about them and store them securely! Get your records anywhere with just a touch!
 
-                  </h2>
-
-            <Card > 
-                    <Card.Body>
-                   <b> Name:</b>{props.patient._name}
-                  <br/>
-                   <b>Phone: </b>{props.patient._phone}
-                  <br/>
-                  <b>Gender:</b>{props.patient._gender}
-                  <br/>
-                <b> Date of Birth:</b>{props.patient._dob}
-                <br/> 
-               <b> Blood Group: </b>{props.patient._bloodgroup}
-             </Card.Body>
-            </Card>
+            </h4>
+            <div className="card">
+                          <h3>Your Details</h3>
+                          <hr></hr>
+                          <div>
+                            <b>
+                              Account Address:<span>{props.currentAccount}</span>
+                            </b>
+                          </div>
+                          <div className="details">
+                            <b>
+                              Name :<span>{props.patient._name}</span>
+                            </b>
+                            <br></br>
+                            <b>
+                              Phone :<span>{props.patient._phone}</span>
+                            </b>
+                            <br></br>
+                            <b>
+                              Gender :<span>{props.patient._gender}</span>
+                            </b>
+                            <br />
+                            <b>
+                              Date of Birth :<span>{props.patient._dob}</span>
+                            </b>
+                            <br></br>
+                            <b>
+                              Blood Group :<span>{props.patient._bloodgroup}</span>
+                            </b>
+                          </div>
+                        </div>
             </div>
 
         )
@@ -124,14 +142,13 @@ const onsubmit = async(event)=>{
     const Upload =()=>{
         return(
             <div className="ReportUpload">
-              <h2> Report Upload</h2>
-              <Card className="card">
+              <h4> !!!Upload your records to the meDossier for the highest level of security!!!</h4>
+              <Card className="small card">
 
               <div className="upload">
                 <label> Upload your report to IPFS</label>
     <form onSubmit={onsubmit}>
-      <label> 
-        </label>
+      
         <input type= "file"  onChange ={handlechange}
        
         />
@@ -232,37 +249,52 @@ const onsubmit = async(event)=>{
       </div>
     )
   }
+
   const Access=()=>{
-return(
-  <div>
-    <h2>Grant/Revoke Access</h2>
-    <Card>
-
-            <form onSubmit ={(event)=>{
-                event.preventDefault();
-                const doctor = doctorRef.current.value;
-                props.grantAccess(doctor);
-            }}>
-                <label>Provide Access: </label>
-                <input type="text" placeholder=" Address to grant access"
-                ref ={doctorRef}/> 
-                <Button> Submit</Button>
-                </form>
-
-                <br/>
-                <form onSubmit ={(event)=>{
-                    event.preventDefault();
-                    const doctor = doctorRef.current.value;
-                    props.revokeAccess(doctor);
-                }}>
-                    <label> Revoke Access: </label>
-                    <input type="text" placeholder=" Address to revoke access from"
-                    ref={doctorRef}/>
-                <Button> Submit</Button>
-                </form>
-                </Card>
-
-  </div>
+    return(
+      <div className="small card">
+        <h2>Grant/Revoke Access</h2>
+        <Card>
+    
+                <form 
+                // onSubmit ={(event)=>{
+                //     event.preventDefault();
+                //     const doctor = doctorRef.current.value;
+                //     props.grantAccess(doctor);
+                // }}
+                >
+                    <label>Provide Access: </label>
+                    <input type="text" placeholder=" Address to grant access"
+                    ref ={grantRef}/> 
+                    <Button onClick ={(event)=>{
+                      event.preventDefault();
+                      const doctor = grantRef.current.value;
+                      console.log(doctor)
+                      props.grantAccess(doctor);
+                  }}> Submit</Button>
+                    </form>
+    
+                    <br/>
+                    <form 
+                    // onSubmit ={(event)=>{
+                    //     event.preventDefault();
+                    //     const doctor = doctorRef.current.value;
+                    //     props.revokeAccess(doctor);
+                    // }}
+                    >
+                        <label> Revoke Access: </label>
+                        <input type="text" placeholder=" Address to revoke access from"
+                        ref={doctorRef}/>
+                    <Button onClick  ={(event)=>{
+                        event.preventDefault();
+                        const doctor = doctorRef.current.value;
+                        console.log(doctor);
+                        props.revokeAccess(doctor);
+                    }}> Submit</Button>
+                    </form>
+                    </Card>
+    
+      </div>
 )
   }
     return(
@@ -283,7 +315,7 @@ return(
             <Navbar.Toggle/>
             <Navbar.Collapse className="justify-content-end">
               <Navbar.Text > <b>Welcome </b> </Navbar.Text>
-              <Nav.Link href ="/" width="250"> <b>Logout</b></Nav.Link>
+              <Nav.Link href ="/" width="250" color="black"> <b>Logout</b></Nav.Link>
               </Navbar.Collapse>
               </Navbar>
 
@@ -298,7 +330,7 @@ return(
                             <Nav.Item>
                             <Nav.Link eventKey="profile">AccessRecord</Nav.Link> <hr/></Nav.Item>                           
                             <Nav.Item><Nav.Link eventKey="uploadRecord">UploadRecord</Nav.Link><hr/></Nav.Item>
-                            <Nav.Item><Nav.Link eventKey="access">Grant/Revoke Acccess</Nav.Link><hr/>f
+                            <Nav.Item><Nav.Link eventKey="access">Grant/Revoke Acccess</Nav.Link><hr/>
                             </Nav.Item>
 
                             </Nav> 

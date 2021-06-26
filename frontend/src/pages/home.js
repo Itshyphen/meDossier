@@ -1,3 +1,4 @@
+import { TextField } from "@material-ui/core";
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import PhoneInput from "react-phone-number-input/input"
@@ -10,6 +11,7 @@ function Register(props){
     const bloodRef = React.useRef()
     const dnameRef = React.useRef();
     const facultyRef =React.useRef();
+    const licenceRef =React.useRef();
     const dphoneRef = React.useRef();
     const hnameRef = React.useRef();
     const [err, Seterr]= useState();
@@ -55,11 +57,11 @@ function Register(props){
             </div>
             <div className="b-container">
 
-            <div className="Patient">
+            <div className="Patient small card">
                 <h3> Add Patient</h3>
                 <form>
                 <label>Name: </label>
-                <input type="text" name ="name" placeholder="Enter the patient's name"
+                <input fullwidth type="text" name ="name" placeholder="Enter the patient's name"
                 ref={pnameRef}  required 
                 >
                     </input>
@@ -96,19 +98,21 @@ function Register(props){
                     const dob = dobRef.current.value;
                     const blood = bloodRef.current.value;
                     props.patientRegister(name,phone,gender,dob,blood);
-                }}> 
+                }}
+                > 
                 Submit </Button>
-                </form>
                 <Button onClick ={()=>{
                     props.phandlelogin()
                 }}
                 >Login
                  </Button>
+                </form>
+                
             </div>
             <br/>
             {/* Doctor login/signup
             */}
-            <div className="Doctor">
+            <div className="Doctor small card">
                 <h3> Add Doctor</h3>
                 <form>
                     <label>Name: </label>
@@ -116,6 +120,10 @@ function Register(props){
                 ref={dnameRef}>
 
                     </input>
+                    <br/>
+                    <label>License Number:</label>
+                    <input type ="text" placeholder ="License number"
+                    ref ={licenceRef} required/>
                     <br/>
                     <label>Hospital Name:</label>
                     <input type ="text" placeholder ="Name of the hospital"
@@ -137,14 +145,26 @@ function Register(props){
                     const contact = dphoneRef.current.value;
                     const faculty = facultyRef.current.value;
                     const hname = hnameRef.current.value;
-                    props.doctorRegister(name, hname,faculty,contact); }}>Submit</Button>
-                </form>
-                <Button onClick ={()=>{
+                    const license = licenceRef.current.value;
+                    props.doctorRegister(name,hname,faculty,contact,license); }}>Submit</Button>
+                      <Button onClick ={()=>{
                     props.dhandlelogin()
                 }}
                 >Login
                  </Button>
+                </form>
+              
             </div>
+            </div>
+            <div className ="login small card">
+                <h4>Already have an account?</h4>
+                <Button onClick ={()=>{
+                    props.handlelogin()
+                }}
+                >Login
+                 </Button>
+
+                
             </div>
              <div>    
             </div>

@@ -252,4 +252,3 @@ function doctorLogin() public{
         doctors[msg.sender].isApproved = true;
     }
 }
-}

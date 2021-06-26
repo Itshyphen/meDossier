@@ -7,6 +7,7 @@ import history from './history';
 import Patient from './patients_dashboard';
 import DocDashboard from './doctor_dashboard';
 import { CONTRACT_ADDRESS, ABI } from "../config.js";
+import Verifier from "./registrer_dashboard";
 
 
 function Render() {
@@ -46,10 +47,10 @@ function Render() {
     }
   }
   //Register/Add Doctor
-  const doctorRegister = async(name,hname,contact,faculty)=>{
+  const doctorRegister = async(name,hname,contact,faculty,license)=>{
     try{
       console.log(name,hname,contact,faculty);
-      const result = await contract.methods.addDoctor(name,hname,contact,faculty).send({from:currentAccount,gas:1000000});
+      const result = await contract.methods.addDoctor(name,hname,contact,faculty,license).send({from:currentAccount,gas:1000000});
       // await getWeb3Data();
 
     }
@@ -58,24 +59,54 @@ catch(error){
 }
   }
   //Handle  patient Login
-  const phandlelogin = async()=>{
-    try{
-      console.log("sucess");
-      const patient = await contract.methods.getPatientDetails(currentAccount).call({from:currentAccount});
-      setUser(patient);
-      console.log(patient)
-      // if(patient.length!==0){
-        getPatientRecord();
+  const handlelogin = async()=>{
+    const result = await contract.methods.user(currentAccount).call({from:currentAccount});
+    console.log(result);
+    if(result==0){
+      try{
+        console.log("success");
+        await contract.methods.doctorLogin().send({from:currentAccount,gas:1000000})
+        const doctor = await contract.methods.getDoctorByAddress(currentAccount).call({from:currentAccount});
+        setUser(doctor);
+        console.log(doctor)
+          history.push('/doctor_dashboard')
+        // }
+        
+      }
+      catch(error){
+        console.error(error);
+        // alert(error)
+        alert("No records found")
+      }
+    }
+    else if(result==1){
+      try{
+        console.log("sucess");
+        const patient = await contract.methods.getPatientDetails(currentAccount).call({from:currentAccount});
+        setUser(patient);
+        console.log(patient)
+        // if(patient.length!==0){
+          getPatientRecord();
+  
+          history.push('/patient')
+        // }
+        
+      }
+      catch(error){
+        console.error(error);
+        // alert(error)
+        alert("No records found")
+      }
+    }
+    else if(result==2) {
 
-        history.push('/patient')
-      // }
-      
+        history.push('/Registration_office')
+  
     }
-    catch(error){
-      console.error(error);
-      // alert(error)
-      alert("No records found")
+    else{
+      alert("User not registered!")
     }
+   
   }
 //Patient grant Access to doctor
   const grantAccess = async(doctor)=>{
@@ -146,7 +177,7 @@ catch(error){
           <Register
           patientRegister={patientRegister}
           doctorRegister ={doctorRegister}
-          phandlelogin ={phandlelogin}
+          handlelogin ={handlelogin}
           dhandlelogin ={dhandlelogin}
 
           />
@@ -165,7 +196,15 @@ catch(error){
           <Route exact path = "/doctor_dashboard">
           <DocDashboard 
           doctor = {user}
+          contract ={contract}
           />
+          
+          </Route>
+          <Route exact path = "/Registration_office">
+          <Verifier 
+          owner = {user}
+          />
+          
           </Route>
           
           </Switch>
