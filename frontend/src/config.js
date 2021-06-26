@@ -1,5 +1,11 @@
-export const CONTRACT_ADDRESS="0xA86Dd208B63Abf540A3bf49D6C4Eab59138DfCac";
+export const CONTRACT_ADDRESS="0x322300121e38E30Aeff17e40fc864a1C1A665062";
 export const ABI = [
+  {
+    "inputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
   {
     "constant": true,
     "inputs": [],
@@ -39,6 +45,21 @@ export const ABI = [
   {
     "constant": true,
     "inputs": [],
+    "name": "owner",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
     "name": "pindex",
     "outputs": [
       {
@@ -49,6 +70,68 @@ export const ABI = [
     ],
     "payable": false,
     "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "registeredDoctorList",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "addr",
+        "type": "address"
+      }
+    ],
+    "name": "user",
+    "outputs": [
+      {
+        "internalType": "int256",
+        "name": "success",
+        "type": "int256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "docname",
+        "type": "string"
+      },
+      {
+        "internalType": "uint256",
+        "name": "license",
+        "type": "uint256"
+      }
+    ],
+    "name": "registerDoctor",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
@@ -66,6 +149,27 @@ export const ABI = [
       }
     ],
     "name": "isAuthorized",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "success",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "addr",
+        "type": "address"
+      }
+    ],
+    "name": "isRegistered",
     "outputs": [
       {
         "internalType": "bool",
@@ -211,6 +315,57 @@ export const ABI = [
   },
   {
     "constant": true,
+    "inputs": [],
+    "name": "getdoctorlist",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "getRegisteredDoctorslength",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "id",
+        "type": "uint256"
+      }
+    ],
+    "name": "getRegisteredDoctorsList",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "license",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
     "inputs": [
       {
         "internalType": "address",
@@ -272,6 +427,11 @@ export const ABI = [
         "internalType": "string",
         "name": "_contact",
         "type": "string"
+      },
+      {
+        "internalType": "uint256",
+        "name": "license",
+        "type": "uint256"
       }
     ],
     "name": "addDoctor",
@@ -285,11 +445,11 @@ export const ABI = [
     "inputs": [
       {
         "internalType": "uint256",
-        "name": "_id",
+        "name": "license",
         "type": "uint256"
       }
     ],
-    "name": "getDoctorbyId",
+    "name": "getDoctorbyLicense",
     "outputs": [
       {
         "internalType": "uint256",
@@ -303,17 +463,12 @@ export const ABI = [
       },
       {
         "internalType": "string",
-        "name": "contact",
+        "name": "hospital",
         "type": "string"
       },
       {
         "internalType": "string",
-        "name": "hname",
-        "type": "string"
-      },
-      {
-        "internalType": "string",
-        "name": "faculty",
+        "name": "_faculty",
         "type": "string"
       },
       {
@@ -325,6 +480,11 @@ export const ABI = [
         "internalType": "bool",
         "name": "isApproved",
         "type": "bool"
+      },
+      {
+        "internalType": "uint256",
+        "name": "licenseno",
+        "type": "uint256"
       }
     ],
     "payable": false,
@@ -376,6 +536,11 @@ export const ABI = [
         "internalType": "bool",
         "name": "isApproved",
         "type": "bool"
+      },
+      {
+        "internalType": "uint256",
+        "name": "licenseno",
+        "type": "uint256"
       }
     ],
     "payable": false,
@@ -427,6 +592,11 @@ export const ABI = [
         "internalType": "bool",
         "name": "isApproved",
         "type": "bool"
+      },
+      {
+        "internalType": "uint256",
+        "name": "licenseno",
+        "type": "uint256"
       }
     ],
     "payable": false,
@@ -471,6 +641,15 @@ export const ABI = [
         "type": "bool"
       }
     ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [],
+    "name": "doctorLogin",
+    "outputs": [],
     "payable": false,
     "stateMutability": "nonpayable",
     "type": "function"
