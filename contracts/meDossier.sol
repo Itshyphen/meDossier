@@ -46,17 +46,24 @@ contract meDossier{
     mapping(string=>mapping(uint256=>bool)) Registered;
     
     
-    constructor(){
+    constructor() public {
         owner = msg.sender;
         
     }
     
-    function isdoctor(address addr) public view returns (bool success){
-        return isDoctor[addr];
-    }
-    
-        function ispatient(address addr) public view returns (bool success){
-        return isPatient[addr];
+    function user(address addr) public view returns (int success){
+        if(isDoctor[addr]==true){
+            return 0;
+        }
+        else if(isPatient[addr]==true){
+            return 1;
+        }
+        else if(addr==owner){
+            return 2;
+        }
+        else{
+            return 3;
+        }
     }
     
     //Register the doctor by certain authority
@@ -216,7 +223,7 @@ function getRegisteredDoctorsList(uint256 id) public view returns(uint256 licens
     
 
  function getDoctorByAddress(address _address) public view returns(uint256 id,string memory name , string memory contact ,string memory hname ,string memory faculty ,address addr , bool isApproved,uint256 licenseno) {
-        require(doctors[_address].isApproved,"Doctor is not Approved or doesn't exist");
+        // require(doctors[_address].isApproved,"Doctor is not Approved or doesn't exist");
         doctor memory doc = doctors[_address];
         return (doc.id,doc.name,doc.contact,doc.hname,doc.faculty,doc.addr,doc.isApproved,doc.licenseno);
     } 
@@ -231,7 +238,7 @@ function getRegisteredDoctorsList(uint256 id) public view returns(uint256 licens
         return true;
     }
 
-//Revoke access of patient records fromcertain address
+//Revoke access of patient records from certain address
       function revoke_access(address _addr)  public returns (bool success){
         require(msg.sender!=_addr,"You can't remove yourself");
         require(Authorized[msg.sender][_addr],"User is not authorized yet");
@@ -245,6 +252,4 @@ function doctorLogin() public{
         doctors[msg.sender].isApproved = true;
     }
 }
-    
-
 }
