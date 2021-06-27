@@ -19,6 +19,7 @@ import "./general.css";
 import logo from "./logo.png";
 import { CONTRACT_ADDRESS, ABI } from "../config.js";
 import ipfs from "../ipfs.js"
+import history from "./history";
 
 
 
@@ -185,6 +186,9 @@ function DocDashboard(props) {
     },
   }))(TableRow);
 
+  if(props.isDoctor=="false"){
+    history.push('/')
+  }
 
   return (
     

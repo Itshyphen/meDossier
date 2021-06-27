@@ -8,7 +8,9 @@ import ipfs from "../ipfs";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from "./logo.png"
 import './general.css';
-import './patient.css'
+import './patient.css';
+import history from "./history";
+
 
 import Web3 from "web3";
 import { CONTRACT_ADDRESS, ABI } from "../config.js";
@@ -335,6 +337,9 @@ const onsubmit = async(event)=>{
     
       </div>
 )
+  }
+  if(props.isPatient=="false"){
+    history.push('/')
   }
     return(
         

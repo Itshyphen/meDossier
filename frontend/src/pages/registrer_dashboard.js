@@ -18,8 +18,7 @@ import { Tabs, Tab, Row, Col, Nav } from "react-bootstrap";
 import "./general.css";
 import logo from "./logo.png";
 import { CONTRACT_ADDRESS, ABI } from "../config.js";
-import ipfs from "../ipfs.js"
-
+import history from "./history";
 
 
 //main dashboard
@@ -131,7 +130,11 @@ function Verifier(props) {
       },
     },
   }))(TableRow);
-
+  if(props.isuser=='false')
+  {
+    history.push("/")
+    
+  }
 
   return (
     

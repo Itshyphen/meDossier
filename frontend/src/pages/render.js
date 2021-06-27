@@ -15,7 +15,9 @@ function Render() {
  const[currentAccount,setCurrentAccount]= useState('');
  const[contract, setContract] = useState({});
  const[user,setUser] = useState([]);
-
+ const[isUser,setIsUser]=useState('false')
+ const[isPatient,setIsPatient] = useState('false');
+ const[isDoctor,setIsDoctor] = useState('false');
  const getWeb3Data = async()=>{
    try{
       //obtain web3 from getWeb3
@@ -75,6 +77,7 @@ if(doctor.isApproved==false){
         
         // await contract.methods.doctorLogin().send({from:currentAccount,gas:1000000})
         // const doctor = await contract.methods.getDoctorByAddress(currentAccount).call({from:currentAccount});
+        setIsDoctor('true');
         setUser(doctor);
         localStorage.setItem('docname',doctor.name)
         localStorage.setItem('faculty',doctor.faculty)
@@ -101,6 +104,8 @@ if(doctor.isApproved==false){
       try{
         console.log("sucess");
         const patient = await contract.methods.getPatientDetails(currentAccount).call({from:currentAccount});
+        setIsPatient('true');
+
         setUser(patient);
         console.log(patient)
         // if(patient.length!==0){
@@ -123,6 +128,8 @@ if(doctor.isApproved==false){
       }
     }
     else if(result==2) {
+      setIsUser('true')
+
       
         history.push('/Registration_office')
   
@@ -182,6 +189,8 @@ if(doctor.isApproved==false){
             grantAccess ={grantAccess}
             revokeAccess ={revokeAccess}
             logout ={logout}
+            isPatient = {isPatient}
+
             // getPatientRecord ={getPatientRecord}
             // records ={records}
             />
@@ -191,6 +200,7 @@ if(doctor.isApproved==false){
           doctor = {user}
           logout ={logout}
           currentAccount ={currentAccount}
+          isDoctor={isDoctor}
           />
           
           </Route>
@@ -198,6 +208,8 @@ if(doctor.isApproved==false){
           <Verifier 
           owner = {user}
           logout ={logout}
+          isuser = {isUser}
+
           />
           
           </Route>
