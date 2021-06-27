@@ -5,11 +5,12 @@ import {Table, TableBody,TableCell,TableContainer,TableHead,TableRow}from "@mate
 import Paper from '@material-ui/core/Paper';
 // import { Button } from "react-bootstrap";
 import ipfs from "../ipfs";
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from "./logo.png"
 import './general.css';
 import './patient.css';
 import history from "./history";
+import Register from "./home";
 
 
 import Web3 from "web3";
@@ -40,7 +41,8 @@ function Patient(props){
     const bloodgroup = localStorage.getItem('bloodgroup')
     const phone = localStorage.getItem('phone')
     const currentAccount =localStorage.getItem('currentAccount')
-
+    const ispatient = localStorage.getItem('ispatient')
+   console.log(ispatient)
    const web3 = new Web3(Web3.givenProvider)
     const contract =  new web3.eth.Contract(ABI, CONTRACT_ADDRESS);
 
@@ -338,9 +340,12 @@ const onsubmit = async(event)=>{
       </div>
 )
   }
-  if(props.isPatient=="false"){
+  console.log(ispatient);
+  if(ispatient !== "true"){
     history.push('/')
   }
+  
+  
     return(
         
         <div className="patient_main">
@@ -407,4 +412,12 @@ const onsubmit = async(event)=>{
  
 </div>
 )}
+// else {
+//   return(
+    
+//   history.push('/')
+//     )
+//   }
+
+  // }
 export default Patient;

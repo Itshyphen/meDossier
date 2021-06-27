@@ -53,6 +53,7 @@ function DocDashboard(props) {
 
   const web3 = new Web3(Web3.givenProvider)
   const contract =  new web3.eth.Contract(ABI, CONTRACT_ADDRESS);
+  const isDoctor = localStorage.getItem('isdoctor')
 
 
   
@@ -186,7 +187,7 @@ function DocDashboard(props) {
     },
   }))(TableRow);
 
-  if(props.isDoctor=="false"){
+  if(isDoctor !=="true"){
     history.push('/')
   }
 

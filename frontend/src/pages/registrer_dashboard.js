@@ -32,6 +32,7 @@ function Verifier(props) {
 
 
   const currentAccount =localStorage.getItem('currentAccount')
+  const isUser = localStorage.getItem('isUser')
 
   const web3 = new Web3(Web3.givenProvider)
   const contract =  new web3.eth.Contract(ABI, CONTRACT_ADDRESS);
@@ -130,7 +131,7 @@ function Verifier(props) {
       },
     },
   }))(TableRow);
-  if(props.isuser=='false')
+  if(isUser !=="true")
   {
     history.push("/")
     
