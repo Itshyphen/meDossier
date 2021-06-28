@@ -9,7 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from "./logo.png"
 import './general.css';
 import './patient.css'
-
+import history from './history';
 import Web3 from "web3";
 import { CONTRACT_ADDRESS, ABI } from "../config.js";
 
@@ -115,7 +115,7 @@ function Patient(props){
 
     }
     catch(error){
-     alert(error);
+     console.log(error);
     }
   }
 
@@ -250,6 +250,9 @@ const onsubmit = async(event)=>{
         </div>
       )
     }
+    if(!currentAccount){
+      history.push('/')
+    }
     
     return(
       <div className="Report">
@@ -335,6 +338,9 @@ const onsubmit = async(event)=>{
     
       </div>
 )
+  }
+  if(!currentAccount){
+    history.push('/')
   }
     return(
         

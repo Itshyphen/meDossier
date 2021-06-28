@@ -18,7 +18,7 @@ import { Tabs, Tab, Row, Col, Nav } from "react-bootstrap";
 import "./general.css";
 import logo from "./logo.png";
 import { CONTRACT_ADDRESS, ABI } from "../config.js";
-import ipfs from "../ipfs.js"
+import history from './history';
 
 
 
@@ -37,11 +37,6 @@ function Verifier(props) {
   const web3 = new Web3(Web3.givenProvider)
   const contract =  new web3.eth.Contract(ABI, CONTRACT_ADDRESS);
 
-  
-
- 
-
-  
     const Register = async (e) => {
       try {
         //whether doctor is authorized or not
