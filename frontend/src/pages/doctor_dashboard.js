@@ -14,7 +14,7 @@ import {
   TextField,
   Button,
 } from "@material-ui/core";
-import { Tabs, Tab, Row, Col, Nav } from "react-bootstrap";
+import { Tabs, Tab, Row, Col, Nav,Navbar } from "react-bootstrap";
 import "./general.css";
 import logo from "./logo.png";
 import { CONTRACT_ADDRESS, ABI } from "../config.js";
@@ -195,27 +195,27 @@ function DocDashboard(props) {
     
 
     <div className="DocDashboard">
+      <div className="nav_main">
 
-      {/* Navbar */}
-      <div className="navbar">
-        <a href="/doctor_dashboard">
-        <Button 
-        o
-        >
-           <img
-          src={logo}
-          // width="200"
-          // height="80"
-          className="d-inline-block align-top"
-          alt="React Bootstrap logo"
-        />
-                          </Button>
+      <Navbar 
+            expand="lg" 
+            >
+              <img src={logo}
+              // width="250"
+              // height="60"
+              className="d-inline-block align-top"
+              />
+            {/* patient */}
+            <Navbar.Toggle/>
+            <Navbar.Collapse className="justify-content-end">
 
-        </a>
-      
-       
-        <Button onClick={e=>props.logout()}>Log out</Button>
-      </div>
+              <Nav.Link a href="/doctor_dashboard" > <i class="fas fa-user-md"></i>
+                {docname}</Nav.Link>
+              <Button onClick={e=>props.logout()}> <i class="fas fa-sign-out-alt"></i>Log out</Button>
+              </Navbar.Collapse>
+              </Navbar>
+              </div>
+
       {/* End Navbar */}
 
       {/* Side Tabs */}
@@ -226,36 +226,42 @@ function DocDashboard(props) {
               <Tab.Container defaultActiveKey="your_details">
                 <Row>
                   <Col sm={3}>
-                    <Nav variant="pills" className="flex-column">
+                    <Nav  variant="pills" className="flex-column">
                       <div>
                         <Nav.Item>
                           <Nav.Link eventKey="your_details">
                             My Details
                           </Nav.Link>
+                          <hr/>
                         </Nav.Item>
                       </div>
 
                       <Nav.Item>
                         <Nav.Link eventKey="access_record">
                           Access Records
-                        </Nav.Link>
+                        </Nav.Link>                          
+                        <hr/>
+
                       </Nav.Item>
 
                       <Nav.Item>
                         <Nav.Link eventKey="add_record">Add Records</Nav.Link>
+                        <hr/>
                       </Nav.Item>
                     </Nav>
                   </Col>
+                  
                   <Col sm={9}>
                   <Tab.Content>
 
 {/* Doctors Details */}
 <Tab.Pane eventKey="your_details">
 <div className="Details">
-<h4>
-....Welcome to the meDossier....
-</h4>
-<h4>..This is the place where you can access your patients records anywhere everywhere..</h4>
+<h1>
+Welcome to  MeDossier
+</h1>
+<h5>This is the place where you can access your patients records anywhere everywhere</h5>
+<br/>
 </div>
   <div className="card">
     <h3>Your Details</h3>
@@ -294,10 +300,10 @@ function DocDashboard(props) {
 {/* Access Record Tab*/}
 <Tab.Pane eventKey="access_record">
 <div className="Details">
-<h4>
-....Welcome to the meDossier....
-</h4>
-<h4>..Before you access the records, ask the patient for the permission..</h4>
+<h1>
+Welcome to  MeDossier
+</h1>
+<h5>Before you access the records, ask the patient for the permission</h5>
 </div>
   {/* Enter Address Container */}
   <div class="small card">
@@ -395,10 +401,10 @@ function DocDashboard(props) {
 {/* Add Record */}
 <Tab.Pane eventKey="add_record">
 <div className="Details">
-<h4>
-....Welcome to the meDossier....
-</h4>
-<h4>..Upload the new records of your patients..</h4>
+<h1>
+Welcome to  MeDossier
+</h1>
+<h5>Upload the new records of your patients</h5>
 </div>
   <div className="card">
     <h3>Add Records</h3>

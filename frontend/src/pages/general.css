@@ -1,9 +1,8 @@
 
  .navbar{
      width: 100%;
-     height:4rem;
      background-color:#0080FF;
-     margin-bottom: 2rem;
+
  }
  .sidebar {
         position: fixed;
@@ -37,19 +36,19 @@
     .card {
         margin: auto;
         /* margin-top: 10px; */
-        top: 3vw;
-        height: 40rem;
+        /* top: 3vw; */
+        height: auto;
         width: 60vw;
         padding: 3rem;
-        border-color:#0080FF;
-        border-width: 5px;
+        border-color:#bedcfa;
+        border-width: 1px;
         border-radius: 1rem;
         text-align: left;
     }
 
     .card .details {
         align-self: flex-start;
-        padding-top: 3rem;
+        padding-top: 1rem;
     }
 
     .card .details b{
@@ -78,3 +77,33 @@
         padding-right: 2rem;
         padding-bottom: 1rem;
     }
+    label{
+        font-size: 16px;
+    }
+    .nav_main{
+        /* padding-top: 10px; */
+        overflow: visible;
+        padding-bottom: 10px;
+        text-align: center;  
+      }
+     .nav_main a{
+          color:floralwhite;
+          font-size: larger;
+      }
+      .nav_main Button{
+        color:floralwhite;
+        /* font-size: medium; */
+      }
+      .nav_main a:hover{
+          color: brown;
+      }
+      .nav_main button:hover{
+          color: brown;
+      }
+      
+      .login button{
+          width: 200px;
+
+      }
+      
+    

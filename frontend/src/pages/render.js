@@ -131,7 +131,7 @@ if(doctor.isApproved==false){
     else if(result==2) {
      localStorage.setItem('isUser','true');
       
-        history.push('/Registration_office')
+        history.push('/registration')
   
     }
     else{
@@ -139,11 +139,6 @@ if(doctor.isApproved==false){
     }
    
   }
-  // localStorage.setItem('isdoctor',isDoctor)
-
-  // localStorage.setItem('isuser',isUser)
-
-
 //Patient grant Access to doctor
   const grantAccess = async(doctor)=>{
     try{
@@ -206,7 +201,7 @@ if(doctor.isApproved==false){
           />
           
           </Route>
-          <Route exact path = "/Registration_office">
+          <Route exact path = "/registration">
           <Verifier 
           owner = {user}
           logout ={logout}

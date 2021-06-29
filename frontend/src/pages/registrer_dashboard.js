@@ -14,7 +14,7 @@ import {
   TextField,
   Button,
 } from "@material-ui/core";
-import { Tabs, Tab, Row, Col, Nav } from "react-bootstrap";
+import { Tabs, Tab, Row, Col, Nav ,Navbar} from "react-bootstrap";
 import "./general.css";
 import logo from "./logo.png";
 import { CONTRACT_ADDRESS, ABI } from "../config.js";
@@ -111,6 +111,20 @@ function Verifier(props) {
   },[
     recordlen
   ]);
+   
+  const useStyles = makeStyles({
+    table:{
+      minWidth:700,
+    },
+    root:{
+      width:"100%"
+
+    },
+    container:{
+      maxHeight:440,
+    }
+  });
+  const classes = useStyles();
 
 
   //Styling for table cell
@@ -138,28 +152,26 @@ function Verifier(props) {
   }
 
   return (
-    
-
     <div className="Registrer">
+      <div className="nav_main">
       {getDoctorsList}
-
-      {/* Navbar */}
-      <div className="navbar">
-        <a href="/Registration_office">
-        <Button >
-           <img
-          src={logo}
-          // width="200"
-          // height="80"
-          className="d-inline-block align-top"
-          alt="React Bootstrap logo"
-        />
-                          </Button>
-
-        </a>
-      
-       
-        <Button onClick={e=>props.logout()}>Log out</Button>
+        <Navbar
+            // bg="light" 
+            color="purple"
+            expand="lg" 
+            >
+              <img src={logo}
+              // width="250"
+              // height="60"
+              className="d-inline-block align-top"
+              />
+            {/* patient */}
+            <Navbar.Toggle/>
+            <Navbar.Collapse className="justify-content-end">
+            <Nav.Link a href="/registration" > <i class="far fa-1x fa-user-circle"> <b>{currentAccount} </b> </i> </Nav.Link>
+              <Button onClick={e=>props.logout()}> <i class="fas fa-1x fa-sign-out-alt"/> Log out</Button>
+              </Navbar.Collapse>
+              </Navbar>
       </div>
       {/* End Navbar */}
 
@@ -171,17 +183,18 @@ function Verifier(props) {
               <Tab.Container defaultActiveKey="doctors_list">
                 <Row>
                   <Col sm={3}>
-                    <Nav variant="pills" className="flex-column">
+                    <Nav  variant ="pills" className="flex-column">
                       <div>
                         <Nav.Item>
                           <Nav.Link eventKey="doctors_list">
-                            Registered Doctors
+                           <b> Registered Doctors</b>
                           </Nav.Link>
+                          <hr/>
                         </Nav.Item>
                       </div>
-
                       <Nav.Item>
-                        <Nav.Link eventKey="new_registration">New Registration</Nav.Link>
+                        <Nav.Link eventKey="new_registration"> <b>New Registration </b></Nav.Link>
+                        <hr/>
                       </Nav.Item>
                     </Nav>
                   </Col>
@@ -191,18 +204,20 @@ function Verifier(props) {
 {/* Doctors Details */}
 <Tab.Pane eventKey="doctors_list">
 <div className="Details">
-<h4>
-....Welcome to the meDossier....
-</h4>
-<h4>..The Following Doctors are Registered..</h4>
+<h3>
+Welcome to the MeDossier
+</h3>
+<br/>
+<h5>The Following Doctors are Registered</h5>
 </div>
   
   {/* Registered Doctor List */}
-  <div class="small card">
+  <div class="small-card">
     <div className="table">
   <Box mt={3} mb={3}>
-    <TableContainer component={Paper}>
-      <Table size={"small"}>
+    <Paper className={classes.root}>
+    <TableContainer className={classes.container}>
+      <Table  className ={classes.table}size={"small"} stickyHeader aria-label="sticky table">
         <TableHead>
           <TableRow>
             <StyledTableCell>License</StyledTableCell>
@@ -227,6 +242,7 @@ function Verifier(props) {
         </TableBody>
       </Table>
     </TableContainer>
+    </Paper>
   </Box>
     
   </div>
@@ -237,10 +253,11 @@ function Verifier(props) {
 
 <Tab.Pane eventKey="new_registration">
 <div className="Details">
-<h4>
-....Welcome to the meDossier....
-</h4>
-<h4>..New Doctor Registration..</h4>
+<h1>
+Welcome to the MeDossier
+</h1>
+<br/>
+<h5>New Doctor Registration</h5>
 </div>
   <div className="small card">
     <h3>Register Doctor</h3>
@@ -248,15 +265,16 @@ function Verifier(props) {
     <form>
       <TextField
         id="outlined-basic full-width"
-        fullWidth
+        fullWidth = {true}
         variant="outlined"
         margin="normal"
         label="License Number"
+        // style ={{height:60}}
         onChange={(e) => setLicense(e.target.value)}
       />
       <TextField
         id="outlined-basic"
-        fullWidth
+        fullWidth ={true}
         variant="outlined"
         margin="normal"
         label="Doctor Name"
