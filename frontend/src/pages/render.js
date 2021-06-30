@@ -15,7 +15,6 @@ function Render() {
  const[currentAccount,setCurrentAccount]= useState('');
  const[contract, setContract] = useState({});
  const[user,setUser] = useState([]);
-
  const getWeb3Data = async()=>{
    try{
       //obtain web3 from getWeb3
@@ -82,6 +81,8 @@ if(doctor.isApproved==false){
         localStorage.setItem('isApproved',doctor.isApproved)
         localStorage.setItem('license',doctor.licenseno)
         localStorage.setItem('hname',doctor.hname)
+        localStorage.setItem('isdoctor','true')
+
         console.log(doctor)
           history.push('/doctor_dashboard')
         }
@@ -101,6 +102,7 @@ if(doctor.isApproved==false){
       try{
         console.log("sucess");
         const patient = await contract.methods.getPatientDetails(currentAccount).call({from:currentAccount});
+
         setUser(patient);
         console.log(patient)
         // if(patient.length!==0){
@@ -110,6 +112,10 @@ if(doctor.isApproved==false){
         localStorage.setItem('dob',patient._dob)
         localStorage.setItem('bloodgroup',patient._bloodgroup)
         localStorage.setItem('gender',patient._gender)
+        // localStorage.setItem('ispatient','true')
+        localStorage.setItem('ispatient',"true")
+
+        
         // localStorage.setItem('hname',doctor.hname)
   
           history.push('/patient')
@@ -123,6 +129,7 @@ if(doctor.isApproved==false){
       }
     }
     else if(result==2) {
+     localStorage.setItem('isUser','true');
       
         history.push('/Registration_office')
   
@@ -132,6 +139,10 @@ if(doctor.isApproved==false){
     }
    
   }
+  // localStorage.setItem('isdoctor',isDoctor)
+
+  // localStorage.setItem('isuser',isUser)
+
 
 //Patient grant Access to doctor
   const grantAccess = async(doctor)=>{
@@ -182,6 +193,7 @@ if(doctor.isApproved==false){
             grantAccess ={grantAccess}
             revokeAccess ={revokeAccess}
             logout ={logout}
+
             // getPatientRecord ={getPatientRecord}
             // records ={records}
             />
@@ -198,6 +210,7 @@ if(doctor.isApproved==false){
           <Verifier 
           owner = {user}
           logout ={logout}
+
           />
           
           </Route>

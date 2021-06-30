@@ -5,16 +5,13 @@ import {Table, TableBody,TableCell,TableContainer,TableHead,TableRow}from "@mate
 import Paper from '@material-ui/core/Paper';
 // import { Button } from "react-bootstrap";
 import ipfs from "../ipfs";
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from "./logo.png"
 import './general.css';
 import './patient.css'
 import history from './history';
 import Web3 from "web3";
 import { CONTRACT_ADDRESS, ABI } from "../config.js";
-
-
-
 
 
 function Patient(props){
@@ -38,7 +35,9 @@ function Patient(props){
     const bloodgroup = localStorage.getItem('bloodgroup')
     const phone = localStorage.getItem('phone')
     const currentAccount =localStorage.getItem('currentAccount')
-
+    const isDoctor = localStorage.getItem('isdoctor')
+    const isAdmin = localStorage.getItem('isUser')
+  //  console.log(ispatient)
    const web3 = new Web3(Web3.givenProvider)
     const contract =  new web3.eth.Contract(ABI, CONTRACT_ADDRESS);
 
@@ -253,6 +252,12 @@ const onsubmit = async(event)=>{
     if(!currentAccount){
       history.push('/')
     }
+    if(isDoctor=="true"){
+      history.push('/patient')
+    }
+    if(isAdmin=="true"){
+      history.push('/Registration_office')
+    }
     
     return(
       <div className="Report">
@@ -342,6 +347,12 @@ const onsubmit = async(event)=>{
   if(!currentAccount){
     history.push('/')
   }
+  if(isDoctor == "true"){
+    history.push('/doctor_dashboard')
+  }
+  if(isAdmin == "true"){
+    history.push('/Registration_office')
+  }
     return(
         
         <div className="patient_main">
@@ -408,4 +419,12 @@ const onsubmit = async(event)=>{
  
 </div>
 )}
+// else {
+//   return(
+    
+//   history.push('/')
+//     )
+//   }
+
+  // }
 export default Patient;

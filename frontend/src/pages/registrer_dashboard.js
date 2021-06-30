@@ -33,6 +33,8 @@ function Verifier(props) {
 
 
   const currentAccount =localStorage.getItem('currentAccount')
+  const isDoctor = localStorage.getItem('isdoctor')
+  const ispatient = localStorage.getItem('ispatient')
 
   const web3 = new Web3(Web3.givenProvider)
   const contract =  new web3.eth.Contract(ABI, CONTRACT_ADDRESS);
@@ -126,6 +128,20 @@ function Verifier(props) {
       },
     },
   }))(TableRow);
+
+  if(!currentAccount)
+  {
+    history.push("/")
+    
+  }
+  if(isDoctor=="true"){
+    history.push('/doctor_dashboard')
+  }
+
+  if(ispatient=="true"){
+    history.push('/patient')
+  }
+
 
 
   return (

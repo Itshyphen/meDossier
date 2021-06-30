@@ -54,6 +54,10 @@ function DocDashboard(props) {
   const web3 = new Web3(Web3.givenProvider)
   const contract =  new web3.eth.Contract(ABI, CONTRACT_ADDRESS);
 
+  const ispatient = localStorage.getItem('ispatient')
+  const isAdmin = localStorage.getItem('isUser')
+  
+
 
   
 //Get details of patient: can be accessed by anyone
@@ -186,8 +190,14 @@ function DocDashboard(props) {
     },
   }))(TableRow);
 
-  if(!currentAccount){
+  if (!currentAccount){
     history.push('/')
+  }
+  if(ispatient=="true"){
+    history.push('/patient')
+  }
+  if(isAdmin=="true"){
+    history.push('/Registration_office')
   }
 
 
