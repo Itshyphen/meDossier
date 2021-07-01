@@ -1,5 +1,10 @@
 # dependencies
 
+<<<<<<< HEAD
 /node_modules
 /build
 
+=======
+frontend/node_modules/
+node_modules/
+>>>>>>> third

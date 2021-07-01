@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import './App.css';
 import React,{useState ,useEffect} from "react";
 import { Switch ,Route ,Router} from "react-router-dom";
@@ -231,3 +232,16 @@ const handleverifier = async()=>{
     )}
 
 export default App;
+=======
+
+import Render from './pages/render';
+
+function App() {
+  return (
+    <div className="App">
+      <Render />    
+    </div>
+  )}
+
+  export default App;
+>>>>>>> third

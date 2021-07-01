@@ -1,6 +1,8 @@
+import { TextField } from "@material-ui/core";
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
-import PhoneInput from "react-phone-number-input/input"
+import logo from "./logo.png";
+// import PhoneInput from "react-phone-number-input/input"
 
 function Register(props){
     const pnameRef = React.useRef();
@@ -10,37 +12,9 @@ function Register(props){
     const bloodRef = React.useRef()
     const dnameRef = React.useRef();
     const facultyRef =React.useRef();
+    const licenceRef =React.useRef();
     const dphoneRef = React.useRef();
     const hnameRef = React.useRef();
-    const licenseRef = React.useRef();
-    const [err, Seterr]= useState();
-    const [derr,Setderr] = useState();
-    
-//     const pchangehandler = (event)=>{
-//     let phone = event.target.value
-//     let err =""
-//     if(Number(phone)){
-//     if(phone.length!==10){
-//         err = <h5>Must be 10 digit</h5>;
-//         // alert("Your number")
-//     }}
-//     else 
-//     err = <h5> Should be valid number</h5>
-//     Seterr(err);
-// }
-//     const dchangehandler = (event)=>{
-//         let phone = event.target.value
-//         let derr =""
-//         if(Number(phone)){
-//         if(phone.length!==10){
-//             derr = <h5 >Must be 10 digit</h5>;
-//         }}
-//         else 
-//         derr = <h5> Should be valid number</h5>
-//         Setderr(derr);
-    
-        
-//     }
     
     return(
         <div className="Main">
@@ -49,39 +23,40 @@ function Register(props){
             
             {/* <Navbar/> */}
 
-            <div></div>
+            
+            <div className="meDossier">
+            <img
+          src={logo}
+          width="150"
+         height="60"
+          className="d-inline-block align-top"
+          alt="React Bootstrap logo">  
+          </img>
+            </div>
             <div className="heading">
 
-            <h2> Signup/Login</h2>
+            <h1> Welcome to MeDossier</h1>
+            <h5>The only place to store and access your record securely</h5>
             </div>
             <div className="b-container">
 
-            <div className="Patient">
-                <h3> Add Patient</h3>
-                <form 
-                // onSubmit  ={(event)=>{
-                //     event.preventDefault();
-                //     const name = pnameRef.current.value;
-                //     const phone = phoneRef.current.value;
-                //     const gender = genderRef.current.value;
-                //     const dob = dobRef.current.value;
-                //     const blood = bloodRef.current.value;
-                //     props.patientRegister(name,phone,gender,dob,blood);}}
-                    >
+            <div className="Patient small card">
+            <h5> <b>Register as Patient</b></h5>
+                <form>
                 <label>Name: </label>
-                <input type="text" name ="name" placeholder="Enter the patient's name"
+                <input type="text" name ="name" placeholder="Enter your name"
                 ref={pnameRef}  required 
                 >
                     </input>
                     <br/>
                     <label>PhoneNo: </label>
-                    <input type ="text" placeholder="9746025484"
+                    <input type ="text" placeholder="9746025484" 
                     ref ={phoneRef} required/>
 
 
                     <br/>
                     <label>DateofBirth:</label>
-                    <input type = "Date" placeholder="2021-05-01" 
+                    <input type = "Date" 
                     ref ={dobRef}required/>
                     <br/>
                     <label>Blood Group: </label>
@@ -90,9 +65,8 @@ function Register(props){
                     />
                     <br/>
                     <label id ="gender"> Gender:</label>
-                    <select ref ={genderRef} placeholder="Select"
-                    required >
-                        {/* <option value="Select " >Select</option> */}
+                    <select ref ={genderRef} required >
+                        <option value="Select " >Select</option>
                         <option value ="Female">Female</option>
                         <option value ="Male">Male</option>
                         <option value = "Others"> Others</option>
@@ -107,53 +81,41 @@ function Register(props){
                     const dob = dobRef.current.value;
                     const blood = bloodRef.current.value;
                     props.patientRegister(name,phone,gender,dob,blood);
-                }}> 
-                Submit </Button>
-                </form>
-                <Button onClick ={()=>{
-                    props.phandlelogin()
                 }}
-                >Login
-                 </Button>
+                > <i class="fas fa-upload"></i>
+                Submit </Button>
+                
+                </form>
+                
             </div>
             <br/>
             {/* Doctor login/signup
             */}
-            <div className="Doctor">
-                <h3> Add Doctor</h3>
-                <form
-                //  onSubmit={(event)=>{
-                //     event.preventDefault();
-                //     const name = dnameRef.current.value;
-                //     const contact = dphoneRef.current.value;
-                //     const faculty = facultyRef.current.value;
-                //     const hname = hnameRef.current.value;
-                //     props.doctorRegister(name, hname,faculty,contact);}}
-                    >
+            <div className="Doctor small card">
+                <h5> <b>Register as Doctor</b></h5>
+                <form>
                     <label>Name: </label>
                 <input type="text"  name ="name" placeholder="Enter your name" required 
                 ref={dnameRef}>
 
                     </input>
                     <br/>
+                    <label>License Number:</label>
+                    <input type ="text" placeholder ="License number"
+                    ref ={licenceRef} required/>
+                    <br/>
                     <label>Hospital Name:</label>
                     <input type ="text" placeholder ="Name of the hospital"
                     ref ={hnameRef} required/>
                     <br/>
                     <label> ContactNo:</label>
-                    <input type ="text" placeholder="9746025484"
+                    <input type ="text" placeholder="9746025484" 
                     ref ={dphoneRef} required/>
                    
-                    {derr}
                     <br/>
                     <label>Faculty: </label>
                     <input type="text"  name ="faculty"placeholder="Enter your faculty" 
                     ref ={facultyRef} required/>
-                    <br/>
-                    <label> License Number: </label>
-                    <input type="number" placeholder="License Number" 
-                    ref ={licenseRef} required
-                    />
                     <br/>
                     <Button onClick ={(event)=>{
                     event.preventDefault();
@@ -161,23 +123,21 @@ function Register(props){
                     const contact = dphoneRef.current.value;
                     const faculty = facultyRef.current.value;
                     const hname = hnameRef.current.value;
-                    const license = licenseRef.current.value;
-                    props.doctorRegister(name, hname,faculty,contact,license); }}>Submit</Button>
+                    const license = licenceRef.current.value;
+                    props.doctorRegister(name,hname,faculty,contact,license); }}>  <i class="fas fa-upload"></i> Submit</Button>
                 </form>
+              
+            </div>
+            </div>
+            <div className ="login small card">
+                <h5>Already have an account?</h5>
                 <Button onClick ={()=>{
-                    props.dhandlelogin()
+                    props.handlelogin()
                 }}
-                >Login
+                > <i class="fas fa-sign-in-alt"></i>  Login
                  </Button>
-                 {/* <Button onClick={props.verify}>Verify</Button> */}
-            </div>
-            <br/>
-            <div className="doctorverify">
-                <h3> Login as government agency</h3>
-                <Button onClick ={()=>{
-                    props.handleverifier()
-                }}>Login</Button>
-            </div>
+
+                
             </div>
              <div>    
             </div>

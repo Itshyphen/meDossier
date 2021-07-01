@@ -28,7 +28,11 @@ const getWeb3 = () =>
         const provider = new Web3.providers.HttpProvider(
           "http://127.0.0.1:8545"
         );
+<<<<<<< HEAD
         const web3 = new Web3(provider);
+=======
+        const web3 = new Web3(provider|| Web3.givenProvider);
+>>>>>>> third
         console.log("No web3 instance injected, using Local web3.");
         resolve(web3);
       }
