@@ -20,6 +20,12 @@ function Patient(props){
    const addressRef = useRef();
    const [ipfshash, setIpfshash] =useState();
    const[buffer,setBuffer] = useState();
+   const[records,setRecords] = useState([]);
+
+  console.log(props.records);
+  console.log(props.patient);
+  // const[records,setRecords] =useState([]);
+    const doctorRef = useRef();
     const grantRef = useRef();
 
     const name = localStorage.getItem('name')
@@ -42,6 +48,7 @@ function Patient(props){
     },
     root:{
       width:"100%"
+
     },
     container:{
       maxHeight:440,
@@ -211,7 +218,10 @@ const onsubmit = async(event)=>{
          VisitedDate: <input type="date" 
          ref ={dateRef}/>
              <br/>
-             <Button onClick={(event)=>{
+         
+         <br/>
+         {/* <input type ="submit"/> */}
+         <Button onClick={(event)=>{
            event.preventDefault();
 
            const dname = dnameRef.current.value;
@@ -400,4 +410,5 @@ const onsubmit = async(event)=>{
  
 </div>
 )}
+
 export default Patient;
