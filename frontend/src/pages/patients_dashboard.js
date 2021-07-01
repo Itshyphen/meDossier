@@ -82,7 +82,7 @@ function Patient(props){
         console.log(dname,reason,date);
         console.log(currentAccount);
         console.log(contract);
-         const res = await contract.methods.addRecord(dname,reason,date,ipfshash,props.currentAccount).send({from:props.currentAccount});
+         const res = await contract.methods.addRecord(dname,reason,date,ipfshash,currentAccount).send({from:currentAccount});
         console.log(res);
          getPatientRecord();
 

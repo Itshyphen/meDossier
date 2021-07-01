@@ -187,6 +187,8 @@ if(doctor.isApproved==false){
             patient={user}
             grantAccess ={grantAccess}
             revokeAccess ={revokeAccess}
+            currentAccount ={currentAccount}
+
             logout ={logout}
 
             // getPatientRecord ={getPatientRecord}
@@ -197,7 +199,6 @@ if(doctor.isApproved==false){
           <DocDashboard 
           doctor = {user}
           logout ={logout}
-          currentAccount ={currentAccount}
           />
           
           </Route>
