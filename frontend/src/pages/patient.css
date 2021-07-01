@@ -1,3 +1,5 @@
+
+
 .Main{
   width:100%;
   position: relative;
@@ -32,15 +34,13 @@ font-family:Verdana, Geneva, Tahoma, sans-serif
     font-size: 25px;
 }
 .Patient{
- font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
- border-radius: 10px;
- line-height: 40px;
-   /* margin: 3px; */
-   border-radius: 10px;
-   background-color: #d5f1ebb4;
-   text-align: left;
-   /* padding-bottom: 10px; */
-   width: 50rem;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  border-radius: 10px;
+  line-height: 40px;
+  border-radius: 10px;
+  background-color: #d5f1ebb4;
+  text-align: left;
+  width: 50rem;
 }
 
 .Patient input{
@@ -76,7 +76,12 @@ font-family:Verdana, Geneva, Tahoma, sans-serif
 }
 
 .login{
-    background-color:#d5f1ebb4 ;
+  line-height: 40px;
+  border-radius: 10px;
+  background-color: #d5f1ebb4;
+align-items: center;
+margin-left: auto;
+margin-right: auto;
 }
 .b-container{
   /* overflow: hidden; */
@@ -109,19 +114,19 @@ font-family:Verdana, Geneva, Tahoma, sans-serif
   /* margin-right: 10px; */
 /* }  */
 
-.navbar a:hover{
+/* .navbar a:hover{
  color: gray;
-}
+} */
 
 
 .Details{
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   border-radius: 10px;
   line-height: 40px;
-  padding-top: 10px;
+  padding-top: 30px;
   text-align: center;
   padding-left:20px;
-  /* margin-bottom: 20px; */
+  margin-bottom: 20px;
   /* padding-right: 10px; */
    border-radius: 10px;
    /* background-color: #d5f1ebb4; */
@@ -149,7 +154,7 @@ font-family:Verdana, Geneva, Tahoma, sans-serif
   padding-top: 10px;
 }
 .upload input{
-  width: 500px;
+  width: 50vw;
   padding-right: 10px;
   border-radius: 3px;
   height: 42px;
@@ -183,9 +188,9 @@ ul{
 
 .meDossier{
   height: 80px;
-  width: 140px;
-  background-color: #0080FF;
+    width: 160px;
+  /* background-color: #0080FF; */
   border-radius: 50%;
   display: inline-block;
-  padding: 2%;
+  padding: 1%;
 }
