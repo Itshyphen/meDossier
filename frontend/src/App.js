@@ -1,15 +1,11 @@
 
-import './App.css';
-import WebPage from './pages/pages';
-
+import Render from './pages/render';
 
 function App() {
   return (
     <div className="App">
-      <WebPage />    
+      <Render />    
     </div>
-  );
-}
+  )}
 
-export default App;
-
+  export default App;
