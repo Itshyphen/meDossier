@@ -3,9 +3,8 @@ import {Tabs, Tab, Row, Nav, Navbar,Card,Button} from "react-bootstrap";
 import {withStyles,makeStyles} from '@material-ui/core/styles';
 import {Table, TableBody,TableCell,TableContainer,TableHead,TableRow}from "@material-ui/core";
 import Paper from '@material-ui/core/Paper';
-// import { Button } from "react-bootstrap";
 import ipfs from "../ipfs";
-// import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from "./logo.png"
 import './general.css';
 import './patient.css'
@@ -21,7 +20,7 @@ function Patient(props){
    const addressRef = useRef();
    const [ipfshash, setIpfshash] =useState();
    const[buffer,setBuffer] = useState();
- const[records,setRecords] = useState([]);
+   const[records,setRecords] = useState([]);
 
   console.log(props.records);
   console.log(props.patient);
@@ -37,8 +36,10 @@ function Patient(props){
     const currentAccount =localStorage.getItem('currentAccount')
     const isDoctor = localStorage.getItem('isdoctor')
     const isAdmin = localStorage.getItem('isUser')
-  //  console.log(ispatient)
-   const web3 = new Web3(Web3.givenProvider)
+    const ispatient = localStorage.getItem('ispatient')
+
+  
+    const web3 = new Web3(Web3.givenProvider)
     const contract =  new web3.eth.Contract(ABI, CONTRACT_ADDRESS);
 
   const useStyles = makeStyles({
@@ -121,10 +122,10 @@ function Patient(props){
     const Details = ()=>{
         return(
           <div className="Details">
-            <h4>
+            <h5>
             Medical Records are important for you and we care about them and store them securely! Get your records anywhere with just a touch!
 
-            </h4>
+            </h5>
             <div className="card">
                           <h3>Your Details</h3>
                           <hr></hr>
@@ -135,24 +136,24 @@ function Patient(props){
                           </div>
                           <div className="details">
                             <b>
-                              Name :<span>{name}</span>
-                            </b>
+                              Name :                            </b>
+<span>{name}</span>
                             <br></br>
                             <b>
-                              Phone :<span>{phone}</span>
-                            </b>
+                              Phone </b>:<span>{phone}</span>
+                            
                             <br></br>
                             <b>
-                              Gender :<span>{gender}</span>
-                            </b>
+                              Gender </b>:<span>{gender}</span>
+                            {/* </b> */}
                             <br />
                             <b>
-                              Date of Birth :<span>{dob}</span>
-                            </b>
+                              Date of Birth </b>:<span>{dob}</span>
+                            {/* </b> */}
                             <br></br>
                             <b>
-                              Blood Group :<span>{bloodgroup}</span>
-                            </b>
+                              Blood Group </b>:<span>{bloodgroup}</span>
+                            {/* </b> */}
                           </div>
                         </div>
             </div>
@@ -187,7 +188,7 @@ const onsubmit = async(event)=>{
     const Upload =()=>{
         return(
             <div className="ReportUpload">
-              <h4> !!!Upload your records to the meDossier for the highest level of security!!!</h4>
+              <h5> !!!Upload your records to the meDossier for the highest level of security!!!</h5>
               <Card className="small card">
 
               <div className="upload">
@@ -301,15 +302,10 @@ const onsubmit = async(event)=>{
   const Access=()=>{
     return(
       <div className="small card">
-        <h2>Grant/Revoke Access</h2>
+        <h3>Grant/Revoke Access</h3>
+        <hr/>
     
-                <form 
-                // onSubmit ={(event)=>{
-                //     event.preventDefault();
-                //     const doctor = doctorRef.current.value;
-                //     props.grantAccess(doctor);
-                // }}
-                >
+                <form >
                     <label>Provide Access: </label>
                     <input type="text" placeholder=" Address to grant access"
                     ref ={grantRef}/> 
@@ -322,13 +318,7 @@ const onsubmit = async(event)=>{
                     </form>
     
                     <br/>
-                    <form 
-                    // onSubmit ={(event)=>{
-                    //     event.preventDefault();
-                    //     const doctor = doctorRef.current.value;
-                    //     props.revokeAccess(doctor);
-                    // }}
-                    >
+                    <form >
                         <label> Revoke Access: </label>
                         <input type="text" placeholder=" Address to revoke access from"
                         ref={doctorRef}/>
@@ -356,47 +346,46 @@ const onsubmit = async(event)=>{
     return(
         
         <div className="patient_main">
+            <div className="nav_main">
 
             <Navbar
-            // bg="light" 
-            color="purple"
             expand="lg" 
             >
               <img src={logo}
-              // width="250"
-              // height="60"
+              
               className="d-inline-block align-top"
               />
             {/* patient */}
             <Navbar.Toggle/>
             <Navbar.Collapse className="justify-content-end">
-              <Navbar.Text > <b>Welcome </b> </Navbar.Text>
-              <Button onClick={e=>props.logout()}>Log out</Button>
+              <Nav.Link a href="/patient" > <i class="fas fa-1x fa-user-circle"></i> {name}  </Nav.Link>
+              <Button onClick={e=>props.logout()}> <i class="fas fa-1x fa-sign-out-alt"></i> Log out</Button>
               </Navbar.Collapse>
               </Navbar>
+              </div>
+
 
             <div className ="tab-wrapper">
             <Tab.Container  defaultActiveKey="details">
                     <div className ="row">
                         <div className="col-sm-3">
-                          <Nav  className="flex-column">
+                          <Nav variant="pills" className="flex-column">
                             <Nav.Item>
-                            <Nav.Link eventKey="details">Details</Nav.Link><hr/>
+                            <Nav.Link eventKey="details"><b>Details</b></Nav.Link><hr/>
                             </Nav.Item>
                             <Nav.Item>
-                            <Nav.Link eventKey="profile">AccessRecord</Nav.Link> <hr/></Nav.Item>                           
-                            <Nav.Item><Nav.Link eventKey="uploadRecord">UploadRecord</Nav.Link><hr/></Nav.Item>
-                            <Nav.Item><Nav.Link eventKey="access">Grant/Revoke Acccess</Nav.Link><hr/>
+                            <Nav.Link eventKey="profile"><b>AccessRecord</b></Nav.Link> <hr/></Nav.Item>                           
+                            <Nav.Item><Nav.Link eventKey="uploadRecord"> <b>UploadRecord</b></Nav.Link><hr/></Nav.Item>
+                            <Nav.Item><Nav.Link eventKey="access"><b>Grant/Revoke Acccess</b></Nav.Link><hr/>
                             </Nav.Item>
 
                             </Nav> 
                           </div>
 
                           <div className = "col-sm-9">
-                          <h1> Welcome to Medossier</h1>
+                          <h1> Welcome to MeDossier</h1>
 
                             <Tab.Content>
-                {/* <Tabs defaultActiveKey="details" id ="uncontrolled-tab-example"> */}
                 <Tab.Pane eventKey="details" title ="Details" >
                 <Details/>
                 </Tab.Pane>
@@ -405,7 +394,7 @@ const onsubmit = async(event)=>{
                 </Tab.Pane>
 
                 <Tab.Pane eventKey ="uploadRecord"  title="UploadRecord">
-              <Upload/>
+               <Upload/>
              </Tab.Pane>
              <Tab.Pane eventKey="access" title="Grant/Revoke Acccess">
                <Access/>
@@ -419,12 +408,5 @@ const onsubmit = async(event)=>{
  
 </div>
 )}
-// else {
-//   return(
-    
-//   history.push('/')
-//     )
-//   }
 
-  // }
 export default Patient;

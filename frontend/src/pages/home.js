@@ -15,34 +15,6 @@ function Register(props){
     const licenceRef =React.useRef();
     const dphoneRef = React.useRef();
     const hnameRef = React.useRef();
-    const [err, Seterr]= useState();
-    const [derr,Setderr] = useState();
-    
-    const pchangehandler = (event)=>{
-    let phone = event.target.value
-    let err =""
-    if(Number(phone)){
-    if(phone.length!==10){
-        err = <h5>Must be 10 digit</h5>;
-        // alert("Your number")
-    }}
-    else 
-    err = <h5> Should be valid number</h5>
-    Seterr(err);
-}
-    const dchangehandler = (event)=>{
-        let phone = event.target.value
-        let derr =""
-        if(Number(phone)){
-        if(phone.length!==10){
-            derr = <h5 >Must be 10 digit</h5>;
-        }}
-        else 
-        derr = <h5> Should be valid number</h5>
-        Setderr(derr);
-    
-        
-    }
     
     return(
         <div className="Main">
@@ -52,39 +24,39 @@ function Register(props){
             {/* <Navbar/> */}
 
             
-            <div className="heading">
             <div className="meDossier">
             <img
           src={logo}
-          // width="200"
-          // height="80"
+          width="150"
+         height="60"
           className="d-inline-block align-top"
-          alt="React Bootstrap logo"
-        />
+          alt="React Bootstrap logo">  
+          </img>
             </div>
+            <div className="heading">
 
-            <h2> Welcome to meDossier</h2>
-            <h4>The only place to store and access your record securely</h4>
+            <h1> Welcome to MeDossier</h1>
+            <h5>The only place to store and access your record securely</h5>
             </div>
             <div className="b-container">
 
             <div className="Patient small card">
-            <h4> <b>Register as Patient</b></h4>
+            <h5> <b>Register as Patient</b></h5>
                 <form>
                 <label>Name: </label>
-                <input fullwidth type="text" name ="name" placeholder="Enter the patient's name"
+                <input type="text" name ="name" placeholder="Enter your name"
                 ref={pnameRef}  required 
                 >
                     </input>
                     <br/>
                     <label>PhoneNo: </label>
-                    <input type ="text" placeholder="9746025484" onChange ={pchangehandler}
+                    <input type ="text" placeholder="9746025484" 
                     ref ={phoneRef} required/>
 
 
                     <br/>
                     <label>DateofBirth:</label>
-                    <input type = "Date" placeholder="2021-05-01" 
+                    <input type = "Date" 
                     ref ={dobRef}required/>
                     <br/>
                     <label>Blood Group: </label>
@@ -110,7 +82,7 @@ function Register(props){
                     const blood = bloodRef.current.value;
                     props.patientRegister(name,phone,gender,dob,blood);
                 }}
-                > 
+                > <i class="fas fa-upload"></i>
                 Submit </Button>
                 
                 </form>
@@ -120,10 +92,10 @@ function Register(props){
             {/* Doctor login/signup
             */}
             <div className="Doctor small card">
-                <h4> <b>Register as Doctor</b></h4>
+                <h5> <b>Register as Doctor</b></h5>
                 <form>
                     <label>Name: </label>
-                <input type="text"  name ="name" placeholder="Enter the your name" required 
+                <input type="text"  name ="name" placeholder="Enter your name" required 
                 ref={dnameRef}>
 
                     </input>
@@ -137,13 +109,12 @@ function Register(props){
                     ref ={hnameRef} required/>
                     <br/>
                     <label> ContactNo:</label>
-                    <input type ="text" placeholder="9746025484" onChange ={dchangehandler}
+                    <input type ="text" placeholder="9746025484" 
                     ref ={dphoneRef} required/>
                    
-                    {derr}
                     <br/>
                     <label>Faculty: </label>
-                    <input type="text"  name ="faculty"placeholder="Enter the your faculty" 
+                    <input type="text"  name ="faculty"placeholder="Enter your faculty" 
                     ref ={facultyRef} required/>
                     <br/>
                     <Button onClick ={(event)=>{
@@ -153,17 +124,17 @@ function Register(props){
                     const faculty = facultyRef.current.value;
                     const hname = hnameRef.current.value;
                     const license = licenceRef.current.value;
-                    props.doctorRegister(name,hname,faculty,contact,license); }}>Submit</Button>
+                    props.doctorRegister(name,hname,faculty,contact,license); }}>  <i class="fas fa-upload"></i> Submit</Button>
                 </form>
               
             </div>
             </div>
             <div className ="login small card">
-                <h4>Already have an account?</h4>
+                <h5>Already have an account?</h5>
                 <Button onClick ={()=>{
                     props.handlelogin()
                 }}
-                >Login
+                > <i class="fas fa-sign-in-alt"></i>  Login
                  </Button>
 
                 

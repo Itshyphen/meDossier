@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import Web3 from "web3";
-import { withStyles, makeStyles } from "@material-ui/core/styles";
+import { withStyles} from "@material-ui/core/styles";
 import {
   Table,
   TableHead,
@@ -14,7 +14,7 @@ import {
   TextField,
   Button,
 } from "@material-ui/core";
-import { Tabs, Tab, Row, Col, Nav } from "react-bootstrap";
+import {Tab, Row, Col, Nav } from "react-bootstrap";
 import "./general.css";
 import logo from "./logo.png";
 import { CONTRACT_ADDRESS, ABI } from "../config.js";
@@ -77,10 +77,6 @@ function DocDashboard(props) {
     }
     getPatientRecord();
 
-// const gas =const result = await contract.methods.grantAccess("0xc52Bb0B6A662859B2E182524585b2F0a676F7823").send({from: currentAccount,gas:1000000});
-// const result = await contract.methods.addDoctor("Alisha Poudel","Sahara Hospital","9866003331","Cardiologist").send({from: currentAccount, gas: 1000000});
-// const result = await contract.methods.addPatient("Ranju G.C.","9866009221","Female","2057/03/30","O+ve").send({from: currentAccount, gas: 1000000});
-  
 };
   //bullet tube vague brain excuse valley total whale scrap sense water unfold
 
@@ -222,6 +218,8 @@ function DocDashboard(props) {
                           </Button>
 
         </a>
+
+        {/* <Button a href="/doctor_dashboard" > <i class="fas fa-1x fa-user-circle"></i> {docname}  </Button> */}
       
        
         <Button onClick={e=>props.logout()}>Log out</Button>
