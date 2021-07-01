@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import Web3 from "web3";
-import { withStyles, makeStyles } from "@material-ui/core/styles";
+import { withStyles} from "@material-ui/core/styles";
 import {
   Table,
   TableHead,
@@ -14,12 +14,12 @@ import {
   TextField,
   Button,
 } from "@material-ui/core";
-import { Tabs, Tab, Row, Col, Nav,Navbar } from "react-bootstrap";
+import {Tab, Row, Col, Nav } from "react-bootstrap";
 import "./general.css";
 import logo from "./logo.png";
 import { CONTRACT_ADDRESS, ABI } from "../config.js";
 import ipfs from "../ipfs.js"
-import history from "./history";
+import history from './history';
 
 
 
@@ -53,7 +53,10 @@ function DocDashboard(props) {
 
   const web3 = new Web3(Web3.givenProvider)
   const contract =  new web3.eth.Contract(ABI, CONTRACT_ADDRESS);
-  const isDoctor = localStorage.getItem('isdoctor')
+
+  const ispatient = localStorage.getItem('ispatient')
+  const isAdmin = localStorage.getItem('isUser')
+  
 
 
   
@@ -74,10 +77,6 @@ function DocDashboard(props) {
     }
     getPatientRecord();
 
-// const gas =const result = await contract.methods.grantAccess("0xc52Bb0B6A662859B2E182524585b2F0a676F7823").send({from: currentAccount,gas:1000000});
-// const result = await contract.methods.addDoctor("Alisha Poudel","Sahara Hospital","9866003331","Cardiologist").send({from: currentAccount, gas: 1000000});
-// const result = await contract.methods.addPatient("Ranju G.C.","9866009221","Female","2057/03/30","O+ve").send({from: currentAccount, gas: 1000000});
-  
 };
   //bullet tube vague brain excuse valley total whale scrap sense water unfold
 
@@ -187,35 +186,44 @@ function DocDashboard(props) {
     },
   }))(TableRow);
 
-  if(isDoctor !=="true"){
+  if (!currentAccount){
     history.push('/')
   }
+  if(ispatient=="true"){
+    history.push('/patient')
+  }
+  if(isAdmin=="true"){
+    history.push('/Registration_office')
+  }
+
 
   return (
     
 
     <div className="DocDashboard">
-      <div className="nav_main">
 
-      <Navbar 
-            expand="lg" 
-            >
-              <img src={logo}
-              // width="250"
-              // height="60"
-              className="d-inline-block align-top"
-              />
-            {/* patient */}
-            <Navbar.Toggle/>
-            <Navbar.Collapse className="justify-content-end">
+      {/* Navbar */}
+      <div className="navbar">
+        <a href="/doctor_dashboard">
+        <Button 
+        o
+        >
+           <img
+          src={logo}
+          width="120"
+          height="40"
+          className="d-inline-block align-top"
+          alt="React Bootstrap logo"
+        />
+        </Button>
 
-              <Nav.Link a href="/doctor_dashboard" > <i class="fas fa-user-md"></i>
-                {docname}</Nav.Link>
-              <Button onClick={e=>props.logout()}> <i class="fas fa-sign-out-alt"></i>Log out</Button>
-              </Navbar.Collapse>
-              </Navbar>
-              </div>
+        </a>
 
+        {/* <Button a href="/doctor_dashboard" > <i class="fas fa-1x fa-user-circle"></i> {docname}  </Button> */}
+      
+       
+        <Button onClick={e=>props.logout()}> <i class="fas fa-1x fa-sign-out-alt"/> Log out</Button>
+      </div>
       {/* End Navbar */}
 
       {/* Side Tabs */}
@@ -226,42 +234,36 @@ function DocDashboard(props) {
               <Tab.Container defaultActiveKey="your_details">
                 <Row>
                   <Col sm={3}>
-                    <Nav  variant="pills" className="flex-column">
+                    <Nav variant="pills" className="flex-column">
                       <div>
                         <Nav.Item>
                           <Nav.Link eventKey="your_details">
                             My Details
                           </Nav.Link>
-                          <hr/>
                         </Nav.Item>
                       </div>
 
                       <Nav.Item>
                         <Nav.Link eventKey="access_record">
                           Access Records
-                        </Nav.Link>                          
-                        <hr/>
-
+                        </Nav.Link>
                       </Nav.Item>
 
                       <Nav.Item>
                         <Nav.Link eventKey="add_record">Add Records</Nav.Link>
-                        <hr/>
                       </Nav.Item>
                     </Nav>
                   </Col>
-                  
                   <Col sm={9}>
                   <Tab.Content>
 
 {/* Doctors Details */}
 <Tab.Pane eventKey="your_details">
 <div className="Details">
-<h1>
-Welcome to  MeDossier
-</h1>
-<h5>This is the place where you can access your patients records anywhere everywhere</h5>
-<br/>
+<h4>
+....Welcome to the meDossier....
+</h4>
+<h4>..This is the place where you can access your patients records anywhere everywhere..</h4>
 </div>
   <div className="card">
     <h3>Your Details</h3>
@@ -300,10 +302,10 @@ Welcome to  MeDossier
 {/* Access Record Tab*/}
 <Tab.Pane eventKey="access_record">
 <div className="Details">
-<h1>
-Welcome to  MeDossier
-</h1>
-<h5>Before you access the records, ask the patient for the permission</h5>
+<h4>
+....Welcome to the meDossier....
+</h4>
+<h4>..Before you access the records, ask the patient for the permission..</h4>
 </div>
   {/* Enter Address Container */}
   <div class="small card">
@@ -401,10 +403,10 @@ Welcome to  MeDossier
 {/* Add Record */}
 <Tab.Pane eventKey="add_record">
 <div className="Details">
-<h1>
-Welcome to  MeDossier
-</h1>
-<h5>Upload the new records of your patients</h5>
+<h4>
+....Welcome to the meDossier....
+</h4>
+<h4>..Upload the new records of your patients..</h4>
 </div>
   <div className="card">
     <h3>Add Records</h3>

@@ -18,7 +18,8 @@ import { Tabs, Tab, Row, Col, Nav ,Navbar} from "react-bootstrap";
 import "./general.css";
 import logo from "./logo.png";
 import { CONTRACT_ADDRESS, ABI } from "../config.js";
-import history from "./history";
+import history from './history';
+
 
 
 //main dashboard
@@ -32,16 +33,12 @@ function Verifier(props) {
 
 
   const currentAccount =localStorage.getItem('currentAccount')
-  const isUser = localStorage.getItem('isUser')
+  const isDoctor = localStorage.getItem('isdoctor')
+  const ispatient = localStorage.getItem('ispatient')
 
   const web3 = new Web3(Web3.givenProvider)
   const contract =  new web3.eth.Contract(ABI, CONTRACT_ADDRESS);
 
-  
-
- 
-
-  
     const Register = async (e) => {
       try {
         //whether doctor is authorized or not
@@ -145,11 +142,21 @@ function Verifier(props) {
       },
     },
   }))(TableRow);
-  if(isUser !=="true")
+
+  if(!currentAccount)
   {
     history.push("/")
     
   }
+  if(isDoctor=="true"){
+    history.push('/doctor_dashboard')
+  }
+
+  if(ispatient=="true"){
+    history.push('/patient')
+  }
+
+
 
   return (
     <div className="Registrer">
@@ -161,14 +168,14 @@ function Verifier(props) {
             expand="lg" 
             >
               <img src={logo}
-              // width="250"
-              // height="60"
+                width="120"
+                height="40"
               className="d-inline-block align-top"
               />
             {/* patient */}
             <Navbar.Toggle/>
             <Navbar.Collapse className="justify-content-end">
-            <Nav.Link a href="/registration" > <i class="far fa-1x fa-user-circle"> <b>{currentAccount} </b> </i> </Nav.Link>
+            <Nav.Link a href="/registration" > <i class="far fa-1x fa-user-circle"> <b>License Registration Office</b> </i> </Nav.Link>
               <Button onClick={e=>props.logout()}> <i class="fas fa-1x fa-sign-out-alt"/> Log out</Button>
               </Navbar.Collapse>
               </Navbar>
@@ -253,9 +260,9 @@ Welcome to the MeDossier
 
 <Tab.Pane eventKey="new_registration">
 <div className="Details">
-<h1>
+<h3>
 Welcome to the MeDossier
-</h1>
+</h3>
 <br/>
 <h5>New Doctor Registration</h5>
 </div>

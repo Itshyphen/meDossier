@@ -7,12 +7,11 @@ import ipfs from "../ipfs";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from "./logo.png"
 import './general.css';
-import './patient.css';
-import history from "./history";
-
-
+import './patient.css'
+import history from './history';
 import Web3 from "web3";
 import { CONTRACT_ADDRESS, ABI } from "../config.js";
+
 
 function Patient(props){
    const dnameRef = useRef();
@@ -35,8 +34,11 @@ function Patient(props){
     const bloodgroup = localStorage.getItem('bloodgroup')
     const phone = localStorage.getItem('phone')
     const currentAccount =localStorage.getItem('currentAccount')
+    const isDoctor = localStorage.getItem('isdoctor')
+    const isAdmin = localStorage.getItem('isUser')
     const ispatient = localStorage.getItem('ispatient')
-   console.log(ispatient)
+
+  
     const web3 = new Web3(Web3.givenProvider)
     const contract =  new web3.eth.Contract(ABI, CONTRACT_ADDRESS);
 
@@ -113,7 +115,7 @@ function Patient(props){
 
     }
     catch(error){
-     alert(error);
+     console.log(error);
     }
   }
 
@@ -248,6 +250,15 @@ const onsubmit = async(event)=>{
         </div>
       )
     }
+    if(!currentAccount){
+      history.push('/')
+    }
+    if(isDoctor=="true"){
+      history.push('/patient')
+    }
+    if(isAdmin=="true"){
+      history.push('/Registration_office')
+    }
     
     return(
       <div className="Report">
@@ -323,11 +334,15 @@ const onsubmit = async(event)=>{
       </div>
 )
   }
-  if(ispatient !== "true"){
+  if(!currentAccount){
     history.push('/')
   }
-  
-  
+  if(isDoctor == "true"){
+    history.push('/doctor_dashboard')
+  }
+  if(isAdmin == "true"){
+    history.push('/Registration_office')
+  }
     return(
         
         <div className="patient_main">
@@ -337,6 +352,8 @@ const onsubmit = async(event)=>{
             expand="lg" 
             >
               <img src={logo}
+                width="120"
+                height="40"
               
               className="d-inline-block align-top"
               />
