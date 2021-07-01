@@ -210,19 +210,19 @@ function DocDashboard(props) {
         >
            <img
           src={logo}
-          // width="200"
-          // height="80"
+          width="120"
+          height="40"
           className="d-inline-block align-top"
           alt="React Bootstrap logo"
         />
-                          </Button>
+        </Button>
 
         </a>
 
         {/* <Button a href="/doctor_dashboard" > <i class="fas fa-1x fa-user-circle"></i> {docname}  </Button> */}
       
        
-        <Button onClick={e=>props.logout()}>Log out</Button>
+        <Button onClick={e=>props.logout()}> <i class="fas fa-1x fa-sign-out-alt"/> Log out</Button>
       </div>
       {/* End Navbar */}
 

@@ -352,6 +352,8 @@ const onsubmit = async(event)=>{
             expand="lg" 
             >
               <img src={logo}
+                width="120"
+                height="40"
               
               className="d-inline-block align-top"
               />

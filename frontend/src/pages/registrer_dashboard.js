@@ -168,14 +168,14 @@ function Verifier(props) {
             expand="lg" 
             >
               <img src={logo}
-              // width="250"
-              // height="60"
+                width="120"
+                height="40"
               className="d-inline-block align-top"
               />
             {/* patient */}
             <Navbar.Toggle/>
             <Navbar.Collapse className="justify-content-end">
-            <Nav.Link a href="/registration" > <i class="far fa-1x fa-user-circle"> <b>{currentAccount} </b> </i> </Nav.Link>
+            <Nav.Link a href="/registration" > <i class="far fa-1x fa-user-circle"> <b>License Registration Office</b> </i> </Nav.Link>
               <Button onClick={e=>props.logout()}> <i class="fas fa-1x fa-sign-out-alt"/> Log out</Button>
               </Navbar.Collapse>
               </Navbar>
@@ -260,9 +260,9 @@ Welcome to the MeDossier
 
 <Tab.Pane eventKey="new_registration">
 <div className="Details">
-<h1>
+<h3>
 Welcome to the MeDossier
-</h1>
+</h3>
 <br/>
 <h5>New Doctor Registration</h5>
 </div>
