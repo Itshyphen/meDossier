@@ -1,4 +1,3 @@
-
 import React,{useState ,useEffect} from "react";
 import { Switch ,Route ,Router} from "react-router-dom";
 import Register from './home';
