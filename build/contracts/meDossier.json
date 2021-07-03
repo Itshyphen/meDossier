@@ -666,24 +666,14 @@
   "ast": {
     "absolutePath": "/home/ranju/location/meDossier/contracts/meDossier.sol",
     "exportedSymbols": {
-      "meDossier": [
-        1068
-      ]
+      "meDossier": [1068]
     },
     "id": 1069,
     "nodeType": "SourceUnit",
     "nodes": [
       {
         "id": 1,
-        "literals": [
-          "solidity",
-          ">=",
-          "0.4",
-          ".22",
-          "<",
-          "0.9",
-          ".0"
-        ],
+        "literals": ["solidity", ">=", "0.4", ".22", "<", "0.9", ".0"],
         "nodeType": "PragmaDirective",
         "src": "0:32:0"
       },
@@ -694,9 +684,7 @@
         "documentation": null,
         "fullyImplemented": true,
         "id": 1068,
-        "linearizedBaseContracts": [
-          1068
-        ],
+        "linearizedBaseContracts": [1068],
         "name": "meDossier",
         "nodeType": "ContractDefinition",
         "nodes": [
@@ -2427,10 +2415,7 @@
                       "id": 142,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        1086,
-                        1087
-                      ],
+                      "overloadedDeclarations": [1086, 1087],
                       "referencedDeclaration": 1087,
                       "src": "1599:7:0",
                       "typeDescriptions": {
@@ -2906,9 +2891,7 @@
               "src": "2039:102:0",
               "statements": [
                 {
-                  "assignments": [
-                    189
-                  ],
+                  "assignments": [189],
                   "declarations": [
                     {
                       "constant": false,
@@ -3253,10 +3236,7 @@
                       "id": 216,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        1086,
-                        1087
-                      ],
+                      "overloadedDeclarations": [1086, 1087],
                       "referencedDeclaration": 1087,
                       "src": "2323:7:0",
                       "typeDescriptions": {
@@ -3479,10 +3459,7 @@
                         "id": 248,
                         "name": "revert",
                         "nodeType": "Identifier",
-                        "overloadedDeclarations": [
-                          1088,
-                          1089
-                        ],
+                        "overloadedDeclarations": [1088, 1089],
                         "referencedDeclaration": 1089,
                         "src": "2583:6:0",
                         "typeDescriptions": {
@@ -3993,10 +3970,7 @@
                       "id": 267,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        1086,
-                        1087
-                      ],
+                      "overloadedDeclarations": [1086, 1087],
                       "referencedDeclaration": 1087,
                       "src": "3073:7:0",
                       "typeDescriptions": {
@@ -4141,10 +4115,7 @@
                       "id": 276,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        1086,
-                        1087
-                      ],
+                      "overloadedDeclarations": [1086, 1087],
                       "referencedDeclaration": 1086,
                       "src": "3147:7:0",
                       "typeDescriptions": {
@@ -4289,10 +4260,7 @@
                       "id": 285,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        1086,
-                        1087
-                      ],
+                      "overloadedDeclarations": [1086, 1087],
                       "referencedDeclaration": 1086,
                       "src": "3187:7:0",
                       "typeDescriptions": {
@@ -4437,10 +4405,7 @@
                       "id": 294,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        1086,
-                        1087
-                      ],
+                      "overloadedDeclarations": [1086, 1087],
                       "referencedDeclaration": 1086,
                       "src": "3228:7:0",
                       "typeDescriptions": {
@@ -4585,10 +4550,7 @@
                       "id": 303,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        1086,
-                        1087
-                      ],
+                      "overloadedDeclarations": [1086, 1087],
                       "referencedDeclaration": 1086,
                       "src": "3270:7:0",
                       "typeDescriptions": {
@@ -4733,10 +4695,7 @@
                       "id": 312,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        1086,
-                        1087
-                      ],
+                      "overloadedDeclarations": [1086, 1087],
                       "referencedDeclaration": 1086,
                       "src": "3309:7:0",
                       "typeDescriptions": {
@@ -6017,10 +5976,7 @@
                       "id": 414,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        1086,
-                        1087
-                      ],
+                      "overloadedDeclarations": [1086, 1087],
                       "referencedDeclaration": 1087,
                       "src": "4008:7:0",
                       "typeDescriptions": {
@@ -6047,9 +6003,7 @@
                   "src": "4008:66:0"
                 },
                 {
-                  "assignments": [
-                    422
-                  ],
+                  "assignments": [422],
                   "declarations": [
                     {
                       "constant": false,
@@ -7067,10 +7021,7 @@
                       "id": 500,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        1086,
-                        1087
-                      ],
+                      "overloadedDeclarations": [1086, 1087],
                       "referencedDeclaration": 1087,
                       "src": "5040:7:0",
                       "typeDescriptions": {
@@ -7293,10 +7244,7 @@
                         "id": 549,
                         "name": "revert",
                         "nodeType": "Identifier",
-                        "overloadedDeclarations": [
-                          1088,
-                          1089
-                        ],
+                        "overloadedDeclarations": [1088, 1089],
                         "referencedDeclaration": 1089,
                         "src": "5415:6:0",
                         "typeDescriptions": {
@@ -8053,10 +8001,7 @@
                       "id": 568,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        1086,
-                        1087
-                      ],
+                      "overloadedDeclarations": [1086, 1087],
                       "referencedDeclaration": 1087,
                       "src": "5618:7:0",
                       "typeDescriptions": {
@@ -8180,10 +8125,7 @@
                       "id": 577,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        1086,
-                        1087
-                      ],
+                      "overloadedDeclarations": [1086, 1087],
                       "referencedDeclaration": 1087,
                       "src": "5679:7:0",
                       "typeDescriptions": {
@@ -8328,10 +8270,7 @@
                       "id": 585,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        1086,
-                        1087
-                      ],
+                      "overloadedDeclarations": [1086, 1087],
                       "referencedDeclaration": 1086,
                       "src": "5760:7:0",
                       "typeDescriptions": {
@@ -8476,10 +8415,7 @@
                       "id": 594,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        1086,
-                        1087
-                      ],
+                      "overloadedDeclarations": [1086, 1087],
                       "referencedDeclaration": 1086,
                       "src": "5800:7:0",
                       "typeDescriptions": {
@@ -8624,10 +8560,7 @@
                       "id": 603,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        1086,
-                        1087
-                      ],
+                      "overloadedDeclarations": [1086, 1087],
                       "referencedDeclaration": 1086,
                       "src": "5841:7:0",
                       "typeDescriptions": {
@@ -8772,10 +8705,7 @@
                       "id": 612,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        1086,
-                        1087
-                      ],
+                      "overloadedDeclarations": [1086, 1087],
                       "referencedDeclaration": 1086,
                       "src": "5884:7:0",
                       "typeDescriptions": {
@@ -8866,10 +8796,7 @@
                       "id": 621,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        1086,
-                        1087
-                      ],
+                      "overloadedDeclarations": [1086, 1087],
                       "referencedDeclaration": 1086,
                       "src": "5927:7:0",
                       "typeDescriptions": {
@@ -8896,9 +8823,7 @@
                   "src": "5927:18:0"
                 },
                 {
-                  "assignments": [
-                    628
-                  ],
+                  "assignments": [628],
                   "declarations": [
                     {
                       "constant": false,
@@ -10196,9 +10121,7 @@
               "src": "6718:487:0",
               "statements": [
                 {
-                  "assignments": [
-                    736
-                  ],
+                  "assignments": [736],
                   "declarations": [
                     {
                       "constant": false,
@@ -10541,9 +10464,7 @@
                   "src": "6758:125:0"
                 },
                 {
-                  "assignments": [
-                    764
-                  ],
+                  "assignments": [764],
                   "declarations": [
                     {
                       "constant": false,
@@ -10775,10 +10696,7 @@
                       "id": 771,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        1086,
-                        1087
-                      ],
+                      "overloadedDeclarations": [1086, 1087],
                       "referencedDeclaration": 1087,
                       "src": "6940:7:0",
                       "typeDescriptions": {
@@ -10907,10 +10825,7 @@
                       "id": 781,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        1086,
-                        1087
-                      ],
+                      "overloadedDeclarations": [1086, 1087],
                       "referencedDeclaration": 1087,
                       "src": "7023:7:0",
                       "typeDescriptions": {
@@ -11407,9 +11322,7 @@
               "src": "7428:491:0",
               "statements": [
                 {
-                  "assignments": [
-                    828
-                  ],
+                  "assignments": [828],
                   "declarations": [
                     {
                       "constant": false,
@@ -12199,10 +12112,7 @@
                       "id": 863,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        1086,
-                        1087
-                      ],
+                      "overloadedDeclarations": [1086, 1087],
                       "referencedDeclaration": 1087,
                       "src": "7628:7:0",
                       "typeDescriptions": {
@@ -12229,9 +12139,7 @@
                   "src": "7628:125:0"
                 },
                 {
-                  "assignments": [
-                    884
-                  ],
+                  "assignments": [884],
                   "declarations": [
                     {
                       "constant": false,
@@ -12859,9 +12767,7 @@
               "src": "8142:252:0",
               "statements": [
                 {
-                  "assignments": [
-                    932
-                  ],
+                  "assignments": [932],
                   "declarations": [
                     {
                       "constant": false,
@@ -13560,10 +13466,7 @@
                       "id": 963,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        1086,
-                        1087
-                      ],
+                      "overloadedDeclarations": [1086, 1087],
                       "referencedDeclaration": 1087,
                       "src": "8513:7:0",
                       "typeDescriptions": {
@@ -13666,10 +13569,7 @@
                       "id": 971,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        1086,
-                        1087
-                      ],
+                      "overloadedDeclarations": [1086, 1087],
                       "referencedDeclaration": 1087,
                       "src": "8577:7:0",
                       "typeDescriptions": {
@@ -13831,10 +13731,7 @@
                       "id": 978,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        1086,
-                        1087
-                      ],
+                      "overloadedDeclarations": [1086, 1087],
                       "referencedDeclaration": 1087,
                       "src": "8638:7:0",
                       "typeDescriptions": {
@@ -14191,10 +14088,7 @@
                       "id": 1008,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        1086,
-                        1087
-                      ],
+                      "overloadedDeclarations": [1086, 1087],
                       "referencedDeclaration": 1087,
                       "src": "8922:7:0",
                       "typeDescriptions": {
@@ -14340,10 +14234,7 @@
                       "id": 1016,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        1086,
-                        1087
-                      ],
+                      "overloadedDeclarations": [1086, 1087],
                       "referencedDeclaration": 1087,
                       "src": "8986:7:0",
                       "typeDescriptions": {
@@ -14985,23 +14876,13 @@
     "attributes": {
       "absolutePath": "/home/ranju/location/meDossier/contracts/meDossier.sol",
       "exportedSymbols": {
-        "meDossier": [
-          1068
-        ]
+        "meDossier": [1068]
       }
     },
     "children": [
       {
         "attributes": {
-          "literals": [
-            "solidity",
-            ">=",
-            "0.4",
-            ".22",
-            "<",
-            "0.9",
-            ".0"
-          ]
+          "literals": ["solidity", ">=", "0.4", ".22", "<", "0.9", ".0"]
         },
         "id": 1,
         "name": "PragmaDirective",
@@ -15009,18 +14890,12 @@
       },
       {
         "attributes": {
-          "baseContracts": [
-            null
-          ],
-          "contractDependencies": [
-            null
-          ],
+          "baseContracts": [null],
+          "contractDependencies": [null],
           "contractKind": "contract",
           "documentation": null,
           "fullyImplemented": true,
-          "linearizedBaseContracts": [
-            1068
-          ],
+          "linearizedBaseContracts": [1068],
           "name": "meDossier",
           "scope": 1069
         },
@@ -16141,9 +16016,7 @@
               "implemented": true,
               "isConstructor": true,
               "kind": "constructor",
-              "modifiers": [
-                null
-              ],
+              "modifiers": [null],
               "name": "",
               "scope": 1068,
               "stateMutability": "nonpayable",
@@ -16153,9 +16026,7 @@
             "children": [
               {
                 "attributes": {
-                  "parameters": [
-                    null
-                  ]
+                  "parameters": [null]
                 },
                 "children": [],
                 "id": 91,
@@ -16164,9 +16035,7 @@
               },
               {
                 "attributes": {
-                  "parameters": [
-                    null
-                  ]
+                  "parameters": [null]
                 },
                 "children": [],
                 "id": 92,
@@ -16191,9 +16060,7 @@
                           {
                             "attributes": {
                               "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 62,
                               "type": "address",
                               "value": "owner"
@@ -16217,9 +16084,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 1083,
                                   "type": "msg",
                                   "value": "msg"
@@ -16259,9 +16124,7 @@
               "implemented": true,
               "isConstructor": false,
               "kind": "function",
-              "modifiers": [
-                null
-              ],
+              "modifiers": [null],
               "name": "user",
               "scope": 1068,
               "stateMutability": "view",
@@ -16368,9 +16231,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 78,
                                   "type": "mapping(address => bool)",
                                   "value": "isDoctor"
@@ -16382,9 +16243,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 101,
                                   "type": "address",
                                   "value": "addr"
@@ -16484,9 +16343,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 74,
                                       "type": "mapping(address => bool)",
                                       "value": "isPatient"
@@ -16498,9 +16355,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 101,
                                       "type": "address",
                                       "value": "addr"
@@ -16590,9 +16445,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 101,
                                       "type": "address",
                                       "value": "addr"
@@ -16604,9 +16457,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 62,
                                       "type": "address",
                                       "value": "owner"
@@ -16719,9 +16570,7 @@
               "implemented": true,
               "isConstructor": false,
               "kind": "function",
-              "modifiers": [
-                null
-              ],
+              "modifiers": [null],
               "name": "registerDoctor",
               "scope": 1068,
               "stateMutability": "nonpayable",
@@ -16790,9 +16639,7 @@
               },
               {
                 "attributes": {
-                  "parameters": [
-                    null
-                  ]
+                  "parameters": [null]
                 },
                 "children": [],
                 "id": 141,
@@ -16811,9 +16658,7 @@
                           "isPure": false,
                           "isStructConstructorCall": false,
                           "lValueRequested": false,
-                          "names": [
-                            null
-                          ],
+                          "names": [null],
                           "type": "tuple()",
                           "type_conversion": false
                         },
@@ -16830,10 +16675,7 @@
                                   "typeString": "literal_string \"You are not allowed to register doctor!\""
                                 }
                               ],
-                              "overloadedDeclarations": [
-                                1086,
-                                1087
-                              ],
+                              "overloadedDeclarations": [1086, 1087],
                               "referencedDeclaration": 1087,
                               "type": "function (bool,string memory) pure",
                               "value": "require"
@@ -16872,9 +16714,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 1083,
                                       "type": "msg",
                                       "value": "msg"
@@ -16891,9 +16731,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 62,
                                   "type": "address",
                                   "value": "owner"
@@ -16970,9 +16808,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 90,
                                       "type": "mapping(string memory => mapping(uint256 => bool))",
                                       "value": "Registered"
@@ -16984,9 +16820,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 137,
                                       "type": "string memory",
                                       "value": "docname"
@@ -17003,9 +16837,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 139,
                                   "type": "uint256",
                                   "value": "license"
@@ -17056,9 +16888,7 @@
                           "isPure": false,
                           "isStructConstructorCall": false,
                           "lValueRequested": false,
-                          "names": [
-                            null
-                          ],
+                          "names": [null],
                           "type": "uint256",
                           "type_conversion": false
                         },
@@ -17083,9 +16913,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 60,
                                   "type": "uint256[] storage ref",
                                   "value": "registeredDoctorList"
@@ -17102,9 +16930,7 @@
                           {
                             "attributes": {
                               "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 139,
                               "type": "uint256",
                               "value": "license"
@@ -17139,9 +16965,7 @@
               "implemented": true,
               "isConstructor": false,
               "kind": "function",
-              "modifiers": [
-                null
-              ],
+              "modifiers": [null],
               "name": "isAuthorized",
               "scope": 1068,
               "stateMutability": "view",
@@ -17273,9 +17097,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 84,
                                   "type": "mapping(address => mapping(address => bool))",
                                   "value": "Authorized"
@@ -17287,9 +17109,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 167,
                                   "type": "address",
                                   "value": "pat"
@@ -17306,9 +17126,7 @@
                           {
                             "attributes": {
                               "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 169,
                               "type": "address",
                               "value": "client"
@@ -17343,9 +17161,7 @@
               "implemented": true,
               "isConstructor": false,
               "kind": "function",
-              "modifiers": [
-                null
-              ],
+              "modifiers": [null],
               "name": "isRegistered",
               "scope": 1068,
               "stateMutability": "view",
@@ -17424,9 +17240,7 @@
                 "children": [
                   {
                     "attributes": {
-                      "assignments": [
-                        189
-                      ]
+                      "assignments": [189]
                     },
                     "children": [
                       {
@@ -17470,9 +17284,7 @@
                           {
                             "attributes": {
                               "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 70,
                               "type": "mapping(address => struct meDossier.doctor storage ref)",
                               "value": "doctors"
@@ -17484,9 +17296,7 @@
                           {
                             "attributes": {
                               "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 183,
                               "type": "address",
                               "value": "addr"
@@ -17533,9 +17343,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 90,
                                   "type": "mapping(string memory => mapping(uint256 => bool))",
                                   "value": "Registered"
@@ -17559,9 +17367,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 189,
                                       "type": "struct meDossier.doctor memory",
                                       "value": "doc"
@@ -17595,9 +17401,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 189,
                                   "type": "struct meDossier.doctor memory",
                                   "value": "doc"
@@ -17637,9 +17441,7 @@
               "implemented": true,
               "isConstructor": false,
               "kind": "function",
-              "modifiers": [
-                null
-              ],
+              "modifiers": [null],
               "name": "addRecord",
               "scope": 1068,
               "stateMutability": "nonpayable",
@@ -17787,9 +17589,7 @@
               },
               {
                 "attributes": {
-                  "parameters": [
-                    null
-                  ]
+                  "parameters": [null]
                 },
                 "children": [],
                 "id": 215,
@@ -17808,9 +17608,7 @@
                           "isPure": false,
                           "isStructConstructorCall": false,
                           "lValueRequested": false,
-                          "names": [
-                            null
-                          ],
+                          "names": [null],
                           "type": "tuple()",
                           "type_conversion": false
                         },
@@ -17827,10 +17625,7 @@
                                   "typeString": "literal_string \"No patient found at the given address\""
                                 }
                               ],
-                              "overloadedDeclarations": [
-                                1086,
-                                1087
-                              ],
+                              "overloadedDeclarations": [1086, 1087],
                               "referencedDeclaration": 1087,
                               "type": "function (bool,string memory) pure",
                               "value": "require"
@@ -17852,9 +17647,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 74,
                                   "type": "mapping(address => bool)",
                                   "value": "isPatient"
@@ -17866,9 +17659,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 213,
                                   "type": "address",
                                   "value": "addr"
@@ -17949,9 +17740,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 84,
                                       "type": "mapping(address => mapping(address => bool))",
                                       "value": "Authorized"
@@ -17963,9 +17752,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 213,
                                       "type": "address",
                                       "value": "addr"
@@ -17994,9 +17781,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 1083,
                                       "type": "msg",
                                       "value": "msg"
@@ -18045,9 +17830,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 1083,
                                       "type": "msg",
                                       "value": "msg"
@@ -18064,9 +17847,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 213,
                                   "type": "address",
                                   "value": "addr"
@@ -18097,9 +17878,7 @@
                                   "isPure": false,
                                   "isStructConstructorCall": false,
                                   "lValueRequested": false,
-                                  "names": [
-                                    null
-                                  ],
+                                  "names": [null],
                                   "type": "uint256",
                                   "type_conversion": false
                                 },
@@ -18194,9 +17973,7 @@
                                       "isPure": false,
                                       "isStructConstructorCall": true,
                                       "lValueRequested": false,
-                                      "names": [
-                                        null
-                                      ],
+                                      "names": [null],
                                       "type": "struct meDossier.Records memory",
                                       "type_conversion": false
                                     },
@@ -18221,9 +17998,7 @@
                                               "typeString": "string memory"
                                             }
                                           ],
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 16,
                                           "type": "type(struct meDossier.Records storage pointer)",
                                           "value": "Records"
@@ -18235,9 +18010,7 @@
                                       {
                                         "attributes": {
                                           "argumentTypes": null,
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 205,
                                           "type": "string memory",
                                           "value": "_dname"
@@ -18249,9 +18022,7 @@
                                       {
                                         "attributes": {
                                           "argumentTypes": null,
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 207,
                                           "type": "string memory",
                                           "value": "_reason"
@@ -18263,9 +18034,7 @@
                                       {
                                         "attributes": {
                                           "argumentTypes": null,
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 209,
                                           "type": "string memory",
                                           "value": "_visitedDate"
@@ -18277,9 +18046,7 @@
                                       {
                                         "attributes": {
                                           "argumentTypes": null,
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 211,
                                           "type": "string memory",
                                           "value": "_ipfs"
@@ -18318,9 +18085,7 @@
                               "isPure": false,
                               "isStructConstructorCall": false,
                               "lValueRequested": false,
-                              "names": [
-                                null
-                              ],
+                              "names": [null],
                               "type": "tuple()",
                               "type_conversion": false
                             },
@@ -18333,10 +18098,7 @@
                                       "typeString": "literal_string \"Record cannot be added \""
                                     }
                                   ],
-                                  "overloadedDeclarations": [
-                                    1088,
-                                    1089
-                                  ],
+                                  "overloadedDeclarations": [1088, 1089],
                                   "referencedDeclaration": 1089,
                                   "type": "function (string memory) pure",
                                   "value": "revert"
@@ -18393,9 +18155,7 @@
               "implemented": true,
               "isConstructor": false,
               "kind": "function",
-              "modifiers": [
-                null
-              ],
+              "modifiers": [null],
               "name": "addPatient",
               "scope": 1068,
               "stateMutability": "nonpayable",
@@ -18542,9 +18302,7 @@
               },
               {
                 "attributes": {
-                  "parameters": [
-                    null
-                  ]
+                  "parameters": [null]
                 },
                 "children": [],
                 "id": 266,
@@ -18563,9 +18321,7 @@
                           "isPure": false,
                           "isStructConstructorCall": false,
                           "lValueRequested": false,
-                          "names": [
-                            null
-                          ],
+                          "names": [null],
                           "type": "tuple()",
                           "type_conversion": false
                         },
@@ -18582,10 +18338,7 @@
                                   "typeString": "literal_string \"Already Patient account exists\""
                                 }
                               ],
-                              "overloadedDeclarations": [
-                                1086,
-                                1087
-                              ],
+                              "overloadedDeclarations": [1086, 1087],
                               "referencedDeclaration": 1087,
                               "type": "function (bool,string memory) pure",
                               "value": "require"
@@ -18619,9 +18372,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 74,
                                       "type": "mapping(address => bool)",
                                       "value": "isPatient"
@@ -18645,9 +18396,7 @@
                                       {
                                         "attributes": {
                                           "argumentTypes": null,
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 1083,
                                           "type": "msg",
                                           "value": "msg"
@@ -18708,9 +18457,7 @@
                           "isPure": false,
                           "isStructConstructorCall": false,
                           "lValueRequested": false,
-                          "names": [
-                            null
-                          ],
+                          "names": [null],
                           "type": "tuple()",
                           "type_conversion": false
                         },
@@ -18723,10 +18470,7 @@
                                   "typeString": "bool"
                                 }
                               ],
-                              "overloadedDeclarations": [
-                                1086,
-                                1087
-                              ],
+                              "overloadedDeclarations": [1086, 1087],
                               "referencedDeclaration": 1086,
                               "type": "function (bool) pure",
                               "value": "require"
@@ -18770,9 +18514,7 @@
                                       "isPure": false,
                                       "isStructConstructorCall": false,
                                       "lValueRequested": false,
-                                      "names": [
-                                        null
-                                      ],
+                                      "names": [null],
                                       "type": "bytes memory",
                                       "type_conversion": true
                                     },
@@ -18799,9 +18541,7 @@
                                       {
                                         "attributes": {
                                           "argumentTypes": null,
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 256,
                                           "type": "string memory",
                                           "value": "_name"
@@ -18862,9 +18602,7 @@
                           "isPure": false,
                           "isStructConstructorCall": false,
                           "lValueRequested": false,
-                          "names": [
-                            null
-                          ],
+                          "names": [null],
                           "type": "tuple()",
                           "type_conversion": false
                         },
@@ -18877,10 +18615,7 @@
                                   "typeString": "bool"
                                 }
                               ],
-                              "overloadedDeclarations": [
-                                1086,
-                                1087
-                              ],
+                              "overloadedDeclarations": [1086, 1087],
                               "referencedDeclaration": 1086,
                               "type": "function (bool) pure",
                               "value": "require"
@@ -18924,9 +18659,7 @@
                                       "isPure": false,
                                       "isStructConstructorCall": false,
                                       "lValueRequested": false,
-                                      "names": [
-                                        null
-                                      ],
+                                      "names": [null],
                                       "type": "bytes memory",
                                       "type_conversion": true
                                     },
@@ -18953,9 +18686,7 @@
                                       {
                                         "attributes": {
                                           "argumentTypes": null,
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 258,
                                           "type": "string memory",
                                           "value": "_phone"
@@ -19016,9 +18747,7 @@
                           "isPure": false,
                           "isStructConstructorCall": false,
                           "lValueRequested": false,
-                          "names": [
-                            null
-                          ],
+                          "names": [null],
                           "type": "tuple()",
                           "type_conversion": false
                         },
@@ -19031,10 +18760,7 @@
                                   "typeString": "bool"
                                 }
                               ],
-                              "overloadedDeclarations": [
-                                1086,
-                                1087
-                              ],
+                              "overloadedDeclarations": [1086, 1087],
                               "referencedDeclaration": 1086,
                               "type": "function (bool) pure",
                               "value": "require"
@@ -19078,9 +18804,7 @@
                                       "isPure": false,
                                       "isStructConstructorCall": false,
                                       "lValueRequested": false,
-                                      "names": [
-                                        null
-                                      ],
+                                      "names": [null],
                                       "type": "bytes memory",
                                       "type_conversion": true
                                     },
@@ -19107,9 +18831,7 @@
                                       {
                                         "attributes": {
                                           "argumentTypes": null,
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 260,
                                           "type": "string memory",
                                           "value": "_gender"
@@ -19170,9 +18892,7 @@
                           "isPure": false,
                           "isStructConstructorCall": false,
                           "lValueRequested": false,
-                          "names": [
-                            null
-                          ],
+                          "names": [null],
                           "type": "tuple()",
                           "type_conversion": false
                         },
@@ -19185,10 +18905,7 @@
                                   "typeString": "bool"
                                 }
                               ],
-                              "overloadedDeclarations": [
-                                1086,
-                                1087
-                              ],
+                              "overloadedDeclarations": [1086, 1087],
                               "referencedDeclaration": 1086,
                               "type": "function (bool) pure",
                               "value": "require"
@@ -19232,9 +18949,7 @@
                                       "isPure": false,
                                       "isStructConstructorCall": false,
                                       "lValueRequested": false,
-                                      "names": [
-                                        null
-                                      ],
+                                      "names": [null],
                                       "type": "bytes memory",
                                       "type_conversion": true
                                     },
@@ -19261,9 +18976,7 @@
                                       {
                                         "attributes": {
                                           "argumentTypes": null,
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 262,
                                           "type": "string memory",
                                           "value": "_dob"
@@ -19324,9 +19037,7 @@
                           "isPure": false,
                           "isStructConstructorCall": false,
                           "lValueRequested": false,
-                          "names": [
-                            null
-                          ],
+                          "names": [null],
                           "type": "tuple()",
                           "type_conversion": false
                         },
@@ -19339,10 +19050,7 @@
                                   "typeString": "bool"
                                 }
                               ],
-                              "overloadedDeclarations": [
-                                1086,
-                                1087
-                              ],
+                              "overloadedDeclarations": [1086, 1087],
                               "referencedDeclaration": 1086,
                               "type": "function (bool) pure",
                               "value": "require"
@@ -19386,9 +19094,7 @@
                                       "isPure": false,
                                       "isStructConstructorCall": false,
                                       "lValueRequested": false,
-                                      "names": [
-                                        null
-                                      ],
+                                      "names": [null],
                                       "type": "bytes memory",
                                       "type_conversion": true
                                     },
@@ -19415,9 +19121,7 @@
                                       {
                                         "attributes": {
                                           "argumentTypes": null,
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 264,
                                           "type": "string memory",
                                           "value": "_bloodgroup"
@@ -19478,9 +19182,7 @@
                           "isPure": false,
                           "isStructConstructorCall": false,
                           "lValueRequested": false,
-                          "names": [
-                            null
-                          ],
+                          "names": [null],
                           "type": "uint256",
                           "type_conversion": false
                         },
@@ -19505,9 +19207,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 54,
                                   "type": "address[] storage ref",
                                   "value": "patientList"
@@ -19536,9 +19236,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 1083,
                                   "type": "msg",
                                   "value": "msg"
@@ -19578,9 +19276,7 @@
                           {
                             "attributes": {
                               "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 4,
                               "type": "uint256",
                               "value": "pindex"
@@ -19607,9 +19303,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 4,
                                   "type": "uint256",
                                   "value": "pindex"
@@ -19676,9 +19370,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 74,
                                   "type": "mapping(address => bool)",
                                   "value": "isPatient"
@@ -19702,9 +19394,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 1083,
                                       "type": "msg",
                                       "value": "msg"
@@ -19788,9 +19478,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 66,
                                       "type": "mapping(address => struct meDossier.patient storage ref)",
                                       "value": "patients"
@@ -19814,9 +19502,7 @@
                                       {
                                         "attributes": {
                                           "argumentTypes": null,
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 1083,
                                           "type": "msg",
                                           "value": "msg"
@@ -19843,9 +19529,7 @@
                           {
                             "attributes": {
                               "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 4,
                               "type": "uint256",
                               "value": "pindex"
@@ -19902,9 +19586,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 66,
                                       "type": "mapping(address => struct meDossier.patient storage ref)",
                                       "value": "patients"
@@ -19928,9 +19610,7 @@
                                       {
                                         "attributes": {
                                           "argumentTypes": null,
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 1083,
                                           "type": "msg",
                                           "value": "msg"
@@ -19957,9 +19637,7 @@
                           {
                             "attributes": {
                               "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 256,
                               "type": "string memory",
                               "value": "_name"
@@ -20016,9 +19694,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 66,
                                       "type": "mapping(address => struct meDossier.patient storage ref)",
                                       "value": "patients"
@@ -20042,9 +19718,7 @@
                                       {
                                         "attributes": {
                                           "argumentTypes": null,
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 1083,
                                           "type": "msg",
                                           "value": "msg"
@@ -20071,9 +19745,7 @@
                           {
                             "attributes": {
                               "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 258,
                               "type": "string memory",
                               "value": "_phone"
@@ -20130,9 +19802,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 66,
                                       "type": "mapping(address => struct meDossier.patient storage ref)",
                                       "value": "patients"
@@ -20156,9 +19826,7 @@
                                       {
                                         "attributes": {
                                           "argumentTypes": null,
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 1083,
                                           "type": "msg",
                                           "value": "msg"
@@ -20185,9 +19853,7 @@
                           {
                             "attributes": {
                               "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 260,
                               "type": "string memory",
                               "value": "_gender"
@@ -20244,9 +19910,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 66,
                                       "type": "mapping(address => struct meDossier.patient storage ref)",
                                       "value": "patients"
@@ -20270,9 +19934,7 @@
                                       {
                                         "attributes": {
                                           "argumentTypes": null,
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 1083,
                                           "type": "msg",
                                           "value": "msg"
@@ -20299,9 +19961,7 @@
                           {
                             "attributes": {
                               "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 262,
                               "type": "string memory",
                               "value": "_dob"
@@ -20358,9 +20018,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 66,
                                       "type": "mapping(address => struct meDossier.patient storage ref)",
                                       "value": "patients"
@@ -20384,9 +20042,7 @@
                                       {
                                         "attributes": {
                                           "argumentTypes": null,
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 1083,
                                           "type": "msg",
                                           "value": "msg"
@@ -20413,9 +20069,7 @@
                           {
                             "attributes": {
                               "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 264,
                               "type": "string memory",
                               "value": "_bloodgroup"
@@ -20472,9 +20126,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 66,
                                       "type": "mapping(address => struct meDossier.patient storage ref)",
                                       "value": "patients"
@@ -20498,9 +20150,7 @@
                                       {
                                         "attributes": {
                                           "argumentTypes": null,
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 1083,
                                           "type": "msg",
                                           "value": "msg"
@@ -20539,9 +20189,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 1083,
                                   "type": "msg",
                                   "value": "msg"
@@ -20581,9 +20229,7 @@
               "implemented": true,
               "isConstructor": false,
               "kind": "function",
-              "modifiers": [
-                null
-              ],
+              "modifiers": [null],
               "name": "getPatientDetails",
               "scope": 1068,
               "stateMutability": "view",
@@ -20774,9 +20420,7 @@
                           "isPure": false,
                           "isStructConstructorCall": false,
                           "lValueRequested": false,
-                          "names": [
-                            null
-                          ],
+                          "names": [null],
                           "type": "tuple()",
                           "type_conversion": false
                         },
@@ -20793,10 +20437,7 @@
                                   "typeString": "literal_string \"No Patients found at the given address\""
                                 }
                               ],
-                              "overloadedDeclarations": [
-                                1086,
-                                1087
-                              ],
+                              "overloadedDeclarations": [1086, 1087],
                               "referencedDeclaration": 1087,
                               "type": "function (bool,string memory) pure",
                               "value": "require"
@@ -20818,9 +20459,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 74,
                                   "type": "mapping(address => bool)",
                                   "value": "isPatient"
@@ -20832,9 +20471,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 401,
                                   "type": "address",
                                   "value": "_addr"
@@ -20877,9 +20514,7 @@
                   },
                   {
                     "attributes": {
-                      "assignments": [
-                        422
-                      ]
+                      "assignments": [422]
                     },
                     "children": [
                       {
@@ -20923,9 +20558,7 @@
                           {
                             "attributes": {
                               "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 66,
                               "type": "mapping(address => struct meDossier.patient storage ref)",
                               "value": "patients"
@@ -20937,9 +20570,7 @@
                           {
                             "attributes": {
                               "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 401,
                               "type": "address",
                               "value": "_addr"
@@ -20989,9 +20620,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 422,
                                   "type": "struct meDossier.patient memory",
                                   "value": "pat"
@@ -21020,9 +20649,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 422,
                                   "type": "struct meDossier.patient memory",
                                   "value": "pat"
@@ -21051,9 +20678,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 422,
                                   "type": "struct meDossier.patient memory",
                                   "value": "pat"
@@ -21082,9 +20707,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 422,
                                   "type": "struct meDossier.patient memory",
                                   "value": "pat"
@@ -21113,9 +20736,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 422,
                                   "type": "struct meDossier.patient memory",
                                   "value": "pat"
@@ -21155,9 +20776,7 @@
               "implemented": true,
               "isConstructor": false,
               "kind": "function",
-              "modifiers": [
-                null
-              ],
+              "modifiers": [null],
               "name": "getrecordlist",
               "scope": 1068,
               "stateMutability": "view",
@@ -21287,9 +20906,7 @@
                                       {
                                         "attributes": {
                                           "argumentTypes": null,
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 66,
                                           "type": "mapping(address => struct meDossier.patient storage ref)",
                                           "value": "patients"
@@ -21301,9 +20918,7 @@
                                       {
                                         "attributes": {
                                           "argumentTypes": null,
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 442,
                                           "type": "address",
                                           "value": "_addr"
@@ -21353,9 +20968,7 @@
               "implemented": true,
               "isConstructor": false,
               "kind": "function",
-              "modifiers": [
-                null
-              ],
+              "modifiers": [null],
               "name": "getdoctorlist",
               "scope": 1068,
               "stateMutability": "view",
@@ -21365,9 +20978,7 @@
             "children": [
               {
                 "attributes": {
-                  "parameters": [
-                    null
-                  ]
+                  "parameters": [null]
                 },
                 "children": [],
                 "id": 456,
@@ -21429,9 +21040,7 @@
                           {
                             "attributes": {
                               "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 57,
                               "type": "address[] storage ref",
                               "value": "doctorList"
@@ -21466,9 +21075,7 @@
               "implemented": true,
               "isConstructor": false,
               "kind": "function",
-              "modifiers": [
-                null
-              ],
+              "modifiers": [null],
               "name": "getRegisteredDoctorslength",
               "scope": 1068,
               "stateMutability": "view",
@@ -21478,9 +21085,7 @@
             "children": [
               {
                 "attributes": {
-                  "parameters": [
-                    null
-                  ]
+                  "parameters": [null]
                 },
                 "children": [],
                 "id": 465,
@@ -21542,9 +21147,7 @@
                           {
                             "attributes": {
                               "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 60,
                               "type": "uint256[] storage ref",
                               "value": "registeredDoctorList"
@@ -21579,9 +21182,7 @@
               "implemented": true,
               "isConstructor": false,
               "kind": "function",
-              "modifiers": [
-                null
-              ],
+              "modifiers": [null],
               "name": "getRegisteredDoctorsList",
               "scope": 1068,
               "stateMutability": "view",
@@ -21675,9 +21276,7 @@
                           {
                             "attributes": {
                               "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 60,
                               "type": "uint256[] storage ref",
                               "value": "registeredDoctorList"
@@ -21689,9 +21288,7 @@
                           {
                             "attributes": {
                               "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 475,
                               "type": "uint256",
                               "value": "id"
@@ -21726,9 +21323,7 @@
               "implemented": true,
               "isConstructor": false,
               "kind": "function",
-              "modifiers": [
-                null
-              ],
+              "modifiers": [null],
               "name": "getPatientRecords",
               "scope": 1068,
               "stateMutability": "view",
@@ -21919,9 +21514,7 @@
                           "isPure": false,
                           "isStructConstructorCall": false,
                           "lValueRequested": false,
-                          "names": [
-                            null
-                          ],
+                          "names": [null],
                           "type": "tuple()",
                           "type_conversion": false
                         },
@@ -21938,10 +21531,7 @@
                                   "typeString": "literal_string \"No patient found at the given address\""
                                 }
                               ],
-                              "overloadedDeclarations": [
-                                1086,
-                                1087
-                              ],
+                              "overloadedDeclarations": [1086, 1087],
                               "referencedDeclaration": 1087,
                               "type": "function (bool,string memory) pure",
                               "value": "require"
@@ -21963,9 +21553,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 74,
                                   "type": "mapping(address => bool)",
                                   "value": "isPatient"
@@ -21977,9 +21565,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 487,
                                   "type": "address",
                                   "value": "_addr"
@@ -22060,9 +21646,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 84,
                                       "type": "mapping(address => mapping(address => bool))",
                                       "value": "Authorized"
@@ -22074,9 +21658,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 487,
                                       "type": "address",
                                       "value": "_addr"
@@ -22105,9 +21687,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 1083,
                                       "type": "msg",
                                       "value": "msg"
@@ -22156,9 +21736,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 1083,
                                       "type": "msg",
                                       "value": "msg"
@@ -22175,9 +21753,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 487,
                                   "type": "address",
                                   "value": "_addr"
@@ -22299,9 +21875,7 @@
                                           {
                                             "attributes": {
                                               "argumentTypes": null,
-                                              "overloadedDeclarations": [
-                                                null
-                                              ],
+                                              "overloadedDeclarations": [null],
                                               "referencedDeclaration": 489,
                                               "type": "uint256",
                                               "value": "_id"
@@ -22405,9 +21979,7 @@
                                           {
                                             "attributes": {
                                               "argumentTypes": null,
-                                              "overloadedDeclarations": [
-                                                null
-                                              ],
+                                              "overloadedDeclarations": [null],
                                               "referencedDeclaration": 489,
                                               "type": "uint256",
                                               "value": "_id"
@@ -22511,9 +22083,7 @@
                                           {
                                             "attributes": {
                                               "argumentTypes": null,
-                                              "overloadedDeclarations": [
-                                                null
-                                              ],
+                                              "overloadedDeclarations": [null],
                                               "referencedDeclaration": 489,
                                               "type": "uint256",
                                               "value": "_id"
@@ -22617,9 +22187,7 @@
                                           {
                                             "attributes": {
                                               "argumentTypes": null,
-                                              "overloadedDeclarations": [
-                                                null
-                                              ],
+                                              "overloadedDeclarations": [null],
                                               "referencedDeclaration": 489,
                                               "type": "uint256",
                                               "value": "_id"
@@ -22663,9 +22231,7 @@
                               "isPure": false,
                               "isStructConstructorCall": false,
                               "lValueRequested": false,
-                              "names": [
-                                null
-                              ],
+                              "names": [null],
                               "type": "tuple()",
                               "type_conversion": false
                             },
@@ -22678,10 +22244,7 @@
                                       "typeString": "literal_string \"Record cannot be accessed\""
                                     }
                                   ],
-                                  "overloadedDeclarations": [
-                                    1088,
-                                    1089
-                                  ],
+                                  "overloadedDeclarations": [1088, 1089],
                                   "referencedDeclaration": 1089,
                                   "type": "function (string memory) pure",
                                   "value": "revert"
@@ -22738,9 +22301,7 @@
               "implemented": true,
               "isConstructor": false,
               "kind": "function",
-              "modifiers": [
-                null
-              ],
+              "modifiers": [null],
               "name": "addDoctor",
               "scope": 1068,
               "stateMutability": "nonpayable",
@@ -22887,9 +22448,7 @@
               },
               {
                 "attributes": {
-                  "parameters": [
-                    null
-                  ]
+                  "parameters": [null]
                 },
                 "children": [],
                 "id": 567,
@@ -22908,9 +22467,7 @@
                           "isPure": false,
                           "isStructConstructorCall": false,
                           "lValueRequested": false,
-                          "names": [
-                            null
-                          ],
+                          "names": [null],
                           "type": "tuple()",
                           "type_conversion": false
                         },
@@ -22927,10 +22484,7 @@
                                   "typeString": "literal_string \"Already Registered\""
                                 }
                               ],
-                              "overloadedDeclarations": [
-                                1086,
-                                1087
-                              ],
+                              "overloadedDeclarations": [1086, 1087],
                               "referencedDeclaration": 1087,
                               "type": "function (bool,string memory) pure",
                               "value": "require"
@@ -22964,9 +22518,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 78,
                                       "type": "mapping(address => bool)",
                                       "value": "isDoctor"
@@ -22990,9 +22542,7 @@
                                       {
                                         "attributes": {
                                           "argumentTypes": null,
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 1083,
                                           "type": "msg",
                                           "value": "msg"
@@ -23053,9 +22603,7 @@
                           "isPure": false,
                           "isStructConstructorCall": false,
                           "lValueRequested": false,
-                          "names": [
-                            null
-                          ],
+                          "names": [null],
                           "type": "tuple()",
                           "type_conversion": false
                         },
@@ -23072,10 +22620,7 @@
                                   "typeString": "literal_string \"Contract owner cannot register as doctor\""
                                 }
                               ],
-                              "overloadedDeclarations": [
-                                1086,
-                                1087
-                              ],
+                              "overloadedDeclarations": [1086, 1087],
                               "referencedDeclaration": 1087,
                               "type": "function (bool,string memory) pure",
                               "value": "require"
@@ -23114,9 +22659,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 1083,
                                       "type": "msg",
                                       "value": "msg"
@@ -23133,9 +22676,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 62,
                                   "type": "address",
                                   "value": "owner"
@@ -23186,9 +22727,7 @@
                           "isPure": false,
                           "isStructConstructorCall": false,
                           "lValueRequested": false,
-                          "names": [
-                            null
-                          ],
+                          "names": [null],
                           "type": "tuple()",
                           "type_conversion": false
                         },
@@ -23201,10 +22740,7 @@
                                   "typeString": "bool"
                                 }
                               ],
-                              "overloadedDeclarations": [
-                                1086,
-                                1087
-                              ],
+                              "overloadedDeclarations": [1086, 1087],
                               "referencedDeclaration": 1086,
                               "type": "function (bool) pure",
                               "value": "require"
@@ -23248,9 +22784,7 @@
                                       "isPure": false,
                                       "isStructConstructorCall": false,
                                       "lValueRequested": false,
-                                      "names": [
-                                        null
-                                      ],
+                                      "names": [null],
                                       "type": "bytes memory",
                                       "type_conversion": true
                                     },
@@ -23277,9 +22811,7 @@
                                       {
                                         "attributes": {
                                           "argumentTypes": null,
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 557,
                                           "type": "string memory",
                                           "value": "_name"
@@ -23340,9 +22872,7 @@
                           "isPure": false,
                           "isStructConstructorCall": false,
                           "lValueRequested": false,
-                          "names": [
-                            null
-                          ],
+                          "names": [null],
                           "type": "tuple()",
                           "type_conversion": false
                         },
@@ -23355,10 +22885,7 @@
                                   "typeString": "bool"
                                 }
                               ],
-                              "overloadedDeclarations": [
-                                1086,
-                                1087
-                              ],
+                              "overloadedDeclarations": [1086, 1087],
                               "referencedDeclaration": 1086,
                               "type": "function (bool) pure",
                               "value": "require"
@@ -23402,9 +22929,7 @@
                                       "isPure": false,
                                       "isStructConstructorCall": false,
                                       "lValueRequested": false,
-                                      "names": [
-                                        null
-                                      ],
+                                      "names": [null],
                                       "type": "bytes memory",
                                       "type_conversion": true
                                     },
@@ -23431,9 +22956,7 @@
                                       {
                                         "attributes": {
                                           "argumentTypes": null,
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 559,
                                           "type": "string memory",
                                           "value": "_hname"
@@ -23494,9 +23017,7 @@
                           "isPure": false,
                           "isStructConstructorCall": false,
                           "lValueRequested": false,
-                          "names": [
-                            null
-                          ],
+                          "names": [null],
                           "type": "tuple()",
                           "type_conversion": false
                         },
@@ -23509,10 +23030,7 @@
                                   "typeString": "bool"
                                 }
                               ],
-                              "overloadedDeclarations": [
-                                1086,
-                                1087
-                              ],
+                              "overloadedDeclarations": [1086, 1087],
                               "referencedDeclaration": 1086,
                               "type": "function (bool) pure",
                               "value": "require"
@@ -23556,9 +23074,7 @@
                                       "isPure": false,
                                       "isStructConstructorCall": false,
                                       "lValueRequested": false,
-                                      "names": [
-                                        null
-                                      ],
+                                      "names": [null],
                                       "type": "bytes memory",
                                       "type_conversion": true
                                     },
@@ -23585,9 +23101,7 @@
                                       {
                                         "attributes": {
                                           "argumentTypes": null,
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 561,
                                           "type": "string memory",
                                           "value": "_faculty"
@@ -23648,9 +23162,7 @@
                           "isPure": false,
                           "isStructConstructorCall": false,
                           "lValueRequested": false,
-                          "names": [
-                            null
-                          ],
+                          "names": [null],
                           "type": "tuple()",
                           "type_conversion": false
                         },
@@ -23663,10 +23175,7 @@
                                   "typeString": "bool"
                                 }
                               ],
-                              "overloadedDeclarations": [
-                                1086,
-                                1087
-                              ],
+                              "overloadedDeclarations": [1086, 1087],
                               "referencedDeclaration": 1086,
                               "type": "function (bool) pure",
                               "value": "require"
@@ -23710,9 +23219,7 @@
                                       "isPure": false,
                                       "isStructConstructorCall": false,
                                       "lValueRequested": false,
-                                      "names": [
-                                        null
-                                      ],
+                                      "names": [null],
                                       "type": "bytes memory",
                                       "type_conversion": true
                                     },
@@ -23739,9 +23246,7 @@
                                       {
                                         "attributes": {
                                           "argumentTypes": null,
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 563,
                                           "type": "string memory",
                                           "value": "_contact"
@@ -23802,9 +23307,7 @@
                           "isPure": false,
                           "isStructConstructorCall": false,
                           "lValueRequested": false,
-                          "names": [
-                            null
-                          ],
+                          "names": [null],
                           "type": "tuple()",
                           "type_conversion": false
                         },
@@ -23817,10 +23320,7 @@
                                   "typeString": "bool"
                                 }
                               ],
-                              "overloadedDeclarations": [
-                                1086,
-                                1087
-                              ],
+                              "overloadedDeclarations": [1086, 1087],
                               "referencedDeclaration": 1086,
                               "type": "function (bool) pure",
                               "value": "require"
@@ -23847,9 +23347,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 565,
                                   "type": "uint256",
                                   "value": "license"
@@ -23892,9 +23390,7 @@
                   },
                   {
                     "attributes": {
-                      "assignments": [
-                        628
-                      ]
+                      "assignments": [628]
                     },
                     "children": [
                       {
@@ -23939,9 +23435,7 @@
                           {
                             "attributes": {
                               "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 1083,
                               "type": "msg",
                               "value": "msg"
@@ -23970,9 +23464,7 @@
                           "isPure": false,
                           "isStructConstructorCall": false,
                           "lValueRequested": false,
-                          "names": [
-                            null
-                          ],
+                          "names": [null],
                           "type": "uint256",
                           "type_conversion": false
                         },
@@ -23997,9 +23489,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 57,
                                   "type": "address[] storage ref",
                                   "value": "doctorList"
@@ -24016,9 +23506,7 @@
                           {
                             "attributes": {
                               "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 628,
                               "type": "address",
                               "value": "_addr"
@@ -24053,9 +23541,7 @@
                           {
                             "attributes": {
                               "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 7,
                               "type": "uint256",
                               "value": "dindex"
@@ -24082,9 +23568,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 7,
                                   "type": "uint256",
                                   "value": "dindex"
@@ -24151,9 +23635,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 78,
                                   "type": "mapping(address => bool)",
                                   "value": "isDoctor"
@@ -24165,9 +23647,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 628,
                                   "type": "address",
                                   "value": "_addr"
@@ -24246,9 +23726,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 70,
                                       "type": "mapping(address => struct meDossier.doctor storage ref)",
                                       "value": "doctors"
@@ -24260,9 +23738,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 628,
                                       "type": "address",
                                       "value": "_addr"
@@ -24284,9 +23760,7 @@
                           {
                             "attributes": {
                               "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 557,
                               "type": "string memory",
                               "value": "_name"
@@ -24343,9 +23817,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 70,
                                       "type": "mapping(address => struct meDossier.doctor storage ref)",
                                       "value": "doctors"
@@ -24357,9 +23829,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 628,
                                       "type": "address",
                                       "value": "_addr"
@@ -24381,9 +23851,7 @@
                           {
                             "attributes": {
                               "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 563,
                               "type": "string memory",
                               "value": "_contact"
@@ -24440,9 +23908,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 70,
                                       "type": "mapping(address => struct meDossier.doctor storage ref)",
                                       "value": "doctors"
@@ -24454,9 +23920,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 628,
                                       "type": "address",
                                       "value": "_addr"
@@ -24478,9 +23942,7 @@
                           {
                             "attributes": {
                               "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 559,
                               "type": "string memory",
                               "value": "_hname"
@@ -24537,9 +23999,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 70,
                                       "type": "mapping(address => struct meDossier.doctor storage ref)",
                                       "value": "doctors"
@@ -24551,9 +24011,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 628,
                                       "type": "address",
                                       "value": "_addr"
@@ -24575,9 +24033,7 @@
                           {
                             "attributes": {
                               "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 561,
                               "type": "string memory",
                               "value": "_faculty"
@@ -24634,9 +24090,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 70,
                                       "type": "mapping(address => struct meDossier.doctor storage ref)",
                                       "value": "doctors"
@@ -24648,9 +24102,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 628,
                                       "type": "address",
                                       "value": "_addr"
@@ -24672,9 +24124,7 @@
                           {
                             "attributes": {
                               "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 628,
                               "type": "address",
                               "value": "_addr"
@@ -24731,9 +24181,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 70,
                                       "type": "mapping(address => struct meDossier.doctor storage ref)",
                                       "value": "doctors"
@@ -24745,9 +24193,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 628,
                                       "type": "address",
                                       "value": "_addr"
@@ -24769,9 +24215,7 @@
                           {
                             "attributes": {
                               "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 565,
                               "type": "uint256",
                               "value": "license"
@@ -24828,9 +24272,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 70,
                                       "type": "mapping(address => struct meDossier.doctor storage ref)",
                                       "value": "doctors"
@@ -24842,9 +24284,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 628,
                                       "type": "address",
                                       "value": "_addr"
@@ -24933,9 +24373,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 90,
                                       "type": "mapping(string memory => mapping(uint256 => bool))",
                                       "value": "Registered"
@@ -24947,9 +24385,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 557,
                                       "type": "string memory",
                                       "value": "_name"
@@ -24966,9 +24402,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 565,
                                   "type": "uint256",
                                   "value": "license"
@@ -25044,9 +24478,7 @@
                                           {
                                             "attributes": {
                                               "argumentTypes": null,
-                                              "overloadedDeclarations": [
-                                                null
-                                              ],
+                                              "overloadedDeclarations": [null],
                                               "referencedDeclaration": 70,
                                               "type": "mapping(address => struct meDossier.doctor storage ref)",
                                               "value": "doctors"
@@ -25058,9 +24490,7 @@
                                           {
                                             "attributes": {
                                               "argumentTypes": null,
-                                              "overloadedDeclarations": [
-                                                null
-                                              ],
+                                              "overloadedDeclarations": [null],
                                               "referencedDeclaration": 628,
                                               "type": "address",
                                               "value": "_addr"
@@ -25132,9 +24562,7 @@
               "implemented": true,
               "isConstructor": false,
               "kind": "function",
-              "modifiers": [
-                null
-              ],
+              "modifiers": [null],
               "name": "getDoctorbyLicense",
               "scope": 1068,
               "stateMutability": "view",
@@ -25369,9 +24797,7 @@
                 "children": [
                   {
                     "attributes": {
-                      "assignments": [
-                        736
-                      ]
+                      "assignments": [736]
                     },
                     "children": [
                       {
@@ -25440,9 +24866,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 736,
                                   "type": "uint256",
                                   "value": "i"
@@ -25496,9 +24920,7 @@
                           {
                             "attributes": {
                               "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 736,
                               "type": "uint256",
                               "value": "i"
@@ -25522,9 +24944,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 57,
                                   "type": "address[] storage ref",
                                   "value": "doctorList"
@@ -25560,9 +24980,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 736,
                                   "type": "uint256",
                                   "value": "i"
@@ -25628,9 +25046,7 @@
                                           {
                                             "attributes": {
                                               "argumentTypes": null,
-                                              "overloadedDeclarations": [
-                                                null
-                                              ],
+                                              "overloadedDeclarations": [null],
                                               "referencedDeclaration": 70,
                                               "type": "mapping(address => struct meDossier.doctor storage ref)",
                                               "value": "doctors"
@@ -25695,9 +25111,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 718,
                                       "type": "uint256",
                                       "value": "license"
@@ -25740,9 +25154,7 @@
                   },
                   {
                     "attributes": {
-                      "assignments": [
-                        764
-                      ]
+                      "assignments": [764]
                     },
                     "children": [
                       {
@@ -25786,9 +25198,7 @@
                           {
                             "attributes": {
                               "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 70,
                               "type": "mapping(address => struct meDossier.doctor storage ref)",
                               "value": "doctors"
@@ -25810,9 +25220,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 57,
                                   "type": "address[] storage ref",
                                   "value": "doctorList"
@@ -25824,9 +25232,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 736,
                                   "type": "uint256",
                                   "value": "i"
@@ -25860,9 +25266,7 @@
                           "isPure": false,
                           "isStructConstructorCall": false,
                           "lValueRequested": false,
-                          "names": [
-                            null
-                          ],
+                          "names": [null],
                           "type": "tuple()",
                           "type_conversion": false
                         },
@@ -25879,10 +25283,7 @@
                                   "typeString": "literal_string \"Doctor hasn't signed up in meDossier\""
                                 }
                               ],
-                              "overloadedDeclarations": [
-                                1086,
-                                1087
-                              ],
+                              "overloadedDeclarations": [1086, 1087],
                               "referencedDeclaration": 1087,
                               "type": "function (bool,string memory) pure",
                               "value": "require"
@@ -25919,9 +25320,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 78,
                                       "type": "mapping(address => bool)",
                                       "value": "isDoctor"
@@ -25945,9 +25344,7 @@
                                       {
                                         "attributes": {
                                           "argumentTypes": null,
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 764,
                                           "type": "struct meDossier.doctor memory",
                                           "value": "doc"
@@ -26025,9 +25422,7 @@
                           "isPure": false,
                           "isStructConstructorCall": false,
                           "lValueRequested": false,
-                          "names": [
-                            null
-                          ],
+                          "names": [null],
                           "type": "tuple()",
                           "type_conversion": false
                         },
@@ -26044,10 +25439,7 @@
                                   "typeString": "literal_string \"Doctor is not approved\""
                                 }
                               ],
-                              "overloadedDeclarations": [
-                                1086,
-                                1087
-                              ],
+                              "overloadedDeclarations": [1086, 1087],
                               "referencedDeclaration": 1087,
                               "type": "function (bool,string memory) pure",
                               "value": "require"
@@ -26086,9 +25478,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 764,
                                       "type": "struct meDossier.doctor memory",
                                       "value": "doc"
@@ -26182,9 +25572,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 764,
                                   "type": "struct meDossier.doctor memory",
                                   "value": "doc"
@@ -26213,9 +25601,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 764,
                                   "type": "struct meDossier.doctor memory",
                                   "value": "doc"
@@ -26244,9 +25630,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 764,
                                   "type": "struct meDossier.doctor memory",
                                   "value": "doc"
@@ -26275,9 +25659,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 764,
                                   "type": "struct meDossier.doctor memory",
                                   "value": "doc"
@@ -26306,9 +25688,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 764,
                                   "type": "struct meDossier.doctor memory",
                                   "value": "doc"
@@ -26337,9 +25717,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 764,
                                   "type": "struct meDossier.doctor memory",
                                   "value": "doc"
@@ -26368,9 +25746,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 764,
                                   "type": "struct meDossier.doctor memory",
                                   "value": "doc"
@@ -26410,9 +25786,7 @@
               "implemented": true,
               "isConstructor": false,
               "kind": "function",
-              "modifiers": [
-                null
-              ],
+              "modifiers": [null],
               "name": "getDoctorbyName",
               "scope": 1068,
               "stateMutability": "view",
@@ -26673,9 +26047,7 @@
                 "children": [
                   {
                     "attributes": {
-                      "assignments": [
-                        828
-                      ]
+                      "assignments": [828]
                     },
                     "children": [
                       {
@@ -26744,9 +26116,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 828,
                                   "type": "uint256",
                                   "value": "i"
@@ -26800,9 +26170,7 @@
                           {
                             "attributes": {
                               "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 828,
                               "type": "uint256",
                               "value": "i"
@@ -26826,9 +26194,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 57,
                                   "type": "address[] storage ref",
                                   "value": "doctorList"
@@ -26864,9 +26230,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 828,
                                   "type": "uint256",
                                   "value": "i"
@@ -26915,9 +26279,7 @@
                                       "isPure": false,
                                       "isStructConstructorCall": false,
                                       "lValueRequested": false,
-                                      "names": [
-                                        null
-                                      ],
+                                      "names": [null],
                                       "type": "bytes32",
                                       "type_conversion": false
                                     },
@@ -26930,9 +26292,7 @@
                                               "typeString": "bytes storage pointer"
                                             }
                                           ],
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 1077,
                                           "type": "function (bytes memory) pure returns (bytes32)",
                                           "value": "keccak256"
@@ -26949,9 +26309,7 @@
                                           "isPure": false,
                                           "isStructConstructorCall": false,
                                           "lValueRequested": false,
-                                          "names": [
-                                            null
-                                          ],
+                                          "names": [null],
                                           "type": "bytes storage pointer",
                                           "type_conversion": true
                                         },
@@ -27082,9 +26440,7 @@
                                       "isPure": false,
                                       "isStructConstructorCall": false,
                                       "lValueRequested": false,
-                                      "names": [
-                                        null
-                                      ],
+                                      "names": [null],
                                       "type": "bytes32",
                                       "type_conversion": false
                                     },
@@ -27097,9 +26453,7 @@
                                               "typeString": "bytes memory"
                                             }
                                           ],
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 1077,
                                           "type": "function (bytes memory) pure returns (bytes32)",
                                           "value": "keccak256"
@@ -27116,9 +26470,7 @@
                                           "isPure": false,
                                           "isStructConstructorCall": false,
                                           "lValueRequested": false,
-                                          "names": [
-                                            null
-                                          ],
+                                          "names": [null],
                                           "type": "bytes memory",
                                           "type_conversion": true
                                         },
@@ -27145,9 +26497,7 @@
                                           {
                                             "attributes": {
                                               "argumentTypes": null,
-                                              "overloadedDeclarations": [
-                                                null
-                                              ],
+                                              "overloadedDeclarations": [null],
                                               "referencedDeclaration": 808,
                                               "type": "string memory",
                                               "value": "_name"
@@ -27208,9 +26558,7 @@
                           "isPure": false,
                           "isStructConstructorCall": false,
                           "lValueRequested": false,
-                          "names": [
-                            null
-                          ],
+                          "names": [null],
                           "type": "tuple()",
                           "type_conversion": false
                         },
@@ -27227,10 +26575,7 @@
                                   "typeString": "literal_string \"Doctor doesn't exists with the given name\""
                                 }
                               ],
-                              "overloadedDeclarations": [
-                                1086,
-                                1087
-                              ],
+                              "overloadedDeclarations": [1086, 1087],
                               "referencedDeclaration": 1087,
                               "type": "function (bool,string memory) pure",
                               "value": "require"
@@ -27262,9 +26607,7 @@
                                   "isPure": false,
                                   "isStructConstructorCall": false,
                                   "lValueRequested": false,
-                                  "names": [
-                                    null
-                                  ],
+                                  "names": [null],
                                   "type": "bytes32",
                                   "type_conversion": false
                                 },
@@ -27277,9 +26620,7 @@
                                           "typeString": "bytes storage pointer"
                                         }
                                       ],
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 1077,
                                       "type": "function (bytes memory) pure returns (bytes32)",
                                       "value": "keccak256"
@@ -27296,9 +26637,7 @@
                                       "isPure": false,
                                       "isStructConstructorCall": false,
                                       "lValueRequested": false,
-                                      "names": [
-                                        null
-                                      ],
+                                      "names": [null],
                                       "type": "bytes storage pointer",
                                       "type_conversion": true
                                     },
@@ -27429,9 +26768,7 @@
                                   "isPure": false,
                                   "isStructConstructorCall": false,
                                   "lValueRequested": false,
-                                  "names": [
-                                    null
-                                  ],
+                                  "names": [null],
                                   "type": "bytes32",
                                   "type_conversion": false
                                 },
@@ -27444,9 +26781,7 @@
                                           "typeString": "bytes memory"
                                         }
                                       ],
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 1077,
                                       "type": "function (bytes memory) pure returns (bytes32)",
                                       "value": "keccak256"
@@ -27463,9 +26798,7 @@
                                       "isPure": false,
                                       "isStructConstructorCall": false,
                                       "lValueRequested": false,
-                                      "names": [
-                                        null
-                                      ],
+                                      "names": [null],
                                       "type": "bytes memory",
                                       "type_conversion": true
                                     },
@@ -27492,9 +26825,7 @@
                                       {
                                         "attributes": {
                                           "argumentTypes": null,
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 808,
                                           "type": "string memory",
                                           "value": "_name"
@@ -27547,9 +26878,7 @@
                   },
                   {
                     "attributes": {
-                      "assignments": [
-                        884
-                      ]
+                      "assignments": [884]
                     },
                     "children": [
                       {
@@ -27593,9 +26922,7 @@
                           {
                             "attributes": {
                               "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 70,
                               "type": "mapping(address => struct meDossier.doctor storage ref)",
                               "value": "doctors"
@@ -27617,9 +26944,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 57,
                                   "type": "address[] storage ref",
                                   "value": "doctorList"
@@ -27631,9 +26956,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 828,
                                   "type": "uint256",
                                   "value": "i"
@@ -27688,9 +27011,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 884,
                                   "type": "struct meDossier.doctor memory",
                                   "value": "doc"
@@ -27719,9 +27040,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 884,
                                   "type": "struct meDossier.doctor memory",
                                   "value": "doc"
@@ -27750,9 +27069,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 884,
                                   "type": "struct meDossier.doctor memory",
                                   "value": "doc"
@@ -27781,9 +27098,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 884,
                                   "type": "struct meDossier.doctor memory",
                                   "value": "doc"
@@ -27812,9 +27127,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 884,
                                   "type": "struct meDossier.doctor memory",
                                   "value": "doc"
@@ -27843,9 +27156,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 884,
                                   "type": "struct meDossier.doctor memory",
                                   "value": "doc"
@@ -27874,9 +27185,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 884,
                                   "type": "struct meDossier.doctor memory",
                                   "value": "doc"
@@ -27905,9 +27214,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 884,
                                   "type": "struct meDossier.doctor memory",
                                   "value": "doc"
@@ -27947,9 +27254,7 @@
               "implemented": true,
               "isConstructor": false,
               "kind": "function",
-              "modifiers": [
-                null
-              ],
+              "modifiers": [null],
               "name": "getDoctorByAddress",
               "scope": 1068,
               "stateMutability": "view",
@@ -28211,9 +27516,7 @@
                 "children": [
                   {
                     "attributes": {
-                      "assignments": [
-                        932
-                      ]
+                      "assignments": [932]
                     },
                     "children": [
                       {
@@ -28257,9 +27560,7 @@
                           {
                             "attributes": {
                               "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 70,
                               "type": "mapping(address => struct meDossier.doctor storage ref)",
                               "value": "doctors"
@@ -28271,9 +27572,7 @@
                           {
                             "attributes": {
                               "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 912,
                               "type": "address",
                               "value": "_address"
@@ -28323,9 +27622,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 932,
                                   "type": "struct meDossier.doctor memory",
                                   "value": "doc"
@@ -28354,9 +27651,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 932,
                                   "type": "struct meDossier.doctor memory",
                                   "value": "doc"
@@ -28385,9 +27680,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 932,
                                   "type": "struct meDossier.doctor memory",
                                   "value": "doc"
@@ -28416,9 +27709,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 932,
                                   "type": "struct meDossier.doctor memory",
                                   "value": "doc"
@@ -28447,9 +27738,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 932,
                                   "type": "struct meDossier.doctor memory",
                                   "value": "doc"
@@ -28478,9 +27767,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 932,
                                   "type": "struct meDossier.doctor memory",
                                   "value": "doc"
@@ -28509,9 +27796,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 932,
                                   "type": "struct meDossier.doctor memory",
                                   "value": "doc"
@@ -28540,9 +27825,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 932,
                                   "type": "struct meDossier.doctor memory",
                                   "value": "doc"
@@ -28582,9 +27865,7 @@
               "implemented": true,
               "isConstructor": false,
               "kind": "function",
-              "modifiers": [
-                null
-              ],
+              "modifiers": [null],
               "name": "grantAccess",
               "scope": 1068,
               "stateMutability": "nonpayable",
@@ -28671,9 +27952,7 @@
                           "isPure": false,
                           "isStructConstructorCall": false,
                           "lValueRequested": false,
-                          "names": [
-                            null
-                          ],
+                          "names": [null],
                           "type": "tuple()",
                           "type_conversion": false
                         },
@@ -28690,10 +27969,7 @@
                                   "typeString": "literal_string \"You cannot add yourself\""
                                 }
                               ],
-                              "overloadedDeclarations": [
-                                1086,
-                                1087
-                              ],
+                              "overloadedDeclarations": [1086, 1087],
                               "referencedDeclaration": 1087,
                               "type": "function (bool,string memory) pure",
                               "value": "require"
@@ -28732,9 +28008,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 1083,
                                       "type": "msg",
                                       "value": "msg"
@@ -28751,9 +28025,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 958,
                                   "type": "address",
                                   "value": "_addr"
@@ -28804,9 +28076,7 @@
                           "isPure": false,
                           "isStructConstructorCall": false,
                           "lValueRequested": false,
-                          "names": [
-                            null
-                          ],
+                          "names": [null],
                           "type": "tuple()",
                           "type_conversion": false
                         },
@@ -28823,10 +28093,7 @@
                                   "typeString": "literal_string \"Not registered as doctor\""
                                 }
                               ],
-                              "overloadedDeclarations": [
-                                1086,
-                                1087
-                              ],
+                              "overloadedDeclarations": [1086, 1087],
                               "referencedDeclaration": 1087,
                               "type": "function (bool,string memory) pure",
                               "value": "require"
@@ -28848,9 +28115,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 78,
                                   "type": "mapping(address => bool)",
                                   "value": "isDoctor"
@@ -28862,9 +28127,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 958,
                                   "type": "address",
                                   "value": "_addr"
@@ -28915,9 +28178,7 @@
                           "isPure": false,
                           "isStructConstructorCall": false,
                           "lValueRequested": false,
-                          "names": [
-                            null
-                          ],
+                          "names": [null],
                           "type": "tuple()",
                           "type_conversion": false
                         },
@@ -28934,10 +28195,7 @@
                                   "typeString": "literal_string \"User is already authorized\""
                                 }
                               ],
-                              "overloadedDeclarations": [
-                                1086,
-                                1087
-                              ],
+                              "overloadedDeclarations": [1086, 1087],
                               "referencedDeclaration": 1087,
                               "type": "function (bool,string memory) pure",
                               "value": "require"
@@ -28981,9 +28239,7 @@
                                       {
                                         "attributes": {
                                           "argumentTypes": null,
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 84,
                                           "type": "mapping(address => mapping(address => bool))",
                                           "value": "Authorized"
@@ -29007,9 +28263,7 @@
                                           {
                                             "attributes": {
                                               "argumentTypes": null,
-                                              "overloadedDeclarations": [
-                                                null
-                                              ],
+                                              "overloadedDeclarations": [null],
                                               "referencedDeclaration": 1083,
                                               "type": "msg",
                                               "value": "msg"
@@ -29031,9 +28285,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 958,
                                       "type": "address",
                                       "value": "_addr"
@@ -29115,9 +28367,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 84,
                                       "type": "mapping(address => mapping(address => bool))",
                                       "value": "Authorized"
@@ -29141,9 +28391,7 @@
                                       {
                                         "attributes": {
                                           "argumentTypes": null,
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 1083,
                                           "type": "msg",
                                           "value": "msg"
@@ -29165,9 +28413,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 958,
                                   "type": "address",
                                   "value": "_addr"
@@ -29251,9 +28497,7 @@
               "implemented": true,
               "isConstructor": false,
               "kind": "function",
-              "modifiers": [
-                null
-              ],
+              "modifiers": [null],
               "name": "revoke_access",
               "scope": 1068,
               "stateMutability": "nonpayable",
@@ -29340,9 +28584,7 @@
                           "isPure": false,
                           "isStructConstructorCall": false,
                           "lValueRequested": false,
-                          "names": [
-                            null
-                          ],
+                          "names": [null],
                           "type": "tuple()",
                           "type_conversion": false
                         },
@@ -29359,10 +28601,7 @@
                                   "typeString": "literal_string \"You can't remove yourself\""
                                 }
                               ],
-                              "overloadedDeclarations": [
-                                1086,
-                                1087
-                              ],
+                              "overloadedDeclarations": [1086, 1087],
                               "referencedDeclaration": 1087,
                               "type": "function (bool,string memory) pure",
                               "value": "require"
@@ -29401,9 +28640,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 1083,
                                       "type": "msg",
                                       "value": "msg"
@@ -29420,9 +28657,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 1003,
                                   "type": "address",
                                   "value": "_addr"
@@ -29473,9 +28708,7 @@
                           "isPure": false,
                           "isStructConstructorCall": false,
                           "lValueRequested": false,
-                          "names": [
-                            null
-                          ],
+                          "names": [null],
                           "type": "tuple()",
                           "type_conversion": false
                         },
@@ -29492,10 +28725,7 @@
                                   "typeString": "literal_string \"User is not authorized yet\""
                                 }
                               ],
-                              "overloadedDeclarations": [
-                                1086,
-                                1087
-                              ],
+                              "overloadedDeclarations": [1086, 1087],
                               "referencedDeclaration": 1087,
                               "type": "function (bool,string memory) pure",
                               "value": "require"
@@ -29527,9 +28757,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 84,
                                       "type": "mapping(address => mapping(address => bool))",
                                       "value": "Authorized"
@@ -29553,9 +28781,7 @@
                                       {
                                         "attributes": {
                                           "argumentTypes": null,
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 1083,
                                           "type": "msg",
                                           "value": "msg"
@@ -29577,9 +28803,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 1003,
                                   "type": "address",
                                   "value": "_addr"
@@ -29656,9 +28880,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 84,
                                       "type": "mapping(address => mapping(address => bool))",
                                       "value": "Authorized"
@@ -29682,9 +28904,7 @@
                                       {
                                         "attributes": {
                                           "argumentTypes": null,
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 1083,
                                           "type": "msg",
                                           "value": "msg"
@@ -29706,9 +28926,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 1003,
                                   "type": "address",
                                   "value": "_addr"
@@ -29792,9 +29010,7 @@
               "implemented": true,
               "isConstructor": false,
               "kind": "function",
-              "modifiers": [
-                null
-              ],
+              "modifiers": [null],
               "name": "doctorLogin",
               "scope": 1068,
               "stateMutability": "nonpayable",
@@ -29804,9 +29020,7 @@
             "children": [
               {
                 "attributes": {
-                  "parameters": [
-                    null
-                  ]
+                  "parameters": [null]
                 },
                 "children": [],
                 "id": 1039,
@@ -29815,9 +29029,7 @@
               },
               {
                 "attributes": {
-                  "parameters": [
-                    null
-                  ]
+                  "parameters": [null]
                 },
                 "children": [],
                 "id": 1040,
@@ -29869,9 +29081,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 90,
                                       "type": "mapping(string memory => mapping(uint256 => bool))",
                                       "value": "Registered"
@@ -29905,9 +29115,7 @@
                                           {
                                             "attributes": {
                                               "argumentTypes": null,
-                                              "overloadedDeclarations": [
-                                                null
-                                              ],
+                                              "overloadedDeclarations": [null],
                                               "referencedDeclaration": 70,
                                               "type": "mapping(address => struct meDossier.doctor storage ref)",
                                               "value": "doctors"
@@ -29987,9 +29195,7 @@
                                       {
                                         "attributes": {
                                           "argumentTypes": null,
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 70,
                                           "type": "mapping(address => struct meDossier.doctor storage ref)",
                                           "value": "doctors"
@@ -30013,9 +29219,7 @@
                                           {
                                             "attributes": {
                                               "argumentTypes": null,
-                                              "overloadedDeclarations": [
-                                                null
-                                              ],
+                                              "overloadedDeclarations": [null],
                                               "referencedDeclaration": 1083,
                                               "type": "msg",
                                               "value": "msg"
@@ -30106,9 +29310,7 @@
                                           {
                                             "attributes": {
                                               "argumentTypes": null,
-                                              "overloadedDeclarations": [
-                                                null
-                                              ],
+                                              "overloadedDeclarations": [null],
                                               "referencedDeclaration": 70,
                                               "type": "mapping(address => struct meDossier.doctor storage ref)",
                                               "value": "doctors"
