@@ -18,3 +18,8 @@ module.exports = {
   }
  }
 };
+
+//configure this file if you are using other network to deploy smart contract
+//I have attached the cooresponding smart contract with it, you can re-deploy with your 
+//own account, and when you log in through deployer account you will be redirected to 
+//admin, who can verify doctors.  
