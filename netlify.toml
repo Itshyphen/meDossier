@@ -1,7 +1,7 @@
 # example netlify.toml
 [build]
   command = "npm start"
-  functions = "netlify/functions"
+  functions = ""
   publish = "frontend"
 
   ## Uncomment to use this redirect for Single Page Applications like create-react-app.
@@ -16,6 +16,6 @@
   #[dev]
   command = "npm start" # Command to start your dev server
   port = 3000 # Port that the dev server will be listening on
-  publish = "frontend/public" # Folder with the static content for _redirect file
+  publish = "public" # Folder with the static content for _redirect file
 
   ## more info on configuring this file: https://www.netlify.com/docs/netlify-toml-reference/
