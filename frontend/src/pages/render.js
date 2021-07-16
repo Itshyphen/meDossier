@@ -8,7 +8,7 @@ import Patient from './patients_dashboard';
 import DocDashboard from './doctor_dashboard';
 import { CONTRACT_ADDRESS, ABI } from "../config.js";
 import Verifier from "./registrer_dashboard";
-
+import {useMoralis} from "../moralis/useMoralis"
 
 function Render() {
   
@@ -32,6 +32,8 @@ function Render() {
      console.log(error);
    }
  }
+
+ const {Moralis} = useMoralis();
   //Register Patient
   const patientRegister = async(name,phone,gender,dob,blood)=>{
     try{
@@ -58,6 +60,13 @@ catch(error){
   }
   //Handle  patient Login
   const handlelogin = async()=>{
+    var timestamp = new Date();
+    var nonce = Math.floor(Math.random()*100000);
+    Moralis.Web3.getSigningData =()=>"Here I am signing  my one time nonce: "+nonce +" at " +timestamp;
+    const user = await Moralis.Web3.authenticate();
+    const eth =user.get('ethAddress')
+    console.log(eth);
+    const currentAccount = eth;
     localStorage.setItem('currentAccount',currentAccount)
     const result = await contract.methods.user(currentAccount).call({from:currentAccount});
     console.log(result);
