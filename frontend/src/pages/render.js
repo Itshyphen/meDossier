@@ -186,16 +186,6 @@ if(doctor.isApproved==false){
     window.location.reload(false);
   }
 
-  const encode = (myString) => {
-    const encodedWord = CryptoJS.enc.Utf8.parse(myString); // encodedWord Array object
-    const encoded = CryptoJS.enc.Base64.stringify(encodedWord); // string: 'NzUzMjI1NDE='
-    return encoded;
-}
-  const decode = (encoded) => {
-    const encodedWord = CryptoJS.enc.Base64.parse(encoded); // encodedWord via Base64.parse()
-    const decoded = CryptoJS.enc.Utf8.stringify(encodedWord); // decode encodedWord via Utf8.stringify() '75322541'
-    return decoded;
-}
   
   useEffect(()=>{
     getWeb3Data();
