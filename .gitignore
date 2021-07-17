@@ -1,7 +1,4 @@
 # dependencies
-
-frontend/node_modules/
-node_modules/
-
 # Local Netlify folder
 .netlify
+node_modules

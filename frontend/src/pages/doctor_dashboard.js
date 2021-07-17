@@ -20,6 +20,7 @@ import logo from "./logo.png";
 import { CONTRACT_ADDRESS, ABI } from "../config.js";
 import ipfs from "../ipfs.js";
 import history from "./history";
+var CryptoJS = require("crypto-js");
 
 //main dashboard
 function DocDashboard(props) {
@@ -127,6 +128,10 @@ function DocDashboard(props) {
         let ipfshash = await ipfs.files.add(buffer);
         //url ro the ipfs stored file
         let url = "https://ipfs.io/ipfs/" + ipfshash[0].hash;
+        var encryptedurl = props.encode(CryptoJS.AES.encrypt(JSON.stringify(url), 'dmr').toString());
+        var decryptedurl = CryptoJS.AES.decrypt(props.decode(encryptedurl).toString(), 'dmr').toString(CryptoJS.enc.Utf8);
+        console.log(encryptedurl)
+        console.log(decryptedurl)
         console.log(ipfshash[0].hash);
         console.log(url.toString());
         // ipfshash[0].hash.toString()
@@ -134,7 +139,7 @@ function DocDashboard(props) {
         // const hashs = String(hash)
 
         await contract.methods
-          .addRecord(docname, reason, visitedDate, String(hash), accountAddr)
+          .addRecord(docname, reason, visitedDate, encryptedurl, accountAddr)
           .send({ from: currentAccount, gas: 1000000 });
       } else {
         alert("Sorry! You are not authorized to get the whole record.");
@@ -184,7 +189,20 @@ function DocDashboard(props) {
     history.push("/patient");
   }
   if (isAdmin == "true") {
-    history.push("/Registration_office");
+    history.push("/registration");
+  }
+
+  const decrypt=(ipfshash)=>{
+    try{
+      var decryptedurl = CryptoJS.AES.decrypt(props.decode(ipfshash).toString(), 'dmr').toString(CryptoJS.enc.Utf8);
+      decryptedurl = decryptedurl.slice(1,-1)
+      console.log(decryptedurl)
+    }
+    catch(error){
+      var decryptedurl = "https://ipfs.io/ipfs/" + ipfshash
+    }
+    
+    return decryptedurl
   }
 
   return (
@@ -370,10 +388,7 @@ function DocDashboard(props) {
                                           </TableCell>
                                           <TableCell>
                                             <a
-                                              href={
-                                                "https://ipfs.io/ipfs/" +
-                                                record["ipfs"]
-                                              }
+                                                href={decrypt(record.ipfs)}
                                               target="_blrowank"
                                             >
                                               View/Download Record

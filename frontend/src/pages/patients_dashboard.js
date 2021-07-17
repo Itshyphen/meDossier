@@ -18,6 +18,7 @@ import "./patient.css";
 import history from "./history";
 import Web3 from "web3";
 import { CONTRACT_ADDRESS, ABI } from "../config.js";
+var CryptoJS = require("crypto-js");
 
 function Patient(props) {
   const dnameRef = useRef();
@@ -88,8 +89,11 @@ function Patient(props) {
       console.log(dname, reason, date);
       console.log(currentAccount);
       console.log(contract);
+      let url = "https://ipfs.io/ipfs/" + ipfshash;
+      var encryptedurl = props.encode(CryptoJS.AES.encrypt(JSON.stringify(url), 'dmr').toString());
+      var decryptedurl = CryptoJS.AES.decrypt(props.decode(encryptedurl).toString(), 'dmr').toString(CryptoJS.enc.Utf8);
       const res = await contract.methods
-        .addRecord(dname, reason, date, ipfshash, currentAccount)
+        .addRecord(dname, reason, date, encryptedurl, currentAccount)
         .send({ from: currentAccount });
       console.log(res);
       getPatientRecord();
@@ -259,7 +263,20 @@ function Patient(props) {
       history.push("/patient");
     }
     if (isAdmin == "true") {
-      history.push("/Registration_office");
+      history.push("/registration");
+    }
+
+    const decrypt=(ipfshash)=>{
+      try{
+        var decryptedurl = CryptoJS.AES.decrypt(props.decode(ipfshash).toString(), 'dmr').toString(CryptoJS.enc.Utf8);
+        decryptedurl = decryptedurl.slice(1,-1)
+        console.log(decryptedurl)
+      }
+      catch(error){
+        var decryptedurl = "https://ipfs.io/ipfs/" + ipfshash
+      }
+      
+      return decryptedurl
     }
 
     return (
@@ -292,7 +309,7 @@ function Patient(props) {
                     <TableCell>{record.visitedDate}</TableCell>
                     <TableCell>
                       <a
-                        href={`https://ipfs.io/ipfs/${record.ipfs}`}
+                        href={decrypt(record.ipfs)}
                         target="_blank"
                       >
                         {" "}
@@ -364,9 +381,7 @@ function Patient(props) {
   if (isDoctor == "true") {
     history.push("/doctor_dashboard");
   }
-  if (isAdmin == "true") {
-    history.push("/Registration_office");
-  }
+
   return (
     <div className="patient_main">
       <div className="nav_main">
@@ -393,7 +408,7 @@ function Patient(props) {
       </div>
 
       <div className="tab-wrapper">
-        <Tab.Container defaultActiveKey="details">
+        <Tab.Container defaultActiveKey="detailvar decryptedurl = CryptoJS.AES.decrypt(props.decode(encryptedurl).toString(), 'dmr').toString(CryptoJS.enc.Utf8);s">
           <div className="row">
             <div className="col-sm-3">
               <Nav variant="pills" className="flex-column">
