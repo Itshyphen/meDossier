@@ -9,6 +9,7 @@
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "bootstrap": "^4.6.0",
+    "crypto-js": "^4.0.0",
     "ipfs-api": "^26.1.2",
     "moralis": "^0.0.30",
     "netlify-cli": "^3.39.0",

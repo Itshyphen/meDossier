@@ -9,6 +9,7 @@ import DocDashboard from './doctor_dashboard';
 import { CONTRACT_ADDRESS, ABI } from "../config.js";
 import Verifier from "./registrer_dashboard";
 import {useMoralis} from "../moralis/useMoralis"
+var CryptoJS = require("crypto-js");
 
 function Render() {
   
@@ -169,6 +170,17 @@ if(doctor.isApproved==false){
     }
   }
 
+  const encode = (myString) => {
+    const encodedWord = CryptoJS.enc.Utf8.parse(myString); // encodedWord Array object
+    const encoded = CryptoJS.enc.Base64.stringify(encodedWord); // string: 'NzUzMjI1NDE='
+    return encoded;
+}
+  const decode = (encoded) => {
+    const encodedWord = CryptoJS.enc.Base64.parse(encoded); // encodedWord via Base64.parse()
+    const decoded = CryptoJS.enc.Utf8.stringify(encodedWord); // decode encodedWord via Utf8.stringify() '75322541'
+    return decoded;
+}
+
   const logout=() =>{
     localStorage.clear()
     history.push('/')
@@ -196,9 +208,9 @@ if(doctor.isApproved==false){
             patient={user}
             grantAccess ={grantAccess}
             revokeAccess ={revokeAccess}
-            currentAccount ={currentAccount}
-
             logout ={logout}
+            encode = {encode}
+            decode = {decode}
 
             // getPatientRecord ={getPatientRecord}
             // records ={records}
@@ -208,7 +220,11 @@ if(doctor.isApproved==false){
           <DocDashboard 
           doctor = {user}
           logout ={logout}
+          currentAccount ={currentAccount}
+          encode = {encode}
+          decode = {decode}
           />
+          
           
           </Route>
           <Route exact path = "/registration">
