@@ -181,10 +181,16 @@ if(doctor.isApproved==false){
     return decoded;
 }
 
-  const logout=() =>{
+  const logout= async () =>{
+    try{
     localStorage.clear()
+    await Moralis.User.logOut();
+
     history.push('/')
-    window.location.reload(false);
+    window.location.reload(false);}
+    catch(e){
+      console.error(e.message,e);
+    }
   }
   
   useEffect(()=>{
