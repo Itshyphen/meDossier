@@ -3,8 +3,8 @@ export function useMoralis() {
     let Moralis;
     if (typeof window !== `undefined`) {
       Moralis = require("moralis");
-      Moralis.initialize("nKZ9n1YocfUDZOSKSJX9KHpoFeUWp8vOoPp1aGAv");
-      Moralis.serverURL = "https://blswm8kqumap.usemoralis.com:2053/server";
+      Moralis.initialize("9SI3yZPrr7ConF4LCHOlIXjwl8nmheUm1YmRjvic");
+      Moralis.serverURL ="https://akswr2xxeyur.usemoralis.com:2053/server";
       
     }
     return { Moralis };
