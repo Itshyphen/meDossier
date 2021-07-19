@@ -185,10 +185,10 @@ function DocDashboard(props) {
   if (!currentAccount) {
     history.push("/");
   }
-  if (ispatient == "true") {
+  if (ispatient === "true") {
     history.push("/patient");
   }
-  if (isAdmin == "true") {
+  if (isAdmin === "true") {
     history.push("/registration");
   }
 
