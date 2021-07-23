@@ -1,4 +1,4 @@
-# meDossier : A Decentralized Medical Record Storage App
+# meDossier : A Decentralized Medical Record Storage
 ---
 ![Main Menu](https://raw.githubusercontent.com/Itshyphen/meDossier/master/Screenshots/Frontpage.png)
 “meDossier” is a proposed blockchain-based web app to assist secure and transparent medical report management integrating the system with the IPFS (InterPlanetary File System) server. The main objective of our proposal is to enable decentralized access control for medical records between a patient and a doctor, along with interacting with various other entities. This app is based on the Ethereum-based blockchain architecture implemented using a simple frontend.
