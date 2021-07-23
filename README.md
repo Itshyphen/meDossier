@@ -41,6 +41,7 @@ The registration office is able to do the following thing:
 
 ## Development
 > You should have already installed node 10+ and npm 6.8+
+
 > Installed metamask in your favourite browser
 
 
