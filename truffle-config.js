@@ -15,6 +15,14 @@ module.exports = {
       network_id: 3,
       gas: 9900000,
       gasPrice: 10000000000,
+  },
+   rinkeby: {
+      provider: function() { 
+       return new HDWalletProvider(mnemonic, "Enter your Infura end point");
+      },
+      network_id: 4,
+      gas: 9900000,
+      gasPrice: 10000000000,
   }
  }
 };
