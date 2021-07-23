@@ -378,9 +378,9 @@ function Patient(props) {
   if (!currentAccount) {
     history.push("/");
   }
-  if (isDoctor == "true") {
-    history.push("/doctor_dashboard");
-  }
+  // if (isDoctor == "true") {
+  //   history.push("/doctor_dashboard");
+  // }
 
   return (
     <div className="patient_main">
