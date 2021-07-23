@@ -34,6 +34,7 @@ function Render() {
  }
 
  const {Moralis} = useMoralis();
+
   //Register Patient
   const patientRegister = async(name,phone,gender,dob,blood)=>{
     try{
@@ -180,10 +181,13 @@ if(doctor.isApproved==false){
     return decoded;
 }
 
-  const logout=() =>{
+  const logout= async () =>{
     localStorage.clear()
+    await Moralis.User.logOut();
+
     history.push('/')
     window.location.reload(false);
+    
   }
 
   

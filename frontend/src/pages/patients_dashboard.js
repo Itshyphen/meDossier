@@ -378,9 +378,9 @@ function Patient(props) {
   if (!currentAccount) {
     history.push("/");
   }
-  if (isDoctor == "true") {
-    history.push("/doctor_dashboard");
-  }
+  // if (isDoctor == "true") {
+  //   history.push("/doctor_dashboard");
+  // }
 
   return (
     <div className="patient_main">
@@ -408,7 +408,9 @@ function Patient(props) {
       </div>
 
       <div className="tab-wrapper">
-        <Tab.Container defaultActiveKey="detailvar decryptedurl = CryptoJS.AES.decrypt(props.decode(encryptedurl).toString(), 'dmr').toString(CryptoJS.enc.Utf8);s">
+        <Tab.Container defaultActiveKey="details"
+        // "detailvar decryptedurl = CryptoJS.AES.decrypt(props.decode(encryptedurl).toString(), 'dmr').toString(CryptoJS.enc.Utf8);s"
+        >
           <div className="row">
             <div className="col-sm-3">
               <Nav variant="pills" className="flex-column">
