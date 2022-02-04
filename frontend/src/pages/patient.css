@@ -1,0 +1,197 @@
+
+
+.Main{
+  width:100%;
+  position: relative;
+  justify-content: center;
+
+  background: url("../health.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  align-items: center;
+  overflow:visible;
+  padding-bottom: 100px;
+
+
+}
+/* Css for registration page*/
+.Register{  
+  position: relative;
+  background: no-repeat; 
+ text-align: center;
+  background-size:cover;
+  overflow: visible;
+font-family:Verdana, Geneva, Tahoma, sans-serif
+
+}
+.heading{
+    padding-top: 10px;
+    text-align: center;
+    color:rgb(5, 5, 5);
+    font-size: 25px;
+}
+.Patient{
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  border-radius: 10px;
+  line-height: 40px;
+  border-radius: 10px;
+  background-color: #d5f1ebb4;
+  text-align: left;
+  width: 50rem;
+}
+
+.Patient input{
+  padding-left: 5px;
+}
+.Patient form select{
+  padding-left: 10px;
+  padding-right: 10px;
+  box-sizing:border-box;
+}
+/* h5{
+  /* color: red; */
+  /* font-size: 10px; */
+/* } */ */
+.Patient Button{
+  /* position: absolute; */
+  padding: 10%;
+  margin: 20px;
+}
+/* .Patient label::after{
+  content: "*";
+  color: red;
+} */
+.Doctor{
+  line-height: 40px;
+   /* margin: 3px; */
+   /* padding-left: 5px; */
+   
+   border-radius: 10px;
+   background-color: #d5f1ebb4;
+   text-align: left;
+   width: 50rem;
+}
+
+.login{
+  line-height: 40px;
+  border-radius: 10px;
+  background-color: #d5f1ebb4;
+align-items: center;
+margin-left: auto;
+margin-right: auto;
+}
+.b-container{
+  /* overflow: hidden; */
+ 
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-flow: wrap;
+  margin: 2rem;
+}
+
+/* Css for patientdashboard */
+.patient_main{
+  /* padding-top: 10px; */
+  overflow: visible;
+  padding-bottom: 10px;
+  text-align: center;
+ 
+  
+}
+
+/* .col-sm-3{
+  background-color: rgb(225, 250, 250);
+  padding-bottom: 5px;
+  height: 700px;
+  position: fixed;
+  text-align: left;
+  padding-top: 10px;
+  color: aliceblue;
+  /* margin-right: 10px; */
+/* }  */
+
+/* .navbar a:hover{
+ color: gray;
+} */
+
+
+.Details{
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  border-radius: 10px;
+  line-height: 40px;
+  padding-top: 30px;
+  text-align: center;
+  padding-left:20px;
+  margin-bottom: 20px;
+  /* padding-right: 10px; */
+   border-radius: 10px;
+   /* background-color: #d5f1ebb4; */
+}
+
+
+.ReportUpload{
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  line-height: 35px;
+  padding-top: 30px;
+  /* padding-left:20px; */
+   border-radius: 10px;
+   /* background-color: #d5f1ebb4; */
+}
+ input{
+  height: 30px;
+  font-size: 20px;
+  font-family: 'Courier New', Courier, monospace;
+  width:70%;
+  border-radius: 5px;
+  border-color:wheat;
+}
+
+.upload{
+  padding-top: 10px;
+}
+.upload input{
+  width: 50vw;
+  padding-right: 10px;
+  border-radius: 3px;
+  height: 42px;
+  margin-bottom: auto;
+  border-color:wheat;
+  background-color:rgb(241, 239, 233);
+}
+.upload input:hover{
+  background-color: cadetblue;
+}
+
+
+.Report{
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  border-radius: 10px;
+  line-height: 40px;
+  padding-top: 10px;
+  text-align: left;
+  padding-left:20px;
+  padding-right: 10px;
+   border-radius: 10px;
+   /* background-color: #d5f1ebb4; */
+}
+.Report h2{
+  text-align: center;
+  font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+ul{
+  list-style:none;
+}
+
+.meDossier{
+  height: 80px;
+    width: 160px;
+  /* background-color: #0080FF; */
+  border-radius: 50%;
+  display: inline-block;
+  padding: 1%;
+}
+

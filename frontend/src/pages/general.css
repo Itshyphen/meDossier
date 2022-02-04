@@ -1,0 +1,105 @@
+.navbar {
+  width: 100%;
+  background-color: #0080ff;
+  margin-bottom: 20px;
+}
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  /* min-height: 100vh !important; */
+  /* z-index: 100; */
+  padding: 48px 0 0;
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
+}
+#sidebar-wrapper {
+  /* min-height: 100vh !important; */
+  width: 100vw;
+  /* margin-left: -1rem; */
+  -webkit-transition: margin 0.25s ease-out;
+  -moz-transition: margin 0.25s ease-out;
+  -o-transition: margin 0.25s ease-out;
+  transition: margin 0.25s ease-out;
+}
+#sidebar-wrapper .sidebar-heading {
+  padding: 0.875rem 1.25rem;
+  font-size: 1.2rem;
+}
+
+#page-content-wrapper {
+  min-width: 0;
+  width: 100%;
+}
+
+.card {
+  margin: auto;
+  /* margin-top: 10px; */
+  /* top: 3vw; */
+  height: auto;
+  width: 70vw;
+  padding: 3rem;
+  border-color: #bedcfa;
+  border-width: 1px;
+  border-radius: 1rem;
+  text-align: left;
+}
+
+.card .details {
+  align-self: flex-start;
+  padding-top: 1rem;
+}
+
+.card .details b {
+  line-height: 3;
+  align-items: flex-start;
+}
+
+.smallcard {
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-flow: wrap;
+  border: 1px;
+}
+.small {
+  padding-left: 1 rem;
+  padding-right: 1rem;
+  top: 50px;
+  /* position: absolute; */
+  height: fit-content;
+  width: 80%;
+  margin-bottom: 20px;
+}
+.smallcard div {
+  padding-right: 2rem;
+  padding-bottom: 1rem;
+}
+label {
+  font-size: 16px;
+}
+.nav_main {
+  /* padding-top: 10px; */
+  overflow: visible;
+  padding-bottom: 10px;
+  text-align: center;
+}
+.nav_main a {
+  color: floralwhite;
+  font-size: larger;
+}
+.nav_main Button {
+  color: floralwhite;
+  /* font-size: medium; */
+}
+.nav_main a:hover {
+  color: brown;
+}
+.nav_main button:hover {
+  color: brown;
+}
+
+.login button {
+  width: 200px;
+}
