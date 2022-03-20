@@ -91,7 +91,7 @@ function DocDashboard(props) {
 
       if (authorized) {
         let record = [];
-        for (var i = 0; i < recordlen; i++) {
+        for (var i = 0; i <= recordlen; i++) {
           const result = await contract.methods
             .getPatientRecords(accountAddr, i)
             .call({ from: currentAccount });

@@ -183,11 +183,15 @@ catch(error){
 }
 
   const logout= async () =>{
+    try{
     localStorage.clear()
     await Moralis.User.logOut();
 
     history.push('/')
-    window.location.reload(false);
+    window.location.reload(false);}
+    catch(error){
+      console.log(error);
+    }
     
   }
 
