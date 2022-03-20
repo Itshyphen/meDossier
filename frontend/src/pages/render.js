@@ -61,6 +61,7 @@ catch(error){
   }
   //Handle  patient Login
   const handlelogin = async()=>{
+    history.push('/patient')
     var timestamp = new Date();
     var nonce = Math.floor(Math.random()*100000);
     Moralis.Web3.getSigningData =()=>"Here I am signing  my one time nonce: "+nonce +" at " +timestamp;
@@ -77,10 +78,10 @@ catch(error){
         const registered = await contract.methods.isRegistered(currentAccount).call({from:currentAccount});
         if(registered){
           const doctor = await contract.methods.getDoctorByAddress(currentAccount).call({from:currentAccount});
-if(doctor.isApproved==false){
-  await contract.methods.doctorLogin().send({from:currentAccount,gas:1000000})
+        if(doctor.isApproved==false){
+          await contract.methods.doctorLogin().send({from:currentAccount,gas:1000000})
 
-}
+        }
         
         // await contract.methods.doctorLogin().send({from:currentAccount,gas:1000000})
         // const doctor = await contract.methods.getDoctorByAddress(currentAccount).call({from:currentAccount});

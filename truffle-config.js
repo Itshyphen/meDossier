@@ -1,5 +1,5 @@
-var HDWalletProvider = require("truffle-hdwallet-provider");
-var mnemonic = "your metamask mnemonics";
+var HDWalletProvider = require("@truffle/hdwallet-provider");
+var mnemonic = "anchor onion once drop elephant cinnamon kite birth champion immense odor almost";
 
 module.exports = {
  networks: {
@@ -10,7 +10,7 @@ module.exports = {
   },
   ropsten: {
       provider: function() { 
-       return new HDWalletProvider(mnemonic, "Enter your Infura end point");
+       return new HDWalletProvider(mnemonic, "https://ropsten.infura.io/v3/e72dc1a201834e94ab2e55083707eb62");
       },
       network_id: 3,
       gas: 9900000,
@@ -18,7 +18,7 @@ module.exports = {
   },
    rinkeby: {
       provider: function() { 
-       return new HDWalletProvider(mnemonic, "Enter your Infura end point");
+       return new HDWalletProvider(mnemonic, "wss://rinkeby.infura.io/ws/v3/db103a7e5ccc4879a174ce6e56135f8d");
       },
       network_id: 4,
       gas: 9900000,
